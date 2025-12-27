@@ -7696,8 +7696,26 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Item 2 - NEW -->
+                                <!-- Item 2 - $509,900.00 -->
                                 <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(2)">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">12/09/2024</div>
+                                            <div style="font-size: 14px; color: #333; font-weight: 600;">1 purchases</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Total</div>
+                                            <div style="font-size: 16px; color: #333; font-weight: 700;">$509,900.00</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 14px; color: #4CAF50; font-weight: 600; margin-bottom: 4px;">Resolved</div>
+                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Unrecognized purchase</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Item 3 - $78,400.00 -->
+                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(3)">
                                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
                                         <div>
                                             <div style="font-size: 14px; color: #666; margin-bottom: 4px;">11/07/2023</div>
@@ -10057,8 +10075,11 @@
                 // Disputa de $8,310.62 - Cargar datos específicos
                 loadComplaint1Data();
             } else if (complaintId === 2) {
-                // Disputa de $78,400.00 - Cargar datos específicos
+                // Disputa de $509,900.00 - Cargar datos específicos
                 loadComplaint2Data();
+            } else if (complaintId === 3) {
+                // Disputa de $78,400.00 - Cargar datos específicos
+                loadComplaint3Data();
             }
         }
         
@@ -10329,7 +10350,7 @@
             console.log('Loading complaint data:', data);
         }
         
-        function loadComplaint2Data() {
+        function loadComplaint3Data() {
             // Actualizar panel izquierdo para $78,400.00
             var reasonSpans = document.querySelectorAll('#complaintModal span');
             for (var i = 0; i < reasonSpans.length; i++) {
