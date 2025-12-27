@@ -10087,7 +10087,7 @@
             // Actualizar panel izquierdo - To Be Analyzed
             var reasonSpans = document.querySelectorAll('#complaintModal span');
             for (var i = 0; i < reasonSpans.length; i++) {
-                // Restaurar valores originales para $39,900.00 desde $8,310.62 y $78,400.00
+                // Restaurar valores originales para $39,900.00 desde $8,310.62, $509,900.00 y $78,400.00
                 if (reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase') {
                     reasonSpans[i].textContent = 'Unrecognized purchase';
                 }
@@ -10095,27 +10095,27 @@
                     reasonSpans[i].textContent = 'Select a sub-reason';
                     reasonSpans[i].style.color = '#999';
                 }
-                if (reasonSpans[i].textContent === '11/08/2024' || reasonSpans[i].textContent.indexOf('11/08/2024') !== -1 || reasonSpans[i].textContent === '11/07/2023' || reasonSpans[i].textContent.indexOf('11/07/2023') !== -1) {
+                if (reasonSpans[i].textContent === '11/08/2024' || reasonSpans[i].textContent.indexOf('11/08/2024') !== -1 || reasonSpans[i].textContent === '12/09/2024' || reasonSpans[i].textContent.indexOf('12/09/2024') !== -1 || reasonSpans[i].textContent === '11/07/2023' || reasonSpans[i].textContent.indexOf('11/07/2023') !== -1) {
                     reasonSpans[i].textContent = '01/28/2025';
                 }
-                if (reasonSpans[i].textContent === '(414 days ago)' || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent === '(781 days ago)' || reasonSpans[i].textContent.indexOf('781 days ago') !== -1) {
+                if (reasonSpans[i].textContent === '(414 days ago)' || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent === '(383 days ago)' || reasonSpans[i].textContent.indexOf('383 days ago') !== -1 || reasonSpans[i].textContent === '(781 days ago)' || reasonSpans[i].textContent.indexOf('781 days ago') !== -1) {
                     reasonSpans[i].textContent = '(332 days ago)';
                 }
-                if ((reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '22px') {
+                if ((reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '22px') {
                     reasonSpans[i].textContent = '$39,900.00';
                 }
-                if (reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af' || reasonSpans[i].textContent === '654addd8-7da8-4a73-9a1e-79f7527850e8') {
+                if (reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7' || reasonSpans[i].textContent === '654addd8-7da8-4a73-9a1e-79f7527850e8') {
                     reasonSpans[i].textContent = '6798cf4a-35a0-468e-9a2c-0e38df28fec8';
                 }
                 
                 // Tab "Analyzed" - Restaurar valores originales
-                if (reasonSpans[i].textContent === 'Pyd*Aromascent.Club' || reasonSpans[i].textContent === 'Alkiwi') {
+                if (reasonSpans[i].textContent === 'Pyd*Aromascent.Club' || reasonSpans[i].textContent === 'Load Value' || reasonSpans[i].textContent === 'Alkiwi') {
                     reasonSpans[i].textContent = 'Apple.Com/Bill';
                 }
-                if ((reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '18px') {
+                if ((reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '18px') {
                     reasonSpans[i].textContent = '$39,900.00';
                 }
-                if ((reasonSpans[i].textContent === '09/25/2024' || reasonSpans[i].textContent === '11/05/2023') && reasonSpans[i].style.fontSize === '16px') {
+                if ((reasonSpans[i].textContent === '09/25/2024' || reasonSpans[i].textContent === '12/09/2024' || reasonSpans[i].textContent === '11/05/2023') && reasonSpans[i].style.fontSize === '16px') {
                     reasonSpans[i].textContent = '01/28/2025';
                 }
                 if ((reasonSpans[i].textContent === '458 days ago' || reasonSpans[i].textContent === '783 days ago') && reasonSpans[i].style.fontSize === '13px') {
@@ -10167,7 +10167,7 @@
             // Actualizar panel izquierdo para $8,310.62
             var reasonSpans = document.querySelectorAll('#complaintModal span');
             for (var i = 0; i < reasonSpans.length; i++) {
-                // Tab "To Be Analyzed" - desde $39,900.00 y $78,400.00
+                // Tab "To Be Analyzed" - desde $39,900.00, $509,900.00 y $78,400.00
                 if (reasonSpans[i].textContent === 'Unrecognized purchase' || reasonSpans[i].textContent === 'Duplicated purchase') {
                     reasonSpans[i].textContent = 'Dispute with goods/service';
                 }
@@ -10175,27 +10175,27 @@
                     reasonSpans[i].textContent = 'Recurring charge not properly disclosed';
                     reasonSpans[i].style.color = '#333';
                 }
-                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1 || reasonSpans[i].textContent.indexOf('11/07/2023') !== -1) {
+                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1 || reasonSpans[i].textContent.indexOf('12/09/2024') !== -1 || reasonSpans[i].textContent.indexOf('11/07/2023') !== -1) {
                     reasonSpans[i].textContent = '11/08/2024';
                 }
-                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('781 days ago') !== -1) {
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('383 days ago') !== -1 || reasonSpans[i].textContent.indexOf('781 days ago') !== -1) {
                     reasonSpans[i].textContent = '(414 days ago)';
                 }
-                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '22px') {
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '22px') {
                     reasonSpans[i].textContent = '$8,310.62';
                 }
-                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '654addd8-7da8-4a73-9a1e-79f7527850e8') {
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7' || reasonSpans[i].textContent === '654addd8-7da8-4a73-9a1e-79f7527850e8') {
                     reasonSpans[i].textContent = '672e3d10-5357-4aba-88ce-818adfb853af';
                 }
                 
                 // Tab "Analyzed" - Actualizar TODOS los campos
-                if (reasonSpans[i].textContent === 'Apple.Com/Bill' || reasonSpans[i].textContent === 'Alkiwi') {
+                if (reasonSpans[i].textContent === 'Apple.Com/Bill' || reasonSpans[i].textContent === 'Load Value' || reasonSpans[i].textContent === 'Alkiwi') {
                     reasonSpans[i].textContent = 'Pyd*Aromascent.Club';
                 }
-                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '18px') {
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '18px') {
                     reasonSpans[i].textContent = '$8,310.62';
                 }
-                if ((reasonSpans[i].textContent === '01/28/2025' || reasonSpans[i].textContent === '11/05/2023') && reasonSpans[i].style.fontSize === '16px') {
+                if ((reasonSpans[i].textContent === '01/28/2025' || reasonSpans[i].textContent === '12/09/2024' || reasonSpans[i].textContent === '11/05/2023') && reasonSpans[i].style.fontSize === '16px') {
                     reasonSpans[i].textContent = '09/25/2024';
                 }
                 if ((reasonSpans[i].textContent === '332 days ago' || reasonSpans[i].textContent === '783 days ago') && reasonSpans[i].style.fontSize === '13px') {
@@ -10350,6 +10350,116 @@
             console.log('Loading complaint data:', data);
         }
         
+        function loadComplaint2Data() {
+            // Actualizar panel izquierdo para $509,900.00
+            var reasonSpans = document.querySelectorAll('#complaintModal span');
+            for (var i = 0; i < reasonSpans.length; i++) {
+                // Tab "To Be Analyzed" - mantener "Unrecognized purchase"
+                if (reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase') {
+                    reasonSpans[i].textContent = 'Unrecognized purchase';
+                }
+                // Cambiar fecha "Reported at"
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent.indexOf('781 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(383 days ago)';
+                }
+                // Cambiar el monto total
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$509,900.00';
+                }
+                // Cambiar Complaint ID
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af' || reasonSpans[i].textContent === '654addd8-7da8-4a73-9a1e-79f7527850e8') {
+                    reasonSpans[i].textContent = '67572868-f9ee-4140-b004-629025f925a7';
+                }
+                
+                // Tab "Analyzed" - cambiar Merchant
+                if (reasonSpans[i].textContent === 'Apple.Com/Bill' || reasonSpans[i].textContent === 'Pyd*Aromascent.Club' || reasonSpans[i].textContent === 'Alkiwi') {
+                    reasonSpans[i].textContent = 'Load Value'; // Basado en "Total Transaction Amount: Load Value"
+                }
+                // Cambiar Transaction amount (Analyzed tab)
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$78,400.00') && reasonSpans[i].style.fontSize === '18px') {
+                    reasonSpans[i].textContent = '$509,900.00';
+                }
+                // Cambiar Purchase Date
+                if ((reasonSpans[i].textContent === '01/28/2025' || reasonSpans[i].textContent === '09/25/2024' || reasonSpans[i].textContent === '11/05/2023') && reasonSpans[i].style.fontSize === '16px') {
+                    reasonSpans[i].textContent = '12/09/2024';
+                }
+                // Cambiar Purchase Time
+                if (reasonSpans[i].textContent === '08:14:10' || reasonSpans[i].textContent === '09:32:19' || reasonSpans[i].textContent === '21:13:11') {
+                    reasonSpans[i].textContent = 'N/A'; // Asumiendo que no hay hora específica para "Load Value"
+                }
+                // Cambiar Transaction ID
+                if (reasonSpans[i].textContent === '67990a36-6ec0-40e3-804e-d89b9e6b5eaa' || reasonSpans[i].textContent === '66f41ef4-1206-4439-97fb-30e3c96cee7d' || reasonSpans[i].textContent === '65484bbd-5e2b-4cd8-90b1-c3c6caceb589') {
+                    reasonSpans[i].textContent = 'N/A'; // No se muestra Transaction ID específico en la imagen
+                }
+                // Cambiar Entry mode
+                if (reasonSpans[i].textContent === 'Chip' || reasonSpans[i].textContent === 'Electronic commerce, including Chip' || reasonSpans[i].textContent === 'Contactless') {
+                    reasonSpans[i].textContent = 'N/A';
+                }
+                // Cambiar Card number
+                // Ya está actualizado a 1234XXXXXXXXX1234 globalmente
+            }
+            
+            // Actualizar timeline para $509,900.00
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                timelineContainer.innerHTML =
+                    '<div style="position: relative; padding-left: 32px;">' +
+                    '<div style="position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: #E0E0E0;"></div>' +
+                    
+                    '<!-- Event 1 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -25px; width: 16px; height: 16px; border-radius: 50%; background: white; border: 3px solid #9BCB45;"></div>' +
+                    '<div style="color: #666; font-size: 14px; margin-bottom: 8px;">02/05/2025 02:34:23</div>' +
+                    '<div style="background: #FFE4D6; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #666;">resolution email sent</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 2 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -25px; width: 16px; height: 16px; border-radius: 50%; background: white; border: 3px solid #9BCB45;"></div>' +
+                    '<div style="color: #666; font-size: 14px; margin-bottom: 8px;">02/05/2025 02:34:22</div>' +
+                    '<div style="background: #FFE4D6; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #666;">invalid case, merchant rebuttal</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 3 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -25px; width: 16px; height: 16px; border-radius: 50%; background: white; border: 3px solid #9BCB45;"></div>' +
+                    '<div style="color: #666; font-size: 14px; margin-bottom: 8px;">01/02/2025 11:56:24</div>' +
+                    '<div style="background: #FFE4D6; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #666;">Depósito temporal gestionado el 02/01</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 4 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -25px; width: 16px; height: 16px; border-radius: 50%; background: white; border: 3px solid #9BCB45;"></div>' +
+                    '<div style="color: #666; font-size: 14px; margin-bottom: 8px;">12/19/2024 08:13:26</div>' +
+                    '<div style="background: #FFE4D6; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #666;">claim_id_2010606782132</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 5 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -25px; width: 16px; height: 16px; border-radius: 50%; background: white; border: 3px solid #9BCB45;"></div>' +
+                    '<div style="color: #666; font-size: 14px; margin-bottom: 8px;">12/12/2024 16:26:44</div>' +
+                    '<div style="background: #FFE4D6; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #666;">Depósito temporal gestionado el 12/12</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '</div>';
+            }
+        }
+        
         function loadComplaint3Data() {
             // Actualizar panel izquierdo para $78,400.00
             var reasonSpans = document.querySelectorAll('#complaintModal span');
@@ -10369,27 +10479,27 @@
                     reasonSpans[i].textContent = 'Select a sub-reason';
                     reasonSpans[i].style.color = '#999';
                 }
-                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1 || reasonSpans[i].textContent.indexOf('11/08/2024') !== -1) {
+                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1 || reasonSpans[i].textContent.indexOf('12/09/2024') !== -1 || reasonSpans[i].textContent.indexOf('11/08/2024') !== -1) {
                     reasonSpans[i].textContent = '11/07/2023';
                 }
-                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1) {
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('383 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1) {
                     reasonSpans[i].textContent = '(781 days ago)';
                 }
-                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$8,310.62') && reasonSpans[i].style.fontSize === '22px') {
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$8,310.62') && reasonSpans[i].style.fontSize === '22px') {
                     reasonSpans[i].textContent = '$78,400.00';
                 }
-                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af') {
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7' || reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af') {
                     reasonSpans[i].textContent = '654addd8-7da8-4a73-9a1e-79f7527850e8';
                 }
                 
                 // Tab "Analyzed" - Actualizar TODOS los campos
-                if (reasonSpans[i].textContent === 'Apple.Com/Bill' || reasonSpans[i].textContent === 'Pyd*Aromascent.Club') {
+                if (reasonSpans[i].textContent === 'Apple.Com/Bill' || reasonSpans[i].textContent === 'Load Value' || reasonSpans[i].textContent === 'Pyd*Aromascent.Club') {
                     reasonSpans[i].textContent = 'Alkiwi';
                 }
-                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$8,310.62') && reasonSpans[i].style.fontSize === '18px') {
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$8,310.62') && reasonSpans[i].style.fontSize === '18px') {
                     reasonSpans[i].textContent = '$78,400.00';
                 }
-                if ((reasonSpans[i].textContent === '01/28/2025' || reasonSpans[i].textContent === '09/25/2024') && reasonSpans[i].style.fontSize === '16px') {
+                if ((reasonSpans[i].textContent === '01/28/2025' || reasonSpans[i].textContent === '12/09/2024' || reasonSpans[i].textContent === '09/25/2024') && reasonSpans[i].style.fontSize === '16px') {
                     reasonSpans[i].textContent = '11/05/2023';
                 }
                 if ((reasonSpans[i].textContent === '332 days ago' || reasonSpans[i].textContent === '458 days ago') && reasonSpans[i].style.fontSize === '13px') {
