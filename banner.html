@@ -10156,6 +10156,15 @@
                 }
             }
             
+            // Restaurar "Debit" a "Credit" en el encabezado
+            var creditSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < creditSpans.length; k++) {
+                if (creditSpans[k].textContent === 'Debit' && creditSpans[k].style.fontSize === '16px' && creditSpans[k].style.fontWeight === '600') {
+                    creditSpans[k].textContent = 'Credit';
+                    break;
+                }
+            }
+            
             // Restaurar timeline original para $39,900.00
             var timelineContainer = document.getElementById('commentsTimeline');
             if (timelineContainer && originalTimeline) {
@@ -10233,6 +10242,15 @@
                 }
                 if (reasonSpans[i].textContent === '400215000108778' || reasonSpans[i].textContent === '0018753061' || reasonSpans[i].textContent === '--') {
                     reasonSpans[i].textContent = '3736022oJS9baVD';
+                }
+            }
+            
+            // Restaurar "Debit" a "Credit" en el encabezado
+            var creditSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < creditSpans.length; k++) {
+                if (creditSpans[k].textContent === 'Debit' && creditSpans[k].style.fontSize === '16px' && creditSpans[k].style.fontWeight === '600') {
+                    creditSpans[k].textContent = 'Credit';
+                    break;
                 }
             }
             
@@ -10437,6 +10455,15 @@
                 }
             }
             
+            // Cambiar "Credit" a "Debit" en el encabezado del transaction card
+            var creditSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < creditSpans.length; k++) {
+                if (creditSpans[k].textContent === 'Credit' && creditSpans[k].style.fontSize === '16px' && creditSpans[k].style.fontWeight === '600') {
+                    creditSpans[k].textContent = 'Debit';
+                    break;
+                }
+            }
+            
             
             // Actualizar timeline para $509,900.00
             var timelineContainer = document.getElementById('commentsTimeline');
@@ -10632,6 +10659,15 @@
                 }
                 if (reasonSpans[i].textContent === '400215000108778' || reasonSpans[i].textContent === '3736022oJS9baVD' || reasonSpans[i].textContent === '--') {
                     reasonSpans[i].textContent = '0018753061';
+                }
+            }
+            
+            // Restaurar "Debit" a "Credit" en el encabezado
+            var creditSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < creditSpans.length; k++) {
+                if (creditSpans[k].textContent === 'Debit' && creditSpans[k].style.fontSize === '16px' && creditSpans[k].style.fontWeight === '600') {
+                    creditSpans[k].textContent = 'Credit';
+                    break;
                 }
             }
             
