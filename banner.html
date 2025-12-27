@@ -8365,7 +8365,7 @@
                     <!-- Tabs and Main Content Container -->
                     <div style="display: flex; gap: 24px;">
                         <!-- Left Panel: Contestation Details -->
-                        <div style="width: 1150px; height: 720px; border: 2px solid #E0E0E0; border-radius: 8px; padding: 32px; background: white; overflow-y: auto;">
+                        <div id="contestationPanel" style="width: 1150px; height: 720px; border: 2px solid #E0E0E0; border-radius: 8px; padding: 32px; background: white; overflow-y: auto;">
                             <div style="display: flex; gap: 24px; margin-bottom: 24px;">
                                 <div style="border-bottom: 2px solid #7C4DBC; padding-bottom: 8px; cursor: pointer;">
                                     <h3 style="font-size: 16px; font-weight: 600; color: #7C4DBC; margin: 0;">Contestation</h3>
@@ -8850,7 +8850,7 @@
                         </div>
                         
                         <!-- Right Panel: Comments Timeline -->
-                        <div style="width: 1150px; height: 720px; border: 2px solid #E0E0E0; border-radius: 8px; padding: 24px; background: white; overflow-y: auto;">
+                        <div id="commentsPanel" style="width: 1150px; height: 720px; border: 2px solid #E0E0E0; border-radius: 8px; padding: 24px; background: white; overflow-y: auto;">
                             <div style="display: flex; gap: 8px; margin-bottom: 20px;">
                                 <button style="padding: 8px 16px; background: #7C4DBC; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; color: white; cursor: pointer;">All</button>
                                 <button style="padding: 8px 16px; background: white; border: 1px solid #E0E0E0; border-radius: 6px; font-size: 14px; font-weight: 500; color: #666; cursor: pointer;">Customer</button>
@@ -10042,11 +10042,11 @@
             
             // 3. Scroll al top de los paneles
             setTimeout(function() {
-                var leftPanel = document.querySelector('#complaintModal .overflow-y-auto');
-                var rightPanel = document.querySelectorAll('#complaintModal .overflow-y-auto')[1];
+                var contestationPanel = document.getElementById('contestationPanel');
+                var commentsPanel = document.getElementById('commentsPanel');
                 
-                if (leftPanel) leftPanel.scrollTop = 0;
-                if (rightPanel) rightPanel.scrollTop = 0;
+                if (contestationPanel) contestationPanel.scrollTop = 0;
+                if (commentsPanel) commentsPanel.scrollTop = 0;
             }, 100);
             
             // Recargar TODA la información según el complaintId
