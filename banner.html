@@ -10029,7 +10029,18 @@
                 analyzedBtn.style.border = '2px solid #7C4DBC';
             }
             
-            // 2. Scroll al top de los paneles
+            // 2. Colapsar "View More" (ocultar contenido adicional)
+            var additionalDetails = document.getElementById('additionalDetails');
+            var viewMoreBtn = document.getElementById('viewMoreBtn');
+            
+            if (additionalDetails) {
+                additionalDetails.style.display = 'none';
+            }
+            if (viewMoreBtn) {
+                viewMoreBtn.style.display = 'flex';
+            }
+            
+            // 3. Scroll al top de los paneles
             setTimeout(function() {
                 var leftPanel = document.querySelector('#complaintModal .overflow-y-auto');
                 var rightPanel = document.querySelectorAll('#complaintModal .overflow-y-auto')[1];
