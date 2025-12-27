@@ -8780,7 +8780,7 @@
                                                 </div>
                                                 
                                                 <div style="margin-bottom: 20px;">
-                                                    <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Card number</div>
+                                                    <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Card ID</div>
                                                     <div style="display: flex; align-items: center; gap: 8px;">
                                                         <span style="font-size: 15px; color: #333;">1234XXXXXXXXX1234</span>
                                                         <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
@@ -10139,9 +10139,6 @@
                 if (reasonSpans[i].textContent === '920905' || reasonSpans[i].textContent === '788731') {
                     reasonSpans[i].textContent = '704930';
                 }
-                if (reasonSpans[i].textContent === '1234XXXXXXXXX1234' || reasonSpans[i].textContent === '5288XXXXXXXXX2760') {
-                    reasonSpans[i].textContent = '1234XXXXXXXXX1234';
-                }
                 if (reasonSpans[i].textContent === '457509' || reasonSpans[i].textContent === '974452' || reasonSpans[i].textContent === '306186') {
                     reasonSpans[i].textContent = '621990';
                 }
@@ -10227,9 +10224,6 @@
                 }
                 if (reasonSpans[i].textContent === '704930' || reasonSpans[i].textContent === '788731') {
                     reasonSpans[i].textContent = '920905';
-                }
-                if (reasonSpans[i].textContent === '1234XXXXXXXXX1234' || reasonSpans[i].textContent === '5288XXXXXXXXX2760') {
-                    reasonSpans[i].textContent = '1234XXXXXXXXX1234';
                 }
                 if (reasonSpans[i].textContent === '621990' || reasonSpans[i].textContent === '974452' || reasonSpans[i].textContent === '306186') {
                     reasonSpans[i].textContent = '457509';
@@ -10425,9 +10419,9 @@
                 if (reasonSpans[i].textContent === '008699' || reasonSpans[i].textContent === '920905' || reasonSpans[i].textContent === '788731') {
                     reasonSpans[i].textContent = 'N/A';
                 }
-                // Cambiar Card number (será 5288XXXXXXXXX2760 en lugar de 1234XXXXXXXXX1234)
-                if (reasonSpans[i].textContent === '1234XXXXXXXXX1234') {
-                    reasonSpans[i].textContent = '5288XXXXXXXXX2760';
+                // Cambiar Card ID (será 1234XXXXXXXXX1234 para todos)
+                if (reasonSpans[i].textContent === '5288XXXXXXXXX2760') {
+                    reasonSpans[i].textContent = '1234XXXXXXXXX1234';
                 }
                 // Cambiar NSU
                 if (reasonSpans[i].textContent === '206805' || reasonSpans[i].textContent === '457509' || reasonSpans[i].textContent === '974452') {
@@ -10644,9 +10638,6 @@
                 }
                 if (reasonSpans[i].textContent === '704930' || reasonSpans[i].textContent === '920905') {
                     reasonSpans[i].textContent = '788731';
-                }
-                if (reasonSpans[i].textContent === '1234XXXXXXXXX1234' || reasonSpans[i].textContent === '5288XXXXXXXXX2760') {
-                    reasonSpans[i].textContent = '1234XXXXXXXXX1234';
                 }
                 if (reasonSpans[i].textContent === '621990' || reasonSpans[i].textContent === '457509' || reasonSpans[i].textContent === '306186') {
                     reasonSpans[i].textContent = '974452';
