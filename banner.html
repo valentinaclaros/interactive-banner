@@ -10008,6 +10008,36 @@
             // Guardar el complaintId actual en el modal para referencia
             modal.setAttribute('data-current-complaint', complaintId);
             
+            // RESETEAR el modal al estado inicial
+            // 1. Activar tab "To Be Analyzed" por defecto
+            var toBeAnalyzedContent = document.getElementById('toBeAnalyzedContent');
+            var analyzedContent = document.getElementById('analyzedContent');
+            var toBeAnalyzedBtn = document.getElementById('toBeAnalyzedBtn');
+            var analyzedBtn = document.getElementById('analyzedBtn');
+            
+            if (toBeAnalyzedContent) toBeAnalyzedContent.style.display = 'block';
+            if (analyzedContent) analyzedContent.style.display = 'none';
+            
+            if (toBeAnalyzedBtn) {
+                toBeAnalyzedBtn.style.background = '#7C4DBC';
+                toBeAnalyzedBtn.style.color = 'white';
+                toBeAnalyzedBtn.style.border = 'none';
+            }
+            if (analyzedBtn) {
+                analyzedBtn.style.background = 'white';
+                analyzedBtn.style.color = '#7C4DBC';
+                analyzedBtn.style.border = '2px solid #7C4DBC';
+            }
+            
+            // 2. Scroll al top de los paneles
+            setTimeout(function() {
+                var leftPanel = document.querySelector('#complaintModal .overflow-y-auto');
+                var rightPanel = document.querySelectorAll('#complaintModal .overflow-y-auto')[1];
+                
+                if (leftPanel) leftPanel.scrollTop = 0;
+                if (rightPanel) rightPanel.scrollTop = 0;
+            }, 100);
+            
             // Recargar TODA la información según el complaintId
             if (complaintId === 0) {
                 // Disputa de $39,900.00 - Restaurar valores originales
