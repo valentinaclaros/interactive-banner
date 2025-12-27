@@ -7660,8 +7660,26 @@
                         <div class="contestation-content" style="padding: 24px;">
                             <!-- Contestation Items with Scrollbar -->
                             <div style="max-height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding-right: 8px;">
-                                <!-- Item 0 - NEW -->
+                                <!-- Item 0 - $389,968.00 -->
                                 <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(0)">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">12/15/2025</div>
+                                            <div style="font-size: 14px; color: #333; font-weight: 600;">1 purchases</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Total</div>
+                                            <div style="font-size: 16px; color: #333; font-weight: 700;">$389,968.00</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600; margin-bottom: 4px;">In Dispute</div>
+                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Cancelled Purchase</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Item 1 - $39,900.00 -->
+                                <div style="border-left: 4px solid #2196F3; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(1)">
                                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
                                         <div>
                                             <div style="font-size: 14px; color: #666; margin-bottom: 4px;">01/28/2025</div>
@@ -7678,8 +7696,8 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Item 1 -->
-                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(1)">
+                                <!-- Item 2 - $8,310.62 -->
+                                <div style="border-left: 4px solid #4CAF50; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(2)">
                                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
                                         <div>
                                             <div style="font-size: 14px; color: #666; margin-bottom: 4px;">11/08/2024</div>
@@ -7696,8 +7714,8 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Item 2 - $509,900.00 -->
-                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(2)">
+                                <!-- Item 3 - $509,900.00 -->
+                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(3)">
                                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
                                         <div>
                                             <div style="font-size: 14px; color: #666; margin-bottom: 4px;">12/09/2024</div>
@@ -7710,24 +7728,6 @@
                                         <div>
                                             <div style="font-size: 14px; color: #4CAF50; font-weight: 600; margin-bottom: 4px;">Resolved</div>
                                             <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Unrecognized purchase</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Item 3 - $78,400.00 -->
-                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(3)">
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
-                                        <div>
-                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">11/07/2023</div>
-                                            <div style="font-size: 14px; color: #333; font-weight: 600;">1 purchases</div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Total</div>
-                                            <div style="font-size: 16px; color: #333; font-weight: 700;">$78,400.00</div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 14px; color: #4CAF50; font-weight: 600; margin-bottom: 4px;">Resolved</div>
-                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Duplicated purchase</div>
                                         </div>
                                     </div>
                                 </div>
@@ -10069,26 +10069,31 @@
             
             // Recargar TODA la información según el complaintId
             if (complaintId === 0) {
-                // Disputa de $39,900.00 - Restaurar valores originales
+                // Disputa de $389,968.00 - Nueva disputa
                 loadComplaint0Data();
             } else if (complaintId === 1) {
-                // Disputa de $8,310.62 - Cargar datos específicos
+                // Disputa de $39,900.00 - Cargar datos específicos
                 loadComplaint1Data();
             } else if (complaintId === 2) {
-                // Disputa de $509,900.00 - Cargar datos específicos
+                // Disputa de $8,310.62 - Cargar datos específicos
                 loadComplaint2Data();
             } else if (complaintId === 3) {
-                // Disputa de $78,400.00 - Cargar datos específicos
+                // Disputa de $509,900.00 - Cargar datos específicos
                 loadComplaint3Data();
             }
         }
         
         function loadComplaint0Data() {
-            // Actualizar panel izquierdo - To Be Analyzed
+            // Nueva disputa de $389,968.00 - PENDIENTE DE IMPLEMENTAR
+            alert('La disputa de $389,968.00 aún no tiene datos. Por favor proporciona la información completa.');
+        }
+        
+        function loadComplaint1Data() {
+            // Actualizar panel izquierdo - To Be Analyzed para $39,900.00
             var reasonSpans = document.querySelectorAll('#complaintModal span');
             for (var i = 0; i < reasonSpans.length; i++) {
-                // Restaurar valores originales para $39,900.00 desde $8,310.62, $509,900.00 y $78,400.00
-                if (reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase') {
+                // Restaurar valores originales para $39,900.00 desde $8,310.62, $509,900.00
+                if (reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase' || reasonSpans[i].textContent === 'Cancelled Purchase') {
                     reasonSpans[i].textContent = 'Unrecognized purchase';
                 }
                 if (reasonSpans[i].textContent === 'Recurring charge not properly disclosed') {
@@ -10169,12 +10174,12 @@
             }
         }
         
-        function loadComplaint1Data() {
+        function loadComplaint2Data() {
             // Actualizar panel izquierdo para $8,310.62
             var reasonSpans = document.querySelectorAll('#complaintModal span');
             for (var i = 0; i < reasonSpans.length; i++) {
-                // Tab "To Be Analyzed" - desde $39,900.00, $509,900.00 y $78,400.00
-                if (reasonSpans[i].textContent === 'Unrecognized purchase' || reasonSpans[i].textContent === 'Duplicated purchase') {
+                // Tab "To Be Analyzed" - desde $39,900.00, $509,900.00 y $389,968.00
+                if (reasonSpans[i].textContent === 'Unrecognized purchase' || reasonSpans[i].textContent === 'Duplicated purchase' || reasonSpans[i].textContent === 'Cancelled Purchase') {
                     reasonSpans[i].textContent = 'Dispute with goods/service';
                 }
                 if (reasonSpans[i].textContent === 'Select a sub-reason') {
@@ -10362,12 +10367,12 @@
             console.log('Loading complaint data:', data);
         }
         
-        function loadComplaint2Data() {
+        function loadComplaint3Data() {
             // Actualizar panel izquierdo para $509,900.00
             var reasonSpans = document.querySelectorAll('#complaintModal span');
             for (var i = 0; i < reasonSpans.length; i++) {
                 // Tab "To Be Analyzed" - mantener "Unrecognized purchase"
-                if (reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase') {
+                if (reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase' || reasonSpans[i].textContent === 'Cancelled Purchase') {
                     reasonSpans[i].textContent = 'Unrecognized purchase';
                 }
                 // Cambiar fecha "Reported at"
@@ -10572,157 +10577,6 @@
                     '</div>' +
                     '</div>' +
                     
-                    '</div>';
-            }
-        }
-        
-        function loadComplaint3Data() {
-            // Actualizar panel izquierdo para $78,400.00
-            var reasonSpans = document.querySelectorAll('#complaintModal span');
-            for (var i = 0; i < reasonSpans.length; i++) {
-                // Tab "To Be Analyzed" - Cambiar reason a "Duplicated purchase"
-                if (reasonSpans[i].textContent === 'Unrecognized purchase') {
-                    reasonSpans[i].textContent = 'Duplicated purchase';
-                }
-                if (reasonSpans[i].textContent === 'Select a sub-reason') {
-                    reasonSpans[i].textContent = 'Select a sub-reason';
-                    reasonSpans[i].style.color = '#999';
-                }
-                if (reasonSpans[i].textContent === 'Dispute with goods/service') {
-                    reasonSpans[i].textContent = 'Duplicated purchase';
-                }
-                if (reasonSpans[i].textContent === 'Recurring charge not properly disclosed') {
-                    reasonSpans[i].textContent = 'Select a sub-reason';
-                    reasonSpans[i].style.color = '#999';
-                }
-                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1 || reasonSpans[i].textContent.indexOf('12/09/2024') !== -1 || reasonSpans[i].textContent.indexOf('11/08/2024') !== -1) {
-                    reasonSpans[i].textContent = '11/07/2023';
-                }
-                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('383 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1) {
-                    reasonSpans[i].textContent = '(781 days ago)';
-                }
-                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$8,310.62') && reasonSpans[i].style.fontSize === '22px') {
-                    reasonSpans[i].textContent = '$78,400.00';
-                }
-                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7' || reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af') {
-                    reasonSpans[i].textContent = '654addd8-7da8-4a73-9a1e-79f7527850e8';
-                }
-                
-                // Tab "Analyzed" - Actualizar TODOS los campos
-                if (reasonSpans[i].textContent === 'Apple.Com/Bill' || reasonSpans[i].textContent === 'Load Value' || reasonSpans[i].textContent === 'Pyd*Aromascent.Club') {
-                    reasonSpans[i].textContent = 'Alkiwi';
-                }
-                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$8,310.62') && reasonSpans[i].style.fontSize === '18px') {
-                    reasonSpans[i].textContent = '$78,400.00';
-                }
-                if ((reasonSpans[i].textContent === '01/28/2025' || reasonSpans[i].textContent === '12/09/2024' || reasonSpans[i].textContent === '09/25/2024') && reasonSpans[i].style.fontSize === '16px') {
-                    reasonSpans[i].textContent = '11/05/2023';
-                }
-                if ((reasonSpans[i].textContent === '332 days ago' || reasonSpans[i].textContent === '458 days ago') && reasonSpans[i].style.fontSize === '13px') {
-                    reasonSpans[i].textContent = '783 days ago';
-                }
-                if (reasonSpans[i].textContent === '06:26:12' || reasonSpans[i].textContent === '09:32:19') {
-                    reasonSpans[i].textContent = '21:13:11';
-                }
-                if (reasonSpans[i].textContent === '6798bed5-74a6-4ec6-b9c4-812265e24109' || reasonSpans[i].textContent === '66f41ef4-1206-4439-97fb-30e3c96cee7d') {
-                    reasonSpans[i].textContent = '65484bbd-5e2b-4cd8-90b1-c3c6caceb589';
-                }
-                if (reasonSpans[i].textContent === 'Online purchase with PAN saved by merchant' || reasonSpans[i].textContent === 'Electronic commerce, including Chip') {
-                    reasonSpans[i].textContent = 'Contactless';
-                }
-                if (reasonSpans[i].textContent === '04/02/2025' || reasonSpans[i].textContent === '02/10/2024') {
-                    reasonSpans[i].textContent = '13/11/2023';
-                }
-                if (reasonSpans[i].textContent === 'Yes' && reasonSpans[i].style.fontSize === '15px') {
-                    reasonSpans[i].textContent = 'No';
-                }
-                if (reasonSpans[i].textContent === '704930' || reasonSpans[i].textContent === '920905') {
-                    reasonSpans[i].textContent = '788731';
-                }
-                if (reasonSpans[i].textContent === '621990' || reasonSpans[i].textContent === '457509' || reasonSpans[i].textContent === '306186') {
-                    reasonSpans[i].textContent = '974452';
-                }
-                if (reasonSpans[i].textContent === '639bea70-adb8-4ee7-8e72-200255f8f7e9' || reasonSpans[i].textContent === '657cc64b-141d-46fe-9d07-4d10a25b068b' || reasonSpans[i].textContent === '666bd708-c0d2-4ef8-b6fa-cd884ac6ebfd') {
-                    reasonSpans[i].textContent = '63dd8c8d-137c-462a-bb81-562fa956c8ca';
-                }
-                if (reasonSpans[i].textContent === '003286' || reasonSpans[i].textContent === '010537' || reasonSpans[i].textContent === '031463') {
-                    reasonSpans[i].textContent = '002646';
-                }
-                if (reasonSpans[i].textContent === '400215000108778' || reasonSpans[i].textContent === '3736022oJS9baVD' || reasonSpans[i].textContent === '--') {
-                    reasonSpans[i].textContent = '0018753061';
-                }
-            }
-            
-            // Restaurar "Debit" a "Credit" en el encabezado
-            var creditSpans = document.querySelectorAll('#complaintModal span');
-            for (var k = 0; k < creditSpans.length; k++) {
-                if (creditSpans[k].textContent === 'Debit' && creditSpans[k].style.fontSize === '16px' && creditSpans[k].style.fontWeight === '600') {
-                    creditSpans[k].textContent = 'Credit';
-                    break;
-                }
-            }
-            
-            // Actualizar timeline para $78,400.00
-            var timelineContainer = document.getElementById('commentsTimeline');
-            if (timelineContainer) {
-                timelineContainer.innerHTML = 
-                    '<!-- Timeline Item 1 -->' +
-                    '<div style="position: relative; margin-bottom: 24px;">' +
-                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>07/19/2024 09:53:21 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
-                    '<div style="font-weight: 600; color: #333;">analysis-requested</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<!-- Timeline Item 2 -->' +
-                    '<div style="position: relative; margin-bottom: 24px;">' +
-                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>02/28/2024 00:03:36 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
-                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
-                    '<div style="color: #333;">resolution in favour</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<!-- Timeline Item 3 -->' +
-                    '<div style="position: relative; margin-bottom: 24px;">' +
-                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>01/11/2024 23:30:53 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
-                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
-                    '<div style="color: #333;">claim_id_207502657005</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<!-- Timeline Item 4 -->' +
-                    '<div style="position: relative; margin-bottom: 24px;">' +
-                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>01/09/2024 13:35:03 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
-                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
-                    '<div style="color: #333;">no tiene cb creado en mcom</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<!-- Timeline Item 5 -->' +
-                    '<div style="position: relative; margin-bottom: 24px;">' +
-                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/14/2023 23:29:02 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
-                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
-                    '<div style="color: #333;">claim_id_207502657005</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<!-- Timeline Item 6 -->' +
-                    '<div style="position: relative; margin-bottom: 0px;">' +
-                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/07/2023 20:01:12 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
-                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-created</div>' +
-                    '<div style="color: #666;">By: pepito.perez@nu.com.co</div>' +
-                    '</div>' +
                     '</div>';
             }
         }
