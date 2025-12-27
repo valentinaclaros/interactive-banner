@@ -10055,6 +10055,7 @@
                 // Actualizar los campos visibles del modal
                 var reasonSpans = document.querySelectorAll('#complaintModal span');
                 for (var i = 0; i < reasonSpans.length; i++) {
+                    // Tab "To Be Analyzed"
                     if (reasonSpans[i].textContent === 'Unrecognized purchase') {
                         reasonSpans[i].textContent = 'Dispute with goods/service';
                     }
@@ -10073,6 +10074,53 @@
                     }
                     if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8') {
                         reasonSpans[i].textContent = '672e3d10-5357-4aba-88ce-818adfb853af';
+                    }
+                    
+                    // Tab "Analyzed" - Actualizar TODOS los campos
+                    if (reasonSpans[i].textContent === 'Apple.Com/Bill') {
+                        reasonSpans[i].textContent = 'Pyd*Aromascent.Club';
+                    }
+                    if (reasonSpans[i].textContent === '$39,900.00' && reasonSpans[i].style.fontSize === '18px') {
+                        reasonSpans[i].textContent = '$8,310.62';
+                    }
+                    if (reasonSpans[i].textContent === '01/28/2025' && reasonSpans[i].style.fontSize === '16px') {
+                        reasonSpans[i].textContent = '09/25/2024';
+                    }
+                    if (reasonSpans[i].textContent === '332 days ago' && reasonSpans[i].style.fontSize === '13px') {
+                        reasonSpans[i].textContent = '458 days ago';
+                    }
+                    if (reasonSpans[i].textContent === '06:26:12') {
+                        reasonSpans[i].textContent = '09:32:19';
+                    }
+                    if (reasonSpans[i].textContent === '6798bed5-74a6-4ec6-b9c4-812265e24109') {
+                        reasonSpans[i].textContent = '66f41ef4-1206-4439-97fb-30e3c96cee7d';
+                    }
+                    if (reasonSpans[i].textContent === 'Online purchase with PAN saved by merchant') {
+                        reasonSpans[i].textContent = 'Electronic commerce, including Chip';
+                    }
+                    if (reasonSpans[i].textContent === '04/02/2025') {
+                        reasonSpans[i].textContent = '02/10/2024';
+                    }
+                    if (reasonSpans[i].textContent === 'Yes' && reasonSpans[i].style.fontSize === '15px') {
+                        reasonSpans[i].textContent = 'No';
+                    }
+                    if (reasonSpans[i].textContent === '704930') {
+                        reasonSpans[i].textContent = '920905';
+                    }
+                    if (reasonSpans[i].textContent === '5558XXXXXXXXX6359') {
+                        reasonSpans[i].textContent = '5558XXXXXXXXX9578';
+                    }
+                    if (reasonSpans[i].textContent === '621990') {
+                        reasonSpans[i].textContent = '457509';
+                    }
+                    if (reasonSpans[i].textContent === '639bea70-adb8-4ee7-8e72-200255f8f7e9') {
+                        reasonSpans[i].textContent = '657cc64b-141d-46fe-9d07-4d10a25b068b';
+                    }
+                    if (reasonSpans[i].textContent === '003286') {
+                        reasonSpans[i].textContent = '010537';
+                    }
+                    if (reasonSpans[i].textContent === '400215000108778') {
+                        reasonSpans[i].textContent = '3736022oJS9baVD';
                     }
                 }
             }
