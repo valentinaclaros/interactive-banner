@@ -9279,6 +9279,15 @@
     <script>
         'use strict';
         
+        // Guardar el timeline original al cargar la página
+        var originalTimeline = '';
+        document.addEventListener('DOMContentLoaded', function() {
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                originalTimeline = timelineContainer.innerHTML;
+            }
+        });
+        
         function toggleWidget(widgetId) {
             const widget = document.getElementById(widgetId);
             const icon = widget.querySelector('.collapse-icon');
@@ -10138,25 +10147,8 @@
             
             // Restaurar timeline original para $39,900.00
             var timelineContainer = document.getElementById('commentsTimeline');
-            if (timelineContainer) {
-                timelineContainer.innerHTML = 
-                    '<!-- Timeline original para $39,900.00 -->' +
-                    '<div style="position: relative; margin-bottom: 24px;">' +
-                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">03/07/2025 11:07:53</div>' +
-                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
-                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">valentina.delgado@nu.com.co</div>' +
-                    '<div style="color: #333;">due to transaction manually reversed</div>' +
-                    '</div></div>' +
-                    // ... (añadiré más items del timeline original aquí)
-                    '<div style="position: relative; margin-bottom: 24px;">' +
-                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">01/28/2025 10:33:10</div>' +
-                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
-                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-created</div>' +
-                    '<div style="color: #666;">By: camila.martinez@nu.com.co</div>' +
-                    '</div></div>';
+            if (timelineContainer && originalTimeline) {
+                timelineContainer.innerHTML = originalTimeline;
             }
         }
         
