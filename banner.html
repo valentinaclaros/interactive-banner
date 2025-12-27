@@ -7697,7 +7697,7 @@
                                 </div>
                                 
                                 <!-- Item 2 - NEW -->
-                                <div style="border-left: 4px solid #FF9800; padding-left: 16px;">
+                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(2)">
                                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
                                         <div>
                                             <div style="font-size: 14px; color: #666; margin-bottom: 4px;">11/07/2023</div>
@@ -10015,6 +10015,9 @@
             } else if (complaintId === 1) {
                 // Disputa de $8,310.62 - Cargar datos específicos
                 loadComplaint1Data();
+            } else if (complaintId === 2) {
+                // Disputa de $78,400.00 - Cargar datos específicos
+                loadComplaint2Data();
             }
         }
         
@@ -10283,6 +10286,104 @@
             // This would update the fields in the modal
             // For now, we'll keep the original structure and just note this needs implementation
             console.log('Loading complaint data:', data);
+        }
+        
+        function loadComplaint2Data() {
+            // Actualizar panel izquierdo para $78,400.00
+            var reasonSpans = document.querySelectorAll('#complaintModal span');
+            for (var i = 0; i < reasonSpans.length; i++) {
+                // Tab "To Be Analyzed" - Cambiar reason a "Duplicated purchase"
+                if (reasonSpans[i].textContent === 'Unrecognized purchase') {
+                    reasonSpans[i].textContent = 'Duplicated purchase';
+                }
+                if (reasonSpans[i].textContent === 'Select a sub-reason') {
+                    reasonSpans[i].textContent = 'Select a sub-reason';
+                    reasonSpans[i].style.color = '#999';
+                }
+                if (reasonSpans[i].textContent === 'Dispute with goods/service') {
+                    reasonSpans[i].textContent = 'Duplicated purchase';
+                }
+                if (reasonSpans[i].textContent === 'Recurring charge not properly disclosed') {
+                    reasonSpans[i].textContent = 'Select a sub-reason';
+                    reasonSpans[i].style.color = '#999';
+                }
+                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1 || reasonSpans[i].textContent.indexOf('11/08/2024') !== -1) {
+                    reasonSpans[i].textContent = '11/07/2023';
+                }
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(781 days ago)';
+                }
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$8,310.62') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$78,400.00';
+                }
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af') {
+                    reasonSpans[i].textContent = '654addd8-7da8-4a73-9a1e-79f7527850e8';
+                }
+            }
+            
+            // Actualizar timeline para $78,400.00
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                timelineContainer.innerHTML = 
+                    '<!-- Timeline Item 1 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>07/19/2024 09:53:21 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333;">analysis-requested</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 2 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>02/28/2024 00:03:36 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">carlos.ibanez@nu.com.co</div>' +
+                    '<div style="color: #333;">resolution in favour</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 3 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>01/11/2024 23:30:53 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">richard.pugliese@nu.com.co</div>' +
+                    '<div style="color: #333;">claim_id_207502657005</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 4 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>01/09/2024 13:35:03 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">lina.gil@nu.com.co</div>' +
+                    '<div style="color: #333;">no tiene cb creado en mcom</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 5 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/14/2023 23:29:02 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">johan.feria@nu.com.co</div>' +
+                    '<div style="color: #333;">claim_id_207502657005</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 6 -->' +
+                    '<div style="position: relative; margin-bottom: 0px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/07/2023 20:01:12 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-created</div>' +
+                    '<div style="color: #666;">By: juan.villamizar@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>';
+            }
         }
         
         
