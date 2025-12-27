@@ -10050,175 +10050,283 @@
             var modal = document.getElementById('complaintModal');
             modal.style.display = 'flex';
             
-            // Si es la disputa de $8,310.62 (complaintId = 1)
-            if (complaintId === 1) {
-                // Actualizar los campos visibles del modal
-                var reasonSpans = document.querySelectorAll('#complaintModal span');
-                for (var i = 0; i < reasonSpans.length; i++) {
-                    // Tab "To Be Analyzed"
-                    if (reasonSpans[i].textContent === 'Unrecognized purchase') {
-                        reasonSpans[i].textContent = 'Dispute with goods/service';
-                    }
-                    if (reasonSpans[i].textContent === 'Select a sub-reason') {
-                        reasonSpans[i].textContent = 'Recurring charge not properly disclosed';
-                        reasonSpans[i].style.color = '#333';
-                    }
-                    if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1) {
-                        reasonSpans[i].textContent = '11/08/2024';
-                    }
-                    if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1) {
-                        reasonSpans[i].textContent = '(414 days ago)';
-                    }
-                    if (reasonSpans[i].textContent === '$39,900.00' && reasonSpans[i].style.fontSize === '22px') {
-                        reasonSpans[i].textContent = '$8,310.62';
-                    }
-                    if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8') {
-                        reasonSpans[i].textContent = '672e3d10-5357-4aba-88ce-818adfb853af';
-                    }
-                    
-                    // Tab "Analyzed" - Actualizar TODOS los campos
-                    if (reasonSpans[i].textContent === 'Apple.Com/Bill') {
-                        reasonSpans[i].textContent = 'Pyd*Aromascent.Club';
-                    }
-                    if (reasonSpans[i].textContent === '$39,900.00' && reasonSpans[i].style.fontSize === '18px') {
-                        reasonSpans[i].textContent = '$8,310.62';
-                    }
-                    if (reasonSpans[i].textContent === '01/28/2025' && reasonSpans[i].style.fontSize === '16px') {
-                        reasonSpans[i].textContent = '09/25/2024';
-                    }
-                    if (reasonSpans[i].textContent === '332 days ago' && reasonSpans[i].style.fontSize === '13px') {
-                        reasonSpans[i].textContent = '458 days ago';
-                    }
-                    if (reasonSpans[i].textContent === '06:26:12') {
-                        reasonSpans[i].textContent = '09:32:19';
-                    }
-                    if (reasonSpans[i].textContent === '6798bed5-74a6-4ec6-b9c4-812265e24109') {
-                        reasonSpans[i].textContent = '66f41ef4-1206-4439-97fb-30e3c96cee7d';
-                    }
-                    if (reasonSpans[i].textContent === 'Online purchase with PAN saved by merchant') {
-                        reasonSpans[i].textContent = 'Electronic commerce, including Chip';
-                    }
-                    if (reasonSpans[i].textContent === '04/02/2025') {
-                        reasonSpans[i].textContent = '02/10/2024';
-                    }
-                    if (reasonSpans[i].textContent === 'Yes' && reasonSpans[i].style.fontSize === '15px') {
-                        reasonSpans[i].textContent = 'No';
-                    }
-                    if (reasonSpans[i].textContent === '704930') {
-                        reasonSpans[i].textContent = '920905';
-                    }
-                    if (reasonSpans[i].textContent === '5558XXXXXXXXX6359') {
-                        reasonSpans[i].textContent = '5558XXXXXXXXX9578';
-                    }
-                    if (reasonSpans[i].textContent === '621990') {
-                        reasonSpans[i].textContent = '457509';
-                    }
-                    if (reasonSpans[i].textContent === '639bea70-adb8-4ee7-8e72-200255f8f7e9') {
-                        reasonSpans[i].textContent = '657cc64b-141d-46fe-9d07-4d10a25b068b';
-                    }
-                    if (reasonSpans[i].textContent === '003286') {
-                        reasonSpans[i].textContent = '010537';
-                    }
-                    if (reasonSpans[i].textContent === '400215000108778') {
-                        reasonSpans[i].textContent = '3736022oJS9baVD';
-                    }
+            // Guardar el complaintId actual en el modal para referencia
+            modal.setAttribute('data-current-complaint', complaintId);
+            
+            // Recargar TODA la información según el complaintId
+            if (complaintId === 0) {
+                // Disputa de $39,900.00 - Restaurar valores originales
+                loadComplaint0Data();
+            } else if (complaintId === 1) {
+                // Disputa de $8,310.62 - Cargar datos específicos
+                loadComplaint1Data();
+            }
+        }
+        
+        function loadComplaint0Data() {
+            // Actualizar panel izquierdo - To Be Analyzed
+            var reasonSpans = document.querySelectorAll('#complaintModal span');
+            for (var i = 0; i < reasonSpans.length; i++) {
+                // Restaurar valores originales para $39,900.00
+                if (reasonSpans[i].textContent === 'Dispute with goods/service') {
+                    reasonSpans[i].textContent = 'Unrecognized purchase';
+                }
+                if (reasonSpans[i].textContent === 'Recurring charge not properly disclosed') {
+                    reasonSpans[i].textContent = 'Select a sub-reason';
+                    reasonSpans[i].style.color = '#999';
+                }
+                if (reasonSpans[i].textContent === '11/08/2024' || reasonSpans[i].textContent.indexOf('11/08/2024') !== -1) {
+                    reasonSpans[i].textContent = '01/28/2025';
+                }
+                if (reasonSpans[i].textContent === '(414 days ago)' || reasonSpans[i].textContent.indexOf('414 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(332 days ago)';
+                }
+                if (reasonSpans[i].textContent === '$8,310.62' && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$39,900.00';
+                }
+                if (reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af') {
+                    reasonSpans[i].textContent = '6798cf4a-35a0-468e-9a2c-0e38df28fec8';
                 }
                 
-                // Actualizar el timeline de comentarios para la disputa $8,310.62
-                var timelineContainer = document.getElementById('commentsTimeline');
-                if (timelineContainer) {
-                    timelineContainer.innerHTML = 
-                        '<!-- Timeline Item 1 -->' +
-                        '<div style="position: relative; margin-bottom: 24px;">' +
-                        '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                        '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                        '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/30/2024 06:44:49 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                        '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px; cursor: pointer;" onclick="this.style.display=\'block\';">' +
-                        '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">dispute-in-progress</div>' +
-                        '<div style="color: #666;">1 movement(s)</div>' +
-                        '<span style="color: #7C4DBC; margin-left: 8px;">›</span>' +
-                        '</div>' +
-                        '</div>' +
-                        '<!-- Timeline Item 2 -->' +
-                        '<div style="position: relative; margin-bottom: 24px;">' +
-                        '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                        '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                        '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/15/2024 14:52:09 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                        '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
-                        '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">juanita.forero@nu.com.co</div>' +
-                        '<div style="color: #333;">resolution in favour</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<!-- Timeline Item 3 -->' +
-                        '<div style="position: relative; margin-bottom: 24px;">' +
-                        '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                        '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                        '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/14/2024 12:47:53 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                        '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px; cursor: pointer;" onclick="this.style.display=\'block\';">' +
-                        '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">dispute-requested</div>' +
-                        '<div style="color: #666;">1 movement(s)</div>' +
-                        '<span style="color: #7C4DBC; margin-left: 8px;">›</span>' +
-                        '</div>' +
-                        '</div>' +
-                        '<!-- Timeline Item 4 -->' +
-                        '<div style="position: relative; margin-bottom: 24px;">' +
-                        '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                        '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                        '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/14/2024 12:47:53 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                        '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
-                        '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-analyzed</div>' +
-                        '<div style="color: #666;">By: natalia.uruena@nu.com.co</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<!-- Timeline Item 5 -->' +
-                        '<div style="position: relative; margin-bottom: 24px;">' +
-                        '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                        '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                        '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                        '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
-                        '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">email-sending-requested</div>' +
-                        '<div style="color: #666;">To: Credit chargeback submitted</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<!-- Timeline Item 6 -->' +
-                        '<div style="position: relative; margin-bottom: 24px;">' +
-                        '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                        '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                        '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                        '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
-                        '<div style="font-weight: 600; color: #333; margin-bottom: 8px;">ligadin</div>' +
-                        '<div style="color: #333; margin-bottom: 8px;">The case will be analyzed by our internal team, please save the contestation with the status "In ana...</div>' +
-                        '<a href="#" style="color: #333; text-decoration: underline; font-size: 14px;">Show full comment</a>' +
-                        '</div>' +
-                        '</div>' +
-                        '<!-- Timeline Item 7 -->' +
-                        '<div style="position: relative; margin-bottom: 24px;">' +
-                        '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                        '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                        '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                        '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
-                        '<div style="font-weight: 600; color: #333;">manual-analysis-requested</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<!-- Timeline Item 8 -->' +
-                        '<div style="position: relative; margin-bottom: 24px;">' +
-                        '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                        '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
-                        '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                        '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
-                        '<div style="font-weight: 600; color: #333;">analysis-requested</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<!-- Timeline Item 9 -->' +
-                        '<div style="position: relative; margin-bottom: 0px;">' +
-                        '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
-                        '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
-                        '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
-                        '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-created</div>' +
-                        '<div style="color: #666;">By: katherine.moreno@nu.com.co</div>' +
-                        '</div>' +
-                        '</div>';
+                // Tab "Analyzed" - Restaurar valores originales
+                if (reasonSpans[i].textContent === 'Pyd*Aromascent.Club') {
+                    reasonSpans[i].textContent = 'Apple.Com/Bill';
                 }
+                if (reasonSpans[i].textContent === '$8,310.62' && reasonSpans[i].style.fontSize === '18px') {
+                    reasonSpans[i].textContent = '$39,900.00';
+                }
+                if (reasonSpans[i].textContent === '09/25/2024' && reasonSpans[i].style.fontSize === '16px') {
+                    reasonSpans[i].textContent = '01/28/2025';
+                }
+                if (reasonSpans[i].textContent === '458 days ago' && reasonSpans[i].style.fontSize === '13px') {
+                    reasonSpans[i].textContent = '332 days ago';
+                }
+                if (reasonSpans[i].textContent === '09:32:19') {
+                    reasonSpans[i].textContent = '06:26:12';
+                }
+                if (reasonSpans[i].textContent === '66f41ef4-1206-4439-97fb-30e3c96cee7d') {
+                    reasonSpans[i].textContent = '6798bed5-74a6-4ec6-b9c4-812265e24109';
+                }
+                if (reasonSpans[i].textContent === 'Electronic commerce, including Chip') {
+                    reasonSpans[i].textContent = 'Online purchase with PAN saved by merchant';
+                }
+                if (reasonSpans[i].textContent === '02/10/2024') {
+                    reasonSpans[i].textContent = '04/02/2025';
+                }
+                if (reasonSpans[i].textContent === 'No' && reasonSpans[i].style.fontSize === '15px') {
+                    reasonSpans[i].textContent = 'Yes';
+                }
+                if (reasonSpans[i].textContent === '920905') {
+                    reasonSpans[i].textContent = '704930';
+                }
+                if (reasonSpans[i].textContent === '5558XXXXXXXXX9578') {
+                    reasonSpans[i].textContent = '5558XXXXXXXXX6359';
+                }
+                if (reasonSpans[i].textContent === '457509') {
+                    reasonSpans[i].textContent = '621990';
+                }
+                if (reasonSpans[i].textContent === '657cc64b-141d-46fe-9d07-4d10a25b068b') {
+                    reasonSpans[i].textContent = '639bea70-adb8-4ee7-8e72-200255f8f7e9';
+                }
+                if (reasonSpans[i].textContent === '010537') {
+                    reasonSpans[i].textContent = '003286';
+                }
+                if (reasonSpans[i].textContent === '3736022oJS9baVD') {
+                    reasonSpans[i].textContent = '400215000108778';
+                }
+            }
+            
+            // Restaurar timeline original para $39,900.00
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                timelineContainer.innerHTML = 
+                    '<!-- Timeline original para $39,900.00 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">03/07/2025 11:07:53</div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">valentina.delgado@nu.com.co</div>' +
+                    '<div style="color: #333;">due to transaction manually reversed</div>' +
+                    '</div></div>' +
+                    // ... (añadiré más items del timeline original aquí)
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">01/28/2025 10:33:10</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-created</div>' +
+                    '<div style="color: #666;">By: camila.martinez@nu.com.co</div>' +
+                    '</div></div>';
+            }
+        }
+        
+        function loadComplaint1Data() {
+            // Actualizar panel izquierdo para $8,310.62
+            var reasonSpans = document.querySelectorAll('#complaintModal span');
+            for (var i = 0; i < reasonSpans.length; i++) {
+                // Tab "To Be Analyzed"
+                if (reasonSpans[i].textContent === 'Unrecognized purchase') {
+                    reasonSpans[i].textContent = 'Dispute with goods/service';
+                }
+                if (reasonSpans[i].textContent === 'Select a sub-reason') {
+                    reasonSpans[i].textContent = 'Recurring charge not properly disclosed';
+                    reasonSpans[i].style.color = '#333';
+                }
+                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1) {
+                    reasonSpans[i].textContent = '11/08/2024';
+                }
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(414 days ago)';
+                }
+                if (reasonSpans[i].textContent === '$39,900.00' && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$8,310.62';
+                }
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8') {
+                    reasonSpans[i].textContent = '672e3d10-5357-4aba-88ce-818adfb853af';
+                }
+                
+                // Tab "Analyzed" - Actualizar TODOS los campos
+                if (reasonSpans[i].textContent === 'Apple.Com/Bill') {
+                    reasonSpans[i].textContent = 'Pyd*Aromascent.Club';
+                }
+                if (reasonSpans[i].textContent === '$39,900.00' && reasonSpans[i].style.fontSize === '18px') {
+                    reasonSpans[i].textContent = '$8,310.62';
+                }
+                if (reasonSpans[i].textContent === '01/28/2025' && reasonSpans[i].style.fontSize === '16px') {
+                    reasonSpans[i].textContent = '09/25/2024';
+                }
+                if (reasonSpans[i].textContent === '332 days ago' && reasonSpans[i].style.fontSize === '13px') {
+                    reasonSpans[i].textContent = '458 days ago';
+                }
+                if (reasonSpans[i].textContent === '06:26:12') {
+                    reasonSpans[i].textContent = '09:32:19';
+                }
+                if (reasonSpans[i].textContent === '6798bed5-74a6-4ec6-b9c4-812265e24109') {
+                    reasonSpans[i].textContent = '66f41ef4-1206-4439-97fb-30e3c96cee7d';
+                }
+                if (reasonSpans[i].textContent === 'Online purchase with PAN saved by merchant') {
+                    reasonSpans[i].textContent = 'Electronic commerce, including Chip';
+                }
+                if (reasonSpans[i].textContent === '04/02/2025') {
+                    reasonSpans[i].textContent = '02/10/2024';
+                }
+                if (reasonSpans[i].textContent === 'Yes' && reasonSpans[i].style.fontSize === '15px') {
+                    reasonSpans[i].textContent = 'No';
+                }
+                if (reasonSpans[i].textContent === '704930') {
+                    reasonSpans[i].textContent = '920905';
+                }
+                if (reasonSpans[i].textContent === '5558XXXXXXXXX6359') {
+                    reasonSpans[i].textContent = '5558XXXXXXXXX9578';
+                }
+                if (reasonSpans[i].textContent === '621990') {
+                    reasonSpans[i].textContent = '457509';
+                }
+                if (reasonSpans[i].textContent === '639bea70-adb8-4ee7-8e72-200255f8f7e9') {
+                    reasonSpans[i].textContent = '657cc64b-141d-46fe-9d07-4d10a25b068b';
+                }
+                if (reasonSpans[i].textContent === '003286') {
+                    reasonSpans[i].textContent = '010537';
+                }
+                if (reasonSpans[i].textContent === '400215000108778') {
+                    reasonSpans[i].textContent = '3736022oJS9baVD';
+                }
+            }
+            
+            // Actualizar timeline para $8,310.62
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                timelineContainer.innerHTML = 
+                    '<!-- Timeline Item 1 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/30/2024 06:44:49 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px; cursor: pointer;" onclick="this.style.display=\'block\';">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">dispute-in-progress</div>' +
+                    '<div style="color: #666;">1 movement(s)</div>' +
+                    '<span style="color: #7C4DBC; margin-left: 8px;">›</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 2 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/15/2024 14:52:09 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">juanita.forero@nu.com.co</div>' +
+                    '<div style="color: #333;">resolution in favour</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 3 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/14/2024 12:47:53 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px; cursor: pointer;" onclick="this.style.display=\'block\';">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">dispute-requested</div>' +
+                    '<div style="color: #666;">1 movement(s)</div>' +
+                    '<span style="color: #7C4DBC; margin-left: 8px;">›</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 4 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/14/2024 12:47:53 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-analyzed</div>' +
+                    '<div style="color: #666;">By: natalia.uruena@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 5 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">email-sending-requested</div>' +
+                    '<div style="color: #666;">To: Credit chargeback submitted</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 6 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 8px;">ligadin</div>' +
+                    '<div style="color: #333; margin-bottom: 8px;">The case will be analyzed by our internal team, please save the contestation with the status "In ana...</div>' +
+                    '<a href="#" style="color: #333; text-decoration: underline; font-size: 14px;">Show full comment</a>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 7 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333;">manual-analysis-requested</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 8 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333;">analysis-requested</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 9 -->' +
+                    '<div style="position: relative; margin-bottom: 0px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-created</div>' +
+                    '<div style="color: #666;">By: katherine.moreno@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>';
             }
         }
         
