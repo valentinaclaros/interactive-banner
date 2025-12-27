@@ -10084,19 +10084,143 @@
         }
         
         function loadComplaint0Data() {
-            // Nueva disputa de $389,968.00 - PENDIENTE DE IMPLEMENTAR
-            alert('La disputa de $389,968.00 aún no tiene datos. Por favor proporciona la información completa.');
+            // Nueva disputa de $389,968.00
+            var reasonSpans = document.querySelectorAll('#complaintModal span');
+            for (var i = 0; i < reasonSpans.length; i++) {
+                // Tab "To Be Analyzed" - Cambiar a "Cancelled Purchase"
+                if (reasonSpans[i].textContent === 'Unrecognized purchase' || reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase') {
+                    reasonSpans[i].textContent = 'Cancelled Purchase';
+                }
+                // Cambiar fecha "Reported at"
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent.indexOf('383 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(12 days ago)';
+                }
+                // Cambiar el monto total
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$509,900.00') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$389,968.00';
+                }
+                // Cambiar Complaint ID
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7') {
+                    reasonSpans[i].textContent = '69407038-b5ec-4f8f-bf14-29237fc3bba8';
+                }
+                // Cambiar Report ID
+                if (reasonSpans[i].textContent === 'N/A') {
+                    reasonSpans[i].textContent = '69407038-834d-4d26-93cb-106194953f8e';
+                }
+            }
+            
+            // Cambiar "Resolved" a "In Dispute" en el encabezado
+            var statusSpans = document.querySelectorAll('#complaintModal span');
+            for (var j = 0; j < statusSpans.length; j++) {
+                if (statusSpans[j].textContent === 'Resolved' && statusSpans[j].style.color === 'rgb(76, 175, 80)') {
+                    statusSpans[j].textContent = 'In Dispute';
+                    statusSpans[j].style.color = '#E91E63';
+                }
+            }
+            
+            // Actualizar timeline para $389,968.00
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                timelineContainer.innerHTML =
+                    '<div style="position: relative; padding-left: 32px;">' +
+                    
+                    '<!-- Event 1 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/19/2025 14:00:48</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-status-updated</div>' +
+                    '<div style="color: #333; margin-bottom: 4px;">To: In dispute</div>' +
+                    '<div style="color: #333;">By: pepito.perez@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 2 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:15</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-status-updated</div>' +
+                    '<div style="color: #333;">To: Ready to dispute</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 3 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:15</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-automated-status-updated</div>' +
+                    '<div style="color: #333;">To: In progress</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 4 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:15</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">dispute-requested</div>' +
+                    '<div style="color: #333;">1 movement(s)</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 5 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:13</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-automated-status-updated</div>' +
+                    '<div style="color: #333;">To: Analyzed</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '</div>';
+            }
         }
         
         function loadComplaint1Data() {
             // Actualizar panel izquierdo - To Be Analyzed para $39,900.00
             var reasonSpans = document.querySelectorAll('#complaintModal span');
             for (var i = 0; i < reasonSpans.length; i++) {
-                // Restaurar valores originales para $39,900.00 desde $8,310.62, $509,900.00
+                // Restaurar valores originales para $39,900.00 desde $8,310.62, $389,968.00 y $509,900.00
                 if (reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase' || reasonSpans[i].textContent === 'Cancelled Purchase') {
                     reasonSpans[i].textContent = 'Unrecognized purchase';
                 }
                 if (reasonSpans[i].textContent === 'Recurring charge not properly disclosed') {
+                    reasonSpans[i].textContent = 'Select a sub-reason';
+                    reasonSpans[i].style.color = '#999';
+                }
+                if (reasonSpans[i].textContent === '11/08/2024' || reasonSpans[i].textContent.indexOf('11/08/2024') !== -1 || reasonSpans[i].textContent === '12/09/2024' || reasonSpans[i].textContent.indexOf('12/09/2024') !== -1 || reasonSpans[i].textContent === '12/15/2025' || reasonSpans[i].textContent.indexOf('12/15/2025') !== -1) {
+                    reasonSpans[i].textContent = '01/28/2025';
+                }
+                if (reasonSpans[i].textContent === '(414 days ago)' || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent === '(383 days ago)' || reasonSpans[i].textContent.indexOf('383 days ago') !== -1 || reasonSpans[i].textContent === '(12 days ago)' || reasonSpans[i].textContent.indexOf('12 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(332 days ago)';
+                }
+                if ((reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$389,968.00') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$39,900.00';
+                }
+                if (reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7' || reasonSpans[i].textContent === '69407038-b5ec-4f8f-bf14-29237fc3bba8') {
+                    reasonSpans[i].textContent = '6798cf4a-35a0-468e-9a2c-0e38df28fec8';
+                }
+                if (reasonSpans[i].textContent === '69407038-834d-4d26-93cb-106194953f8e') {
+                    reasonSpans[i].textContent = 'N/A';
+                }
+            }
+            
+            // Restaurar "In Dispute" a "Resolved" y cambiar color
+            var statusSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < statusSpans.length; k++) {
+                if (statusSpans[k].textContent === 'In Dispute' && statusSpans[k].style.color === 'rgb(233, 30, 99)') {
+                    statusSpans[k].textContent = 'Resolved';
+                    statusSpans[k].style.color = '#4CAF50';
+                }
+            }
+            
                     reasonSpans[i].textContent = 'Select a sub-reason';
                     reasonSpans[i].style.color = '#999';
                 }
@@ -10178,7 +10302,7 @@
             // Actualizar panel izquierdo para $8,310.62
             var reasonSpans = document.querySelectorAll('#complaintModal span');
             for (var i = 0; i < reasonSpans.length; i++) {
-                // Tab "To Be Analyzed" - desde $39,900.00, $509,900.00 y $389,968.00
+                // Tab "To Be Analyzed" - desde $39,900.00, $389,968.00 y $509,900.00
                 if (reasonSpans[i].textContent === 'Unrecognized purchase' || reasonSpans[i].textContent === 'Duplicated purchase' || reasonSpans[i].textContent === 'Cancelled Purchase') {
                     reasonSpans[i].textContent = 'Dispute with goods/service';
                 }
@@ -10186,7 +10310,32 @@
                     reasonSpans[i].textContent = 'Recurring charge not properly disclosed';
                     reasonSpans[i].style.color = '#333';
                 }
-                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1 || reasonSpans[i].textContent.indexOf('12/09/2024') !== -1 || reasonSpans[i].textContent.indexOf('11/07/2023') !== -1) {
+                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1 || reasonSpans[i].textContent.indexOf('12/09/2024') !== -1 || reasonSpans[i].textContent.indexOf('12/15/2025') !== -1) {
+                    reasonSpans[i].textContent = '11/08/2024';
+                }
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('383 days ago') !== -1 || reasonSpans[i].textContent.indexOf('12 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(414 days ago)';
+                }
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$389,968.00') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$8,310.62';
+                }
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7' || reasonSpans[i].textContent === '69407038-b5ec-4f8f-bf14-29237fc3bba8') {
+                    reasonSpans[i].textContent = '672e3d10-5357-4aba-88ce-818adfb853af';
+                }
+                if (reasonSpans[i].textContent === '69407038-834d-4d26-93cb-106194953f8e') {
+                    reasonSpans[i].textContent = 'N/A';
+                }
+            }
+            
+            // Restaurar "In Dispute" a "Resolved"
+            var statusSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < statusSpans.length; k++) {
+                if (statusSpans[k].textContent === 'In Dispute' && statusSpans[k].style.color === 'rgb(233, 30, 99)') {
+                    statusSpans[k].textContent = 'Resolved';
+                    statusSpans[k].style.color = '#4CAF50';
+                }
+            }
+            
                     reasonSpans[i].textContent = '11/08/2024';
                 }
                 if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('383 days ago') !== -1 || reasonSpans[i].textContent.indexOf('781 days ago') !== -1) {
@@ -10376,7 +10525,31 @@
                     reasonSpans[i].textContent = 'Unrecognized purchase';
                 }
                 // Cambiar fecha "Reported at"
-                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent.indexOf('781 days ago') !== -1) {
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent.indexOf('12 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(383 days ago)';
+                }
+                // Cambiar el monto total
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$389,968.00') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$509,900.00';
+                }
+                // Cambiar Complaint ID
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af' || reasonSpans[i].textContent === '69407038-b5ec-4f8f-bf14-29237fc3bba8') {
+                    reasonSpans[i].textContent = '67572868-f9ee-4140-b004-629025f925a7';
+                }
+                if (reasonSpans[i].textContent === '69407038-834d-4d26-93cb-106194953f8e') {
+                    reasonSpans[i].textContent = 'N/A';
+                }
+            }
+            
+            // Restaurar "In Dispute" a "Resolved"
+            var statusSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < statusSpans.length; k++) {
+                if (statusSpans[k].textContent === 'In Dispute' && statusSpans[k].style.color === 'rgb(233, 30, 99)') {
+                    statusSpans[k].textContent = 'Resolved';
+                    statusSpans[k].style.color = '#4CAF50';
+                }
+            }
+            
                     reasonSpans[i].textContent = '(383 days ago)';
                 }
                 // Cambiar el monto total
