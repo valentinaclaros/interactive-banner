@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepita (Pepita Pérez Pérez) - Shuffle Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #826BA6;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .profile-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .user-icon {
+            font-size: 28px;
+        }
+
+        .profile-title {
+            font-size: 32px;
+            font-weight: 400;
+            flex: 1;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-reload,
+        .btn-notification {
+            background: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .btn-reload:hover,
+        .btn-notification:hover {
+            background: #f0f0f0;
+        }
+
+        /* Profile Info Bar */
+        .profile-info-bar {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 8px;
+        }
+
+        .info-label {
+            font-weight: 400;
+        }
+
+        .info-value {
+            font-weight: 600;
+        }
+
+        /* Status Tags */
+        .status-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .tag-released {
+            background: #E8E8E8;
+            color: #333;
+        }
+
+        .tag-verification {
+            background: #D4C5E8;
+            color: #4a3a5f;
+        }
+
+        .tag-cpf {
+            background: #3D3452;
+            color: white;
+        }
+
+        .tag-lobby {
+            background: #6B7280;
+            color: white;
+        }
+
+        .tag-add {
+            background: #5DCED8;
+            color: white;
+        }
+
+        /* Category Pills */
+        .category-pills {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .toggle-all {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .toggle-all input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .pill {
+            background: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .pill:hover {
+            background: #f5f5f5;
+        }
+
+        .pill-active {
+            background: white;
+            font-weight: 600;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: 20px;
+        }
+
+        .middle-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: visible;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .card-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .btn-menu,
+        .btn-expand {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 14px;
+            color: #666;
+            background: #fafafa;
+        }
+
+        /* Profile Photo */
+        .profile-photo {
+            margin-bottom: 20px;
+        }
+
+        .profile-photo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        /* Info Sections */
+        .info-section {
+            margin-bottom: 20px;
+        }
+
+        .info-section label {
+            display: block;
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .info-section p {
+            font-size: 15px;
+            color: #111;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .social-icon {
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 8px;
+        }
+
+        .email-verified {
+            color: #10B981;
+            margin-left: 8px;
+        }
+
+        /* Fraudsters Section */
+        .fraudsters-card {
+            background: #E8E8EA;
+            min-height: 60px;
+        }
+
+        .fraudsters-card .card-header {
+            border: none;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #111;
+            font-weight: 600;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-cancel,
+        .btn-filter {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .btn-cancel:hover,
+        .btn-filter:hover {
+            background: #f9fafb;
+        }
+
+        /* Tabs */
+        .card-tabs {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .tab {
+            background: none;
+            border: none;
+            padding: 12px 0;
+            cursor: pointer;
+            font-size: 15px;
+            color: #666;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .tab:hover {
+            color: #333;
+        }
+
+        .tab-active {
+            color: #8247E5;
+            font-weight: 600;
+        }
+
+        .tab-active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #8247E5;
+        }
+
+        .badge {
+            background: #8247E5;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        /* Card Item */
+        .card-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .card-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .card-status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #10B981;
+            flex-shrink: 0;
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-type {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 15px;
+            color: #111;
+            font-weight: 500;
+        }
+
+        .badge-debit {
+            background: #F3E8FF;
+            color: #7C3AED;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .card-number {
+            font-size: 13px;
+            color: #666;
+            font-family: monospace;
+        }
+
+        .card-last-digits {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111;
+            flex-shrink: 0;
+        }
+
+        .btn-arrow {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        /* Bills Section */
+        .bills-card {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .bills-card h3 {
+            font-size: 18px;
+            color: #111;
+            font-weight: 500;
+        }
+
+        /* Marital Status */
+        .marital-select {
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+            background: white;
+            cursor: pointer;
+            width: 150px;
+        }
+
+        /* Shipping Address Alert */
+        .shipping-alert {
+            background: #5B7C99;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-title {
+                font-size: 24px;
+            }
+
+            .category-pills {
+                gap: 8px;
+            }
+
+            .pill {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Header -->
+        <div class="profile-header">
+            <div class="user-icon">👤</div>
+            <h1 class="profile-title">Pepita (Pepita Pérez Pérez)</h1>
+            <div class="header-actions">
+                <button class="btn-reload">Reload Deck</button>
+                <button class="btn-notification">Notification History</button>
+            </div>
+        </div>
+
+        <!-- Printed Name and CPF -->
+        <div class="profile-info-bar">
+            <div class="info-item">
+                <span class="info-label">Printed name:</span>
+                <span class="info-value">PEPITA PÉREZ</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">CPF:</span>
+                <span class="info-value">CC-1234567890</span>
+            </div>
+        </div>
+
+        <!-- Status Tags -->
+        <div class="status-tags">
+            <span class="tag tag-released">RELEASED</span>
+            <span class="tag tag-verification">POST EMAIL VERIFICATION</span>
+            <span class="tag tag-cpf">🔥 CPF</span>
+            <span class="tag tag-lobby">🔑 LOBBY MVP 2.0</span>
+            <span class="tag tag-add">+ TAG</span>
+        </div>
+
+        <!-- Category Pills -->
+        <div class="category-pills">
+            <label class="toggle-all">
+                <input type="checkbox" id="selectAll">
+                <span>Select all</span>
+            </label>
+            <button class="pill pill-active">General</button>
+            <button class="pill">Bills</button>
+            <button class="pill">Bills CO</button>
+            <button class="pill">Fraud</button>
+            <button class="pill">Acquisition</button>
+            <button class="pill">Savings</button>
+            <button class="pill">Card</button>
+            <button class="pill">Pricing</button>
+            <button class="pill">Lending</button>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Left Column - Person Information -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Person Information</h2>
+                    <button class="btn-menu">⋮</button>
+                </div>
+                <div class="card-body">
+                    <div class="profile-photo">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%238A6BBE;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23B19CD9;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23grad1)'/%3E%3Ctext x='100' y='115' font-family='Arial' font-size='80' font-weight='600' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" alt="Pepita Profile">
+                    </div>
+                    <div class="info-section">
+                        <label>PREFERRED NAME</label>
+                        <p>Pepita (Pepita Pérez Pérez) <a href="#" class="social-icon">📘</a></p>
+                    </div>
+                    <div class="info-section">
+                        <label>EMAIL</label>
+                        <p>pepitaperez@gmail.com <span class="email-verified">✉️</span> <a href="#" class="social-icon">📘</a></p>
+                    </div>
+                    <div class="info-section">
+                        <label>PRINTED NAME</label>
+                        <p>PEPITA PÉREZ</p>
+                    </div>
+                    <div class="info-section">
+                        <label>TAX ID</label>
+                        <p>CC-1234567890</p>
+                    </div>
+                    <div class="info-section">
+                        <label>BIRTHDATE</label>
+                        <p>01/01/2001</p>
+                    </div>
+                    <div class="info-section">
+                        <label>MARITAL STATUS</label>
+                        <select class="marital-select">
+                            <option>None</option>
+                        </select>
+                    </div>
+                    <div class="info-section">
+                        <label>SHIPPING ADDRESS</label>
+                        <div class="shipping-alert">
+                            This may not be the address for ongoing deliveries. Please check the "Shipping Info" widget to confirm.
+                        </div>
+                        <p>Calle 123 #12-34, Leticia, AM, 1102221, Colombia</p>
+                    </div>
+                    <div class="info-section">
+                        <label>BILLING ADDRESS</label>
+                        <p>Calle 123 #12-34, Leticia, AM, 1102221, Colombia</p>
+                    </div>
+                    <div class="info-section">
+                        <label>PHONE NUMBER</label>
+                        <p>(57) 333-333-3333</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="middle-column">
+                <!-- Fraudsters or Suspects -->
+                <div class="card fraudsters-card">
+                    <div class="card-header">
+                        <h2>Fraudsters Or Suspects</h2>
+                        <button class="btn-expand">˅</button>
+                    </div>
+                </div>
+
+                <!-- Cards Section -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Cards</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="filter-section">
+                            <h3>Filtrar cartões</h3>
+                            <div class="filter-actions">
+                                <button class="btn-cancel">Cancel Cards</button>
+                                <button class="btn-filter">≡ Filtros</button>
+                            </div>
+                        </div>
+                        <div class="card-tabs">
+                            <button class="tab tab-active">Physical <span class="badge">1</span></button>
+                            <button class="tab">Virtual</button>
+                            <button class="tab">Additional</button>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox">
+                            <div class="card-status-indicator"></div>
+                            <div class="card-info">
+                                <div class="card-type">
+                                    <span>Physical</span>
+                                    <span class="badge-debit">Debit</span>
+                                </div>
+                                <div class="card-number">69404ed5-db0f-44b4-ba91-5f860534d09a 📋</div>
+                            </div>
+                            <div class="card-last-digits">...9975</div>
+                            <button class="btn-arrow">›</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>⟳ Cards</span>
+                        <span>Rate this widget 👍 👎</span>
+                    </div>
+                </div>
+
+                <!-- Bills Section -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Bills</h2>
+                    </div>
+                    <div class="card-body bills-card">
+                        <h3>No bills found</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Category pills toggle
+        const pills = document.querySelectorAll('.pill');
+        pills.forEach(pill => {
+            pill.addEventListener('click', function() {
+                pills.forEach(p => p.classList.remove('pill-active'));
+                this.classList.add('pill-active');
+            });
+        });
+
+        // Select all checkbox
+        const selectAllCheckbox = document.getElementById('selectAll');
+        if (selectAllCheckbox) {
+            selectAllCheckbox.addEventListener('change', function() {
+                const cardCheckboxes = document.querySelectorAll('.card-item input[type="checkbox"]');
+                cardCheckboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+        }
+
+        // Card tabs switching
+        const cardTabs = document.querySelectorAll('.card-tabs .tab');
+        cardTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const parentTabs = this.closest('.card-tabs');
+                parentTabs.querySelectorAll('.tab').forEach(t => t.classList.remove('tab-active'));
+                this.classList.add('tab-active');
+            });
+        });
+
+        // Collapsible card toggle
+        const expandButtons = document.querySelectorAll('.btn-expand');
+        expandButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.card');
+                const cardBody = card.querySelector('.card-body');
+                if (cardBody) {
+                    cardBody.style.display = cardBody.style.display === 'none' ? 'block' : 'none';
+                }
+                this.textContent = cardBody && cardBody.style.display === 'none' ? '˃' : '˅';
+            });
+        });
+    </script>
+</body>
+</html>

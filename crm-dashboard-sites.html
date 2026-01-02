@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Dashboard - María Macedo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #7C6BA6 0%, #6B5B95 100%);
+        }
+
+        /* Header Styles */
+        .header {
+            padding: 24px 32px;
+            color: white;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .user-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+        }
+
+        .user-details {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #6B5B95;
+        }
+
+        .btn-primary:hover {
+            background: #f0f0f0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content Grid */
+        .content-area {
+            padding: 32px;
+        }
+
+        .widgets-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            align-items: start;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Widget Styles */
+        .widget {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .widget-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .widget-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-btn {
+            padding: 4px;
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .icon-btn:hover {
+            color: #666;
+        }
+
+        .collapse-icon {
+            transition: transform 0.3s;
+        }
+
+        .collapse-icon.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .widget-content {
+            padding: 16px;
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .widget-content.collapsed {
+            max-height: 0;
+            padding: 0;
+            opacity: 0;
+        }
+
+        .widget-footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .widget-footer.collapsed {
+            display: none;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Box Styles */
+        .success-box {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .success-box .icon {
+            color: #16a34a;
+            font-size: 24px;
+        }
+
+        .success-box .text {
+            color: #166534;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border: 1px solid #93c5fd;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            font-size: 14px;
+            color: #1e40af;
+        }
+
+        .warning-box {
+            background: #fefce8;
+            border: 1px solid #fde047;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            font-size: 14px;
+            color: #854d0e;
+        }
+
+        .gray-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #9ca3af;
+            padding: 32px 16px;
+        }
+
+        /* Person Information Specific Styles */
+        .profile-photo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .profile-avatar {
+            width: 96px;
+            height: 96px;
+            background: #ddd6f3;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-avatar svg {
+            width: 64px;
+            height: 64px;
+            fill: #7C6BA6;
+        }
+
+        .field-group {
+            margin-bottom: 16px;
+        }
+
+        .field-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #6b7280;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .field-value {
+            font-size: 14px;
+            color: #1f2937;
+            font-weight: 500;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* Cards Widget Styles */
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 16px;
+        }
+
+        .filter-title {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            padding: 4px 12px;
+            font-size: 12px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 16px;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 16px;
+        }
+
+        .tab {
+            padding: 8px 4px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #6b7280;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            cursor: pointer;
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+        }
+
+        .tab.active {
+            color: #7C6BA6;
+            border-bottom-color: #7C6BA6;
+        }
+
+        .tab-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 4px;
+        }
+
+        .tab-badge.primary {
+            background: #7C6BA6;
+            color: white;
+        }
+
+        .tab-badge.secondary {
+            color: #9ca3af;
+        }
+
+        .card-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-status {
+            color: #16a34a;
+            font-size: 16px;
+        }
+
+        .card-status.cancelled {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .card-info .card-name {
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-badge {
+            padding: 2px 8px;
+            background: #f3f4f6;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .card-id {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .card-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-details {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+            display: none;
+        }
+
+        .card-details.expanded {
+            display: block;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .detail-label {
+            color: #6b7280;
+        }
+
+        .detail-value {
+            font-family: monospace;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .modal-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .modal-select, .modal-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .btn-cancel {
+            padding: 8px 16px;
+            border: 1px solid #d1d5db;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn-confirm {
+            padding: 8px 16px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn-confirm:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            align-items: center;
+            gap: 12px;
+            z-index: 2000;
+        }
+
+        .toast.active {
+            display: flex;
+        }
+
+        .toast-icon {
+            width: 24px;
+            height: 24px;
+            background: #16a34a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #999;
+            cursor: pointer;
+            margin-left: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .widgets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .widgets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="user-info">
+                    <div class="user-name">
+                        <span>Wilmer</span>
+                        <span style="color: rgba(255, 255, 255, 0.7);">·</span>
+                        <span style="font-size: 20px; color: rgba(255, 255, 255, 0.9);">MARÍA MACEDO</span>
+                        <span style="color: rgba(255, 255, 255, 0.7);">·</span>
+                        <span style="font-size: 20px; color: rgba(255, 255, 255, 0.9);">CC-1234567890</span>
+                    </div>
+                    <div class="user-details">
+                        Customer ID: 12345 • Shard: shard-01
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-primary">Actions</button>
+                </div>
+            </div>
+
+            <div class="tags">
+                <span class="tag">General</span>
+                <span class="tag">Bills</span>
+                <span class="tag">Bills CO</span>
+                <span class="tag">Fraud</span>
+                <span class="tag">Acquisition</span>
+                <span class="tag">Savings</span>
+                <span class="tag">Card</span>
+                <span class="tag">Pricing</span>
+                <span class="tag">Lending</span>
+                <span class="tag">CC Mass Market</span>
+                <span class="tag">Chargeback</span>
+                <span class="tag">Collections</span>
+                <span class="tag">RegOps</span>
+                <span class="tag">Mobility</span>
+                <span class="tag">Data protection</span>
+                <span class="tag">NU+</span>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="btn btn-primary">Select all</button>
+                <button class="btn btn-secondary">Filter widgets</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="content-area">
+            <div class="widgets-grid">
+                <!-- Column 1: Person Information -->
+                <div class="column">
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('person')">
+                            <h2 class="widget-title">
+                                <span style="color: #3b82f6;">💬</span>
+                                Person Information
+                            </h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="person-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="person-content">
+                            <div class="profile-photo">
+                                <div class="profile-avatar">
+                                    <svg viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">Preferred Name</div>
+                                <div class="field-value">María (María Macedo Florez) 💬</div>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">Email</div>
+                                <div class="field-value">mariamacedo@gmail.com 💬</div>
+                            </div>
+
+                            <div class="field-grid">
+                                <div class="field-group">
+                                    <div class="field-label">Printed Name</div>
+                                    <div class="field-value">MARÍA MACEDO</div>
+                                </div>
+                                <div class="field-group">
+                                    <div class="field-label">Tax ID</div>
+                                    <div class="field-value">CC-1234567890</div>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">Birthdate</div>
+                                <div class="field-value">01/01/2007</div>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">Marital Status</div>
+                                <select>
+                                    <option>None</option>
+                                    <option>Single</option>
+                                    <option>Married</option>
+                                    <option>Divorced</option>
+                                </select>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">Shipping Address</div>
+                                <div class="info-box" style="margin-top: 4px;">
+                                    <span style="font-size: 20px;">ℹ️</span>
+                                    <div>
+                                        <p style="font-weight: 500;">This may not be the address for ongoing deliveries. Please check the "Shipping Info" widget to confirm.</p>
+                                    </div>
+                                </div>
+                                <p style="margin-top: 8px; font-size: 14px; color: #374151;">Calle 123 #43-34, Leticia, AM, Colombia</p>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">Billing Address</div>
+                                <div class="field-value" style="font-weight: normal;">Calle 123 #43-34, Leticia, AM, Colombia</div>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">Phone Number</div>
+                                <div class="field-value" style="font-weight: normal;">(57) 33333-3333 3</div>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">User Agent</div>
+                                <div style="font-size: 12px; color: #6b7280; word-break: break-all;">Mozilla/5.0 (Windows NT 10.0; Win64; x64)</div>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">Channel</div>
+                                <div class="field-value" style="font-weight: normal;">Mobile App</div>
+                            </div>
+
+                            <div class="field-grid">
+                                <div class="field-group">
+                                    <div class="field-label">Customer ID</div>
+                                    <div class="field-value" style="font-weight: normal;">12345</div>
+                                </div>
+                                <div class="field-group">
+                                    <div class="field-label">Prospect ID</div>
+                                    <div class="field-value" style="font-weight: normal;">PRO-12345</div>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <div class="field-label">Shard</div>
+                                <div class="field-value" style="font-weight: normal;">shard-01</div>
+                            </div>
+                        </div>
+                        <div class="widget-footer" id="person-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>General</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Fraudsters, Cards, Bills -->
+                <div class="column">
+                    <!-- Fraudsters Widget -->
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('fraud')">
+                            <h2 class="widget-title">Fraudsters Or Suspects</h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="fraud-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="fraud-content">
+                            <div class="success-box">
+                                <div class="icon">✓</div>
+                                <div class="text">
+                                    <p style="font-weight: 500; margin-bottom: 4px;">This customer has no fraud reports.</p>
+                                    <p>All good!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-footer" id="fraud-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>Fraud Investigations - Core</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cards Widget -->
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('cards')">
+                            <h2 class="widget-title">Cards</h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="cards-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="cards-content">
+                            <div class="filter-section">
+                                <h3 class="filter-title">Filtrar cartões</h3>
+                                <div class="filter-actions">
+                                    <button class="filter-btn">Cancel Cards</button>
+                                    <button class="filter-btn" style="color: #7C6BA6;">☰ Filtros</button>
+                                </div>
+                            </div>
+
+                            <div class="tabs">
+                                <button class="tab active" onclick="switchTab('physical')">
+                                    Physical <span class="tab-badge primary">1</span>
+                                </button>
+                                <button class="tab" onclick="switchTab('virtual')">
+                                    Virtual <span class="tab-badge secondary">1</span>
+                                </button>
+                                <button class="tab" onclick="switchTab('additional')">
+                                    Additional
+                                </button>
+                            </div>
+
+                            <!-- Physical Card -->
+                            <div id="physical-card" class="card-item">
+                                <div class="card-header">
+                                    <div class="card-left">
+                                        <div class="card-icon">💳</div>
+                                        <span class="card-status" id="physical-status">✓</span>
+                                        <div class="card-info">
+                                            <div class="card-name">
+                                                Physical
+                                                <span class="card-badge">Debit</span>
+                                            </div>
+                                            <div class="card-id">ID: 9426</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-right">
+                                        <button class="icon-btn">📋</button>
+                                        <button class="icon-btn" onclick="toggleCardDetails('physical')">
+                                            <span id="physical-arrow">▼</span>
+                                        </button>
+                                        <button class="icon-btn" onclick="openCancelModal('physical')">⋮</button>
+                                    </div>
+                                </div>
+                                <div class="card-details" id="physical-details">
+                                    <div class="detail-row">
+                                        <span class="detail-label">Card Number:</span>
+                                        <span class="detail-value">**** **** **** 9426</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Expiry:</span>
+                                        <span class="detail-value">12/25</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Status:</span>
+                                        <span style="color: #16a34a;">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Virtual Card -->
+                            <div id="virtual-card" class="card-item" style="display: none;">
+                                <div class="card-header">
+                                    <div class="card-left">
+                                        <div class="card-icon" style="background: #e9d5ff;">💳</div>
+                                        <span class="card-status" id="virtual-status">✓</span>
+                                        <div class="card-info">
+                                            <div class="card-name">
+                                                Virtual
+                                                <span class="card-badge">Debit</span>
+                                            </div>
+                                            <div class="card-id">ID: 8523</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-right">
+                                        <button class="icon-btn">📋</button>
+                                        <button class="icon-btn" onclick="toggleCardDetails('virtual')">
+                                            <span id="virtual-arrow">▼</span>
+                                        </button>
+                                        <button class="icon-btn" onclick="openCancelModal('virtual')">⋮</button>
+                                    </div>
+                                </div>
+                                <div class="card-details" id="virtual-details">
+                                    <div class="detail-row">
+                                        <span class="detail-label">Card Number:</span>
+                                        <span class="detail-value">**** **** **** 8523</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Expiry:</span>
+                                        <span class="detail-value">11/26</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Status:</span>
+                                        <span style="color: #16a34a;">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="additional-card" style="display: none;">
+                                <div class="empty-state">No additional cards found</div>
+                            </div>
+                        </div>
+                        <div class="widget-footer" id="cards-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>Cards</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bills Widget -->
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('bills')">
+                            <h2 class="widget-title">Bills</h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="bills-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="bills-content">
+                            <div class="empty-state">No bills found</div>
+                        </div>
+                        <div class="widget-footer" id="bills-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>Co-Operations</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Current Situation, Collection History, Financing -->
+                <div class="column">
+                    <!-- Current Situation Widget -->
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('situation')">
+                            <h2 class="widget-title">Current Situation</h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="situation-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="situation-content">
+                            <div class="tabs" style="margin-bottom: 16px;">
+                                <button class="tab active">Credit-Card</button>
+                                <button class="tab">Lending</button>
+                            </div>
+
+                            <div class="gray-box" style="margin-bottom: 12px;">
+                                <span style="font-size: 20px;">ℹ️</span>
+                                <p>Customer does not have a credit card account.</p>
+                                <button style="margin-left: auto; background: none; border: none; cursor: pointer; color: #999;">×</button>
+                            </div>
+
+                            <div class="success-box">
+                                <div class="icon">✓</div>
+                                <p>No active credit card collection for the customer</p>
+                            </div>
+                        </div>
+                        <div class="widget-footer" id="situation-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>Collections</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collection History Widget -->
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('history')">
+                            <h2 class="widget-title">Customer Collection History</h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="history-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="history-content">
+                            <div class="empty-state">
+                                <div style="width: 32px; height: 32px; border: 4px solid #f3f4f6; border-top-color: #7C6BA6; border-radius: 50%; margin: 0 auto 12px; animation: spin 1s linear infinite;"></div>
+                                <p>Load</p>
+                            </div>
+                        </div>
+                        <div class="widget-footer" id="history-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>Collections</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financing Widget -->
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('financing')">
+                            <h2 class="widget-title">Financing</h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="financing-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="financing-content">
+                            <div style="text-align: center; padding: 24px 0;">
+                                <p style="color: #6b7280; margin-bottom: 16px;">Something went wrong. Try again later.</p>
+                                <button style="padding: 8px 16px; background: #7C6BA6; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500;">
+                                    Reload
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-footer" id="financing-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>Financing</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 4: Credit Card, Chargebacks, Bills -->
+                <div class="column">
+                    <!-- Credit Card Account Widget -->
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('credit')">
+                            <h2 class="widget-title">Credit Card Account</h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="credit-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="credit-content">
+                            <div class="gray-box">
+                                <span style="font-size: 20px;">ℹ️</span>
+                                <p>Customer does not have a credit card account</p>
+                            </div>
+                        </div>
+                        <div class="widget-footer" id="credit-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>Co-Operations</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chargebacks Widget -->
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('chargebacks')">
+                            <h2 class="widget-title">Chargebacks</h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="chargebacks-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="chargebacks-content">
+                            <div class="empty-state">
+                                <p style="margin-bottom: 16px;">There are no chargebacks</p>
+                                <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+                                    <span style="font-size: 12px; cursor: pointer;">Load</span>
+                                    <button class="icon-btn">📋</button>
+                                    <button class="icon-btn">🔄</button>
+                                </div>
+                                <div style="margin-top: 16px;">
+                                    <span style="font-size: 12px; color: #9ca3af;">Chargeback</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-footer" id="chargebacks-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>Chargeback</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bills Widget (Right) -->
+                    <div class="widget">
+                        <div class="widget-header" onclick="toggleWidget('bills-right')">
+                            <h2 class="widget-title">Bills</h2>
+                            <div class="widget-actions">
+                                <button class="icon-btn">⋮</button>
+                                <button class="icon-btn">
+                                    <span class="collapse-icon" id="bills-right-icon">▼</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="widget-content" id="bills-right-content">
+                            <div class="empty-state">There are no bills</div>
+                        </div>
+                        <div class="widget-footer" id="bills-right-footer">
+                            <div class="footer-left">
+                                <span>🔄</span>
+                                <span>Bills</span>
+                            </div>
+                            <div class="footer-right">
+                                <span style="font-size: 12px;">Rate this widget</span>
+                                <button class="icon-btn">👍</button>
+                                <button class="icon-btn">👎</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancel Card Modal -->
+    <div class="modal-overlay" id="cancelModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Cancel this card</h2>
+                <button class="modal-close" onclick="closeCancelModal()">×</button>
+            </div>
+
+            <label class="modal-label">Select the cancelation reason</label>
+            <select class="modal-select" id="cancelReason" onchange="handleReasonChange()">
+                <option value="">Select a reason</option>
+                <option value="lost">Lost card</option>
+                <option value="stolen">Stolen card</option>
+                <option value="damaged">Damaged card</option>
+            </select>
+
+            <div id="warningSection" style="display: none;">
+                <div class="warning-box" style="margin-bottom: 16px;">
+                    <span style="font-size: 20px;">⚠️</span>
+                    <p>This action cannot be undone. Please confirm by entering the code.</p>
+                </div>
+
+                <label class="modal-label">Confirmation Code: <span id="confirmCode">123456</span></label>
+                <input type="text" class="modal-input" id="codeInput" placeholder="Enter confirmation code">
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeCancelModal()">Cancel</button>
+                <button class="btn-confirm" id="confirmBtn" onclick="confirmCancellation()" disabled>Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">✓</div>
+        <span>Cards updated successfully</span>
+        <button class="toast-close" onclick="closeToast()">×</button>
+    </div>
+
+    <style>
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script>
+        // Widget Toggle
+        function toggleWidget(widgetId) {
+            const content = document.getElementById(widgetId + '-content');
+            const footer = document.getElementById(widgetId + '-footer');
+            const icon = document.getElementById(widgetId + '-icon');
+            
+            content.classList.toggle('collapsed');
+            footer.classList.toggle('collapsed');
+            icon.classList.toggle('collapsed');
+        }
+
+        // Tab Switching
+        function switchTab(tabName) {
+            // Update tab buttons
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show/hide card content
+            document.getElementById('physical-card').style.display = tabName === 'physical' ? 'block' : 'none';
+            document.getElementById('virtual-card').style.display = tabName === 'virtual' ? 'block' : 'none';
+            document.getElementById('additional-card').style.display = tabName === 'additional' ? 'block' : 'none';
+        }
+
+        // Toggle Card Details
+        function toggleCardDetails(cardType) {
+            const details = document.getElementById(cardType + '-details');
+            const arrow = document.getElementById(cardType + '-arrow');
+            
+            details.classList.toggle('expanded');
+            arrow.textContent = details.classList.contains('expanded') ? '▲' : '▼';
+        }
+
+        // Cancel Modal
+        let currentCard = null;
+
+        function openCancelModal(cardType) {
+            currentCard = cardType;
+            document.getElementById('cancelModal').classList.add('active');
+        }
+
+        function closeCancelModal() {
+            document.getElementById('cancelModal').classList.remove('active');
+            document.getElementById('cancelReason').value = '';
+            document.getElementById('codeInput').value = '';
+            document.getElementById('warningSection').style.display = 'none';
+            document.getElementById('confirmBtn').disabled = true;
+            currentCard = null;
+        }
+
+        function handleReasonChange() {
+            const reason = document.getElementById('cancelReason').value;
+            const warningSection = document.getElementById('warningSection');
+            
+            if (reason) {
+                warningSection.style.display = 'block';
+            } else {
+                warningSection.style.display = 'none';
+            }
+            
+            validateForm();
+        }
+
+        // Validate form on code input
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeInput = document.getElementById('codeInput');
+            if (codeInput) {
+                codeInput.addEventListener('input', validateForm);
+            }
+        });
+
+        function validateForm() {
+            const reason = document.getElementById('cancelReason').value;
+            const code = document.getElementById('codeInput').value;
+            const confirmBtn = document.getElementById('confirmBtn');
+            
+            confirmBtn.disabled = !(reason && code === '123456');
+        }
+
+        function confirmCancellation() {
+            if (currentCard) {
+                // Update card status
+                const statusElement = document.getElementById(currentCard + '-status');
+                statusElement.textContent = '✗';
+                statusElement.classList.add('cancelled');
+                
+                // Close modal
+                closeCancelModal();
+                
+                // Show toast
+                showToast();
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('active');
+            
+            setTimeout(() => {
+                closeToast();
+            }, 3000);
+        }
+
+        function closeToast() {
+            document.getElementById('toast').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
+

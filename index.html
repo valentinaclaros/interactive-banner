@@ -248,6 +248,16 @@
             height: fit-content;
         }
 
+        /* Person Information widget collapsed background color */
+        #personInfoWidget.collapsed {
+            background: #DED9E2;
+        }
+
+        #personInfoWidget.collapsed .widget-header {
+            background: #DED9E2;
+            border-bottom: none;
+        }
+
         .widget-header {
             display: flex;
             justify-content: space-between;
@@ -4712,7 +4722,7 @@
                                 <span>Chat - acquisition.soft_decline</span>
                             </div>
                             <div class="interaction-email">
-                                equipo@nu.com.co
+                                pepito.perez@nu.com.co
                                 <span class="copy-icon">📋</span>
                             </div>
                         </div>
@@ -4723,7 +4733,7 @@
                                 <span>Chat - acquisition.soft_decline</span>
                             </div>
                             <div class="interaction-email">
-                                equipo@nu.com.co
+                                pepito.perez@nu.com.co
                                 <span class="copy-icon">📋</span>
                             </div>
                         </div>
@@ -4734,7 +4744,7 @@
                                 <span>Chat - acquisition.soft_decline</span>
                             </div>
                             <div class="interaction-email">
-                                equipo@nu.com.co
+                                pepito.perez@nu.com.co
                                 <span class="copy-icon">📋</span>
                             </div>
                         </div>
@@ -4745,7 +4755,7 @@
                                 <span>Chat - acquisition.soft_decline</span>
                             </div>
                             <div class="interaction-email">
-                                equipo@nu.com.co
+                                pepito.perez@nu.com.co
                                 <span class="copy-icon">📋</span>
                             </div>
                         </div>
@@ -4756,7 +4766,7 @@
                                 <span>Chat - acquisition.soft_decline</span>
                             </div>
                             <div class="interaction-email">
-                                equipo@nu.com.co
+                                pepito.perez@nu.com.co
                                 <span class="copy-icon">📋</span>
                             </div>
                         </div>
@@ -4767,7 +4777,7 @@
                                 <span>Chat - acquisition.soft_decline</span>
                             </div>
                             <div class="interaction-email">
-                                equipo@nu.com.co
+                                pepito.perez@nu.com.co
                                 <span class="copy-icon">📋</span>
                             </div>
                         </div>
@@ -7660,8 +7670,26 @@
                         <div class="contestation-content" style="padding: 24px;">
                             <!-- Contestation Items with Scrollbar -->
                             <div style="max-height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding-right: 8px;">
-                                <!-- Item 0 - NEW -->
+                                <!-- Item 0 - $389,968.00 -->
                                 <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(0)">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">12/15/2025</div>
+                                            <div style="font-size: 14px; color: #333; font-weight: 600;">1 purchases</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Total</div>
+                                            <div style="font-size: 16px; color: #333; font-weight: 700;">$389,968.00</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600; margin-bottom: 4px;">In Dispute</div>
+                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Cancelled Purchase</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Item 1 - $39,900.00 -->
+                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(1)">
                                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
                                         <div>
                                             <div style="font-size: 14px; color: #666; margin-bottom: 4px;">01/28/2025</div>
@@ -7678,8 +7706,8 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Item 1 -->
-                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(1)">
+                                <!-- Item 2 - $8,310.62 -->
+                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(2)">
                                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
                                         <div>
                                             <div style="font-size: 14px; color: #666; margin-bottom: 4px;">11/08/2024</div>
@@ -7696,74 +7724,20 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Item 2 -->
-                                <div style="border-left: 4px solid #FF9800; padding-left: 16px;">
+                                <!-- Item 3 - $509,900.00 -->
+                                <div style="border-left: 4px solid #FF9800; padding-left: 16px; cursor: pointer;" onclick="openComplaintModal(3)">
                                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
                                         <div>
-                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">11/08/2024</div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">12/09/2024</div>
                                             <div style="font-size: 14px; color: #333; font-weight: 600;">1 purchases</div>
                                         </div>
                                         <div>
                                             <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Total</div>
-                                            <div style="font-size: 16px; color: #333; font-weight: 700;">$41,587.93</div>
+                                            <div style="font-size: 16px; color: #333; font-weight: 700;">$509,900.00</div>
                                         </div>
                                         <div>
                                             <div style="font-size: 14px; color: #4CAF50; font-weight: 600; margin-bottom: 4px;">Resolved</div>
-                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Dispute with goods/service</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Item 3 -->
-                                <div style="border-left: 4px solid #FF9800; padding-left: 16px;">
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
-                                        <div>
-                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">11/08/2024</div>
-                                            <div style="font-size: 14px; color: #333; font-weight: 600;">1 purchases</div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Total</div>
-                                            <div style="font-size: 16px; color: #333; font-weight: 700;">$41,035.30</div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 14px; color: #4CAF50; font-weight: 600; margin-bottom: 4px;">Resolved</div>
-                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Dispute with goods/service</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Item 4 -->
-                                <div style="border-left: 4px solid #FF9800; padding-left: 16px;">
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
-                                        <div>
-                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">11/08/2024</div>
-                                            <div style="font-size: 14px; color: #333; font-weight: 600;">1 purchases</div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Total</div>
-                                            <div style="font-size: 16px; color: #333; font-weight: 700;">$41,522.92</div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 14px; color: #4CAF50; font-weight: 600; margin-bottom: 4px;">Resolved</div>
-                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Dispute with goods/service</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Item 5 - NEW -->
-                                <div style="border-left: 4px solid #FF9800; padding-left: 16px;">
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 8px;">
-                                        <div>
-                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">11/07/2023</div>
-                                            <div style="font-size: 14px; color: #333; font-weight: 600;">1 purchases</div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Total</div>
-                                            <div style="font-size: 16px; color: #333; font-weight: 700;">$78,400.00</div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 14px; color: #4CAF50; font-weight: 600; margin-bottom: 4px;">Resolved</div>
-                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Duplicated purchase</div>
+                                            <div style="font-size: 14px; color: #E91E63; font-weight: 600;">Unrecognized purchase</div>
                                         </div>
                                     </div>
                                 </div>
@@ -8419,7 +8393,7 @@
                     <!-- Tabs and Main Content Container -->
                     <div style="display: flex; gap: 24px;">
                         <!-- Left Panel: Contestation Details -->
-                        <div style="width: 1150px; height: 720px; border: 2px solid #E0E0E0; border-radius: 8px; padding: 32px; background: white; overflow-y: auto;">
+                        <div id="contestationPanel" style="width: 1150px; height: 720px; border: 2px solid #E0E0E0; border-radius: 8px; padding: 32px; background: white; overflow-y: auto;">
                             <div style="display: flex; gap: 24px; margin-bottom: 24px;">
                                 <div style="border-bottom: 2px solid #7C4DBC; padding-bottom: 8px; cursor: pointer;">
                                     <h3 style="font-size: 16px; font-weight: 600; color: #7C4DBC; margin: 0;">Contestation</h3>
@@ -8577,7 +8551,7 @@
                                     <!-- Merchant -->
                                     <div style="margin-bottom: 20px;">
                                         <div style="display: flex; align-items: center; gap: 8px;">
-                                            <span style="font-size: 18px; font-weight: 600; color: #333;">Apple.Com/Bill</span>
+                                            <span style="font-size: 18px; font-weight: 600; color: #333;">Pyd*Aromascent.Club</span>
                                             <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                 <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                     <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8592,7 +8566,7 @@
                                         <div>
                                             <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Transaction amount</div>
                                             <div style="display: flex; align-items: center; gap: 8px;">
-                                                <span style="font-size: 18px; font-weight: 600; color: #333;">$39,900.00</span>
+                                                <span style="font-size: 18px; font-weight: 600; color: #333;">$8,310.62</span>
                                                 <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                         <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8604,7 +8578,7 @@
                                         <div>
                                             <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Complained Amount</div>
                                             <div style="display: flex; align-items: center; gap: 8px;">
-                                                <span style="font-size: 18px; font-weight: 600; color: #333;">$39,900.00</span>
+                                                <span style="font-size: 18px; font-weight: 600; color: #333;">$8,310.62</span>
                                                 <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                         <path d="M12 4l-1.5 1.5L12 7" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8625,8 +8599,8 @@
                                             <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Purchase Date</div>
                                             <div style="display: flex; align-items: center; gap: 8px;">
                                                 <div>
-                                                    <div style="font-size: 16px; font-weight: 500; color: #333;">01/28/2025</div>
-                                                    <div style="font-size: 13px; color: #999;">332 days ago</div>
+                                                    <div style="font-size: 16px; font-weight: 500; color: #333;">09/25/2024</div>
+                                                    <div style="font-size: 13px; color: #999;">458 days ago</div>
                                                 </div>
                                                 <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
@@ -8639,7 +8613,7 @@
                                         <div>
                                             <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Purchase Time</div>
                                             <div style="display: flex; align-items: center; gap: 8px;">
-                                                <span style="font-size: 16px; font-weight: 500; color: #333;">06:26:12</span>
+                                                <span style="font-size: 16px; font-weight: 500; color: #333;">09:32:19</span>
                                                 <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                         <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8654,7 +8628,7 @@
                                     <div style="margin-bottom: 20px;">
                                         <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Transaction ID</div>
                                         <div style="display: flex; align-items: center; gap: 8px;">
-                                            <span style="font-size: 14px; color: #333;">6798bed5-74a6-4ec6-b9c4-812265e24109</span>
+                                            <span style="font-size: 14px; color: #333;">66f41ef4-1206-4439-97fb-30e3c96cee7d</span>
                                             <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                 <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                     <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8688,7 +8662,7 @@
                                                 <div style="margin-bottom: 20px;">
                                                     <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Entry mode</div>
                                                     <div style="display: flex; align-items: center; gap: 8px;">
-                                                        <span style="font-size: 15px; color: #333;">Online purchase with PAN saved by merchant</span>
+                                                        <span style="font-size: 15px; color: #333;">Electronic commerce, including Chip</span>
                                                         <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                                 <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8740,7 +8714,7 @@
                                                 <div style="margin-bottom: 20px;">
                                                     <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Expires on</div>
                                                     <div style="display: flex; align-items: center; gap: 8px;">
-                                                        <span style="font-size: 15px; color: #333;">04/02/2025</span>
+                                                        <span style="font-size: 15px; color: #333;">02/10/2024</span>
                                                         <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                                 <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8792,7 +8766,7 @@
                                                 <div style="margin-bottom: 20px;">
                                                     <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Recurring</div>
                                                     <div style="display: flex; align-items: center; gap: 8px;">
-                                                        <span style="font-size: 15px; color: #333;">Yes</span>
+                                                        <span style="font-size: 15px; color: #333;">No</span>
                                                         <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                                 <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8805,7 +8779,7 @@
                                                 <div style="margin-bottom: 20px;">
                                                     <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Auth code</div>
                                                     <div style="display: flex; align-items: center; gap: 8px;">
-                                                        <span style="font-size: 15px; color: #333;">704930</span>
+                                                        <span style="font-size: 15px; color: #333;">920905</span>
                                                         <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                                 <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8816,9 +8790,9 @@
                                                 </div>
                                                 
                                                 <div style="margin-bottom: 20px;">
-                                                    <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Card number</div>
+                                                    <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Card ID</div>
                                                     <div style="display: flex; align-items: center; gap: 8px;">
-                                                        <span style="font-size: 15px; color: #333;">5558XXXXXXXXX6359</span>
+                                                        <span style="font-size: 15px; color: #333;">1234XXXXXXXXX1234</span>
                                                         <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                                 <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8831,7 +8805,7 @@
                                                 <div style="margin-bottom: 20px;">
                                                     <div style="font-size: 13px; color: #666; margin-bottom: 6px;">NSU</div>
                                                     <div style="display: flex; align-items: center; gap: 8px;">
-                                                        <span style="font-size: 15px; color: #333;">621990</span>
+                                                        <span style="font-size: 15px; color: #333;">457509</span>
                                                         <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                                 <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8848,7 +8822,7 @@
                                             <div style="margin-bottom: 20px;">
                                                 <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Card ID</div>
                                                 <div style="display: flex; align-items: center; gap: 8px;">
-                                                    <span style="font-size: 15px; color: #333;">639bea70-adb8-4ee7-8e72-200255f8f7e9</span>
+                                                    <span style="font-size: 15px; color: #333;">657cc64b-141d-46fe-9d07-4d10a25b068b</span>
                                                     <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                             <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8861,7 +8835,7 @@
                                             <div style="margin-bottom: 20px;">
                                                 <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Acquirer ID</div>
                                                 <div style="display: flex; align-items: center; gap: 8px;">
-                                                    <span style="font-size: 15px; color: #333;">003286</span>
+                                                    <span style="font-size: 15px; color: #333;">010537</span>
                                                     <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                             <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8874,7 +8848,7 @@
                                             <div style="margin-bottom: 20px;">
                                                 <div style="font-size: 13px; color: #666; margin-bottom: 6px;">Merchant ID</div>
                                                 <div style="display: flex; align-items: center; gap: 8px;">
-                                                    <span style="font-size: 15px; color: #333;">400215000108778</span>
+                                                    <span style="font-size: 15px; color: #333;">3736022oJS9baVD</span>
                                                     <button style="background: none; border: none; cursor: pointer; padding: 4px; color: #7C4DBC;">
                                                         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                                                             <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
@@ -8904,7 +8878,7 @@
                         </div>
                         
                         <!-- Right Panel: Comments Timeline -->
-                        <div style="width: 1150px; height: 720px; border: 2px solid #E0E0E0; border-radius: 8px; padding: 24px; background: white; overflow-y: auto;">
+                        <div id="commentsPanel" style="width: 1150px; height: 720px; border: 2px solid #E0E0E0; border-radius: 8px; padding: 24px; background: white; overflow-y: auto;">
                             <div style="display: flex; gap: 8px; margin-bottom: 20px;">
                                 <button style="padding: 8px 16px; background: #7C4DBC; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; color: white; cursor: pointer;">All</button>
                                 <button style="padding: 8px 16px; background: white; border: 1px solid #E0E0E0; border-radius: 6px; font-size: 14px; font-weight: 500; color: #666; cursor: pointer;">Customer</button>
@@ -8921,14 +8895,14 @@
                             </div>
                             
                             <!-- Timeline -->
-                            <div style="position: relative; padding-left: 32px;">
+                            <div id="commentsTimeline" style="position: relative; padding-left: 32px;">
                                 <!-- Timeline Item 1 -->
                                 <div style="position: relative; margin-bottom: 24px;">
                                     <div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>
                                     <div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>
                                     <div style="font-size: 14px; color: #666; margin-bottom: 8px;">03/07/2025 11:07:53</div>
                                     <div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">
-                                        <div style="font-weight: 600; color: #333; margin-bottom: 4px;">valentina.delgado@nu.com.co</div>
+                                        <div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>
                                         <div style="color: #333;">due to transaction manually reversed</div>
                                     </div>
                                 </div>
@@ -8984,7 +8958,7 @@
                                     <div style="font-size: 14px; color: #666; margin-bottom: 8px;">02/13/2025 09:35:54</div>
                                     <div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">
                                         <div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-analyzed</div>
-                                        <div style="color: #666;">By: katherine.angel@nu.com.co</div>
+                                        <div style="color: #666;">By: pepito.perez@nu.com.co</div>
                                     </div>
                                 </div>
                                 
@@ -9028,7 +9002,7 @@
                                     <div style="font-size: 14px; color: #666; margin-bottom: 8px;">02/13/2025 09:35:54</div>
                                     <div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">
                                         <div style="font-weight: 600; color: #333; margin-bottom: 4px;">analysis-requested</div>
-                                        <div style="color: #666;">By: camila.martinez@nu.com.co</div>
+                                        <div style="color: #666;">By: pepito.perez@nu.com.co</div>
                                     </div>
                                 </div>
                                 
@@ -9038,7 +9012,7 @@
                                     <div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>
                                     <div style="font-size: 14px; color: #666; margin-bottom: 8px;">01/28/2025 10:33:16</div>
                                     <div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">
-                                        <div style="font-weight: 600; color: #333; margin-bottom: 4px;">camilo.sierra@nu.com.co</div>
+                                        <div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>
                                         <div style="color: #333;">Trx Unsettled.</div>
                                     </div>
                                 </div>
@@ -9061,7 +9035,7 @@
                                     <div style="font-size: 14px; color: #666; margin-bottom: 8px;">01/28/2025 10:33:10</div>
                                     <div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">
                                         <div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-analyzed</div>
-                                        <div style="color: #666;">By: camilo.sierra@nu.com.co</div>
+                                        <div style="color: #666;">By: pepito.perez@nu.com.co</div>
                                     </div>
                                 </div>
                                 
@@ -9134,7 +9108,7 @@
                                     <div style="font-size: 14px; color: #666; margin-bottom: 8px;">01/28/2025 07:36:26</div>
                                     <div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">
                                         <div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-created</div>
-                                        <div style="color: #666;">By: christian.sanchez@nu.com.co</div>
+                                        <div style="color: #666;">By: pepito.perez@nu.com.co</div>
                                     </div>
                                 </div>
                             </div>
@@ -9278,6 +9252,15 @@
 
     <script>
         'use strict';
+        
+        // Guardar el timeline original al cargar la página
+        var originalTimeline = '';
+        document.addEventListener('DOMContentLoaded', function() {
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                originalTimeline = timelineContainer.innerHTML;
+            }
+        });
         
         function toggleWidget(widgetId) {
             const widget = document.getElementById(widgetId);
@@ -10049,6 +10032,506 @@
         function openComplaintModal(complaintId) {
             var modal = document.getElementById('complaintModal');
             modal.style.display = 'flex';
+            
+            // Guardar el complaintId actual en el modal para referencia
+            modal.setAttribute('data-current-complaint', complaintId);
+            
+            // RESETEAR el modal al estado inicial
+            // 1. Activar tab "To Be Analyzed" por defecto
+            var toBeAnalyzedContent = document.getElementById('toBeAnalyzedContent');
+            var analyzedContent = document.getElementById('analyzedContent');
+            var toBeAnalyzedBtn = document.getElementById('toBeAnalyzedBtn');
+            var analyzedBtn = document.getElementById('analyzedBtn');
+            
+            if (toBeAnalyzedContent) toBeAnalyzedContent.style.display = 'block';
+            if (analyzedContent) analyzedContent.style.display = 'none';
+            
+            if (toBeAnalyzedBtn) {
+                toBeAnalyzedBtn.style.background = '#7C4DBC';
+                toBeAnalyzedBtn.style.color = 'white';
+                toBeAnalyzedBtn.style.border = 'none';
+            }
+            if (analyzedBtn) {
+                analyzedBtn.style.background = 'white';
+                analyzedBtn.style.color = '#7C4DBC';
+                analyzedBtn.style.border = '2px solid #7C4DBC';
+            }
+            
+            // 2. Colapsar "View More" (ocultar contenido adicional)
+            var additionalDetails = document.getElementById('additionalDetails');
+            var viewMoreBtn = document.getElementById('viewMoreBtn');
+            
+            if (additionalDetails) {
+                additionalDetails.style.display = 'none';
+            }
+            if (viewMoreBtn) {
+                viewMoreBtn.style.display = 'flex';
+            }
+            
+            // 3. Scroll al top de los paneles
+            setTimeout(function() {
+                var contestationPanel = document.getElementById('contestationPanel');
+                var commentsPanel = document.getElementById('commentsPanel');
+                
+                if (contestationPanel) contestationPanel.scrollTop = 0;
+                if (commentsPanel) commentsPanel.scrollTop = 0;
+            }, 100);
+            
+            // Recargar TODA la información según el complaintId
+            if (complaintId === 0) {
+                // Disputa de $389,968.00 - Nueva disputa
+                loadComplaint0Data();
+            } else if (complaintId === 1) {
+                // Disputa de $39,900.00 - Cargar datos específicos
+                loadComplaint1Data();
+            } else if (complaintId === 2) {
+                // Disputa de $8,310.62 - Cargar datos específicos
+                loadComplaint2Data();
+            } else if (complaintId === 3) {
+                // Disputa de $509,900.00 - Cargar datos específicos
+                loadComplaint3Data();
+            }
+        }
+        
+        function loadComplaint0Data() {
+            // Nueva disputa de $389,968.00
+            var reasonSpans = document.querySelectorAll('#complaintModal span');
+            for (var i = 0; i < reasonSpans.length; i++) {
+                // Tab "To Be Analyzed" - Cambiar a "Cancelled Purchase"
+                if (reasonSpans[i].textContent === 'Unrecognized purchase' || reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase') {
+                    reasonSpans[i].textContent = 'Cancelled Purchase';
+                }
+                // Cambiar fecha "Reported at"
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent.indexOf('383 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(12 days ago)';
+                }
+                // Cambiar el monto total
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$509,900.00') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$389,968.00';
+                }
+                // Cambiar Complaint ID
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7') {
+                    reasonSpans[i].textContent = '69407038-b5ec-4f8f-bf14-29237fc3bba8';
+                }
+                // Cambiar Report ID
+                if (reasonSpans[i].textContent === 'N/A') {
+                    reasonSpans[i].textContent = '69407038-834d-4d26-93cb-106194953f8e';
+                }
+            }
+            
+            // Cambiar "Resolved" a "In Dispute" en el encabezado
+            var statusSpans = document.querySelectorAll('#complaintModal span');
+            for (var j = 0; j < statusSpans.length; j++) {
+                if (statusSpans[j].textContent === 'Resolved' && statusSpans[j].style.color === 'rgb(76, 175, 80)') {
+                    statusSpans[j].textContent = 'In Dispute';
+                    statusSpans[j].style.color = '#E91E63';
+                }
+            }
+            
+            // Actualizar timeline para $389,968.00
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                timelineContainer.innerHTML =
+                    '<div style="position: relative; padding-left: 32px;">' +
+                    
+                    '<!-- Event 1 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/19/2025 14:00:48</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-status-updated</div>' +
+                    '<div style="color: #333; margin-bottom: 4px;">To: In dispute</div>' +
+                    '<div style="color: #333;">By: pepito.perez@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 2 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:15</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-status-updated</div>' +
+                    '<div style="color: #333;">To: Ready to dispute</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 3 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:15</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-automated-status-updated</div>' +
+                    '<div style="color: #333;">To: In progress</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 4 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:15</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">dispute-requested</div>' +
+                    '<div style="color: #333;">1 movement(s)</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 5 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:13</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-automated-status-updated</div>' +
+                    '<div style="color: #333;">To: Analyzed</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 6 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:13</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-analyzed</div>' +
+                    '<div style="color: #333;">By: pepito.perez@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 7 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:13</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">dispute-analysis-approved</div>' +
+                    '<div style="color: #333; margin-bottom: 4px;">Reason: Ready to be disputed</div>' +
+                    '<div style="color: #333;">1 movement(s)</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 8 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/17/2025 13:29:13</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">refund-analysis-approved</div>' +
+                    '<div style="color: #333; margin-bottom: 4px;">Reason: Ready to be disputed</div>' +
+                    '<div style="color: #333;">1 movement(s)</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 9 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:33:47</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333;">Attachment added</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 10 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:31:53</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">email-sending-requested</div>' +
+                    '<div style="color: #333;">To: Credit chargeback submitted</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 11 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:31:53</div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">ligadin</div>' +
+                    '<div style="color: #333; margin-bottom: 8px;">The case will be analyzed by our internal team, please save the contestation with the status "In ana...</div>' +
+                    '<div style="color: #7C4DBC; text-decoration: underline; cursor: pointer; font-size: 14px;">Show full comment</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 12 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:31:53</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333;">manual-analysis-requested</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 13 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:31:53</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-automated-status-updated</div>' +
+                    '<div style="color: #333;">To: In analysis</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 14 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:31:53</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333;">analysis-requested</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 15 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:31:53</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-status-updated</div>' +
+                    '<div style="color: #333;">To: In analysis</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 16 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:31:53</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-automated-status-updated</div>' +
+                    '<div style="color: #333;">To: Created</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 17 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:31:53</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-created</div>' +
+                    '<div style="color: #333;">By: pepito.perez@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 18 - Customer Comment -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/15/2025 15:31:52</div>' +
+                    '<div style="background: #D4EDDA; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 8px;">Customer</div>' +
+                    '<div style="color: #333;">Devolución no recibida, cx tiene comprobantes, pero no tenemos registro del reembolso</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '</div>';
+            }
+        }
+        
+        function loadComplaint1Data() {
+            // Actualizar panel izquierdo - To Be Analyzed para $39,900.00
+            var reasonSpans = document.querySelectorAll('#complaintModal span');
+            for (var i = 0; i < reasonSpans.length; i++) {
+                // Restaurar valores originales para $39,900.00 desde $8,310.62, $389,968.00 y $509,900.00
+                if (reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase' || reasonSpans[i].textContent === 'Cancelled Purchase') {
+                    reasonSpans[i].textContent = 'Unrecognized purchase';
+                }
+                if (reasonSpans[i].textContent === 'Recurring charge not properly disclosed') {
+                    reasonSpans[i].textContent = 'Select a sub-reason';
+                    reasonSpans[i].style.color = '#999';
+                }
+                if (reasonSpans[i].textContent === '11/08/2024' || reasonSpans[i].textContent.indexOf('11/08/2024') !== -1 || reasonSpans[i].textContent === '12/09/2024' || reasonSpans[i].textContent.indexOf('12/09/2024') !== -1 || reasonSpans[i].textContent === '12/15/2025' || reasonSpans[i].textContent.indexOf('12/15/2025') !== -1) {
+                    reasonSpans[i].textContent = '01/28/2025';
+                }
+                if (reasonSpans[i].textContent === '(414 days ago)' || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent === '(383 days ago)' || reasonSpans[i].textContent.indexOf('383 days ago') !== -1 || reasonSpans[i].textContent === '(12 days ago)' || reasonSpans[i].textContent.indexOf('12 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(332 days ago)';
+                }
+                if ((reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$389,968.00') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$39,900.00';
+                }
+                if (reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7' || reasonSpans[i].textContent === '69407038-b5ec-4f8f-bf14-29237fc3bba8') {
+                    reasonSpans[i].textContent = '6798cf4a-35a0-468e-9a2c-0e38df28fec8';
+                }
+                if (reasonSpans[i].textContent === '69407038-834d-4d26-93cb-106194953f8e') {
+                    reasonSpans[i].textContent = 'N/A';
+                }
+            }
+            
+            // Restaurar "In Dispute" a "Resolved" y cambiar color
+            var statusSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < statusSpans.length; k++) {
+                if (statusSpans[k].textContent === 'In Dispute' && statusSpans[k].style.color === 'rgb(233, 30, 99)') {
+                    statusSpans[k].textContent = 'Resolved';
+                    statusSpans[k].style.color = '#4CAF50';
+                }
+            }
+            
+            // Restaurar "Debit" a "Credit" en el encabezado
+            var creditSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < creditSpans.length; k++) {
+                if (creditSpans[k].textContent === 'Debit' && creditSpans[k].style.fontSize === '16px' && creditSpans[k].style.fontWeight === '600') {
+                    creditSpans[k].textContent = 'Credit';
+                    break;
+                }
+            }
+            
+            // Restaurar timeline original para $39,900.00
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer && originalTimeline) {
+                timelineContainer.innerHTML = originalTimeline;
+            }
+        }
+        
+        function loadComplaint2Data() {
+            // Actualizar panel izquierdo para $8,310.62
+            var reasonSpans = document.querySelectorAll('#complaintModal span');
+            for (var i = 0; i < reasonSpans.length; i++) {
+                // Tab "To Be Analyzed" - desde $39,900.00, $389,968.00 y $509,900.00
+                if (reasonSpans[i].textContent === 'Unrecognized purchase' || reasonSpans[i].textContent === 'Duplicated purchase' || reasonSpans[i].textContent === 'Cancelled Purchase') {
+                    reasonSpans[i].textContent = 'Dispute with goods/service';
+                }
+                if (reasonSpans[i].textContent === 'Select a sub-reason') {
+                    reasonSpans[i].textContent = 'Recurring charge not properly disclosed';
+                    reasonSpans[i].style.color = '#333';
+                }
+                if (reasonSpans[i].textContent.indexOf('01/28/2025') !== -1 || reasonSpans[i].textContent.indexOf('12/09/2024') !== -1 || reasonSpans[i].textContent.indexOf('12/15/2025') !== -1) {
+                    reasonSpans[i].textContent = '11/08/2024';
+                }
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('383 days ago') !== -1 || reasonSpans[i].textContent.indexOf('12 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(414 days ago)';
+                }
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$509,900.00' || reasonSpans[i].textContent === '$389,968.00') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$8,310.62';
+                }
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '67572868-f9ee-4140-b004-629025f925a7' || reasonSpans[i].textContent === '69407038-b5ec-4f8f-bf14-29237fc3bba8') {
+                    reasonSpans[i].textContent = '672e3d10-5357-4aba-88ce-818adfb853af';
+                }
+                if (reasonSpans[i].textContent === '69407038-834d-4d26-93cb-106194953f8e') {
+                    reasonSpans[i].textContent = 'N/A';
+                }
+            }
+            
+            // Restaurar "In Dispute" a "Resolved"
+            var statusSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < statusSpans.length; k++) {
+                if (statusSpans[k].textContent === 'In Dispute' && statusSpans[k].style.color === 'rgb(233, 30, 99)') {
+                    statusSpans[k].textContent = 'Resolved';
+                    statusSpans[k].style.color = '#4CAF50';
+                }
+            }
+            
+            // Restaurar "Debit" a "Credit" en el encabezado
+            var creditSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < creditSpans.length; k++) {
+                if (creditSpans[k].textContent === 'Debit' && creditSpans[k].style.fontSize === '16px' && creditSpans[k].style.fontWeight === '600') {
+                    creditSpans[k].textContent = 'Credit';
+                    break;
+                }
+            }
+            
+            // Actualizar timeline para $8,310.62
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                timelineContainer.innerHTML = 
+                    '<!-- Timeline Item 1 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/30/2024 06:44:49 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px; cursor: pointer;" onclick="this.style.display=\'block\';">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">dispute-in-progress</div>' +
+                    '<div style="color: #666;">1 movement(s)</div>' +
+                    '<span style="color: #7C4DBC; margin-left: 8px;">›</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 2 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/15/2024 14:52:09 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #333;">resolution in favour</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 3 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/14/2024 12:47:53 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px; cursor: pointer;" onclick="this.style.display=\'block\';">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">dispute-requested</div>' +
+                    '<div style="color: #666;">1 movement(s)</div>' +
+                    '<span style="color: #7C4DBC; margin-left: 8px;">›</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 4 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/14/2024 12:47:53 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-analyzed</div>' +
+                    '<div style="color: #666;">By: pepito.perez@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 5 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">email-sending-requested</div>' +
+                    '<div style="color: #666;">To: Credit chargeback submitted</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 6 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 8px;">ligadin</div>' +
+                    '<div style="color: #333; margin-bottom: 8px;">The case will be analyzed by our internal team, please save the contestation with the status "In ana...</div>' +
+                    '<a href="#" style="color: #333; text-decoration: underline; font-size: 14px;">Show full comment</a>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 7 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333;">manual-analysis-requested</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 8 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333;">analysis-requested</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- Timeline Item 9 -->' +
+                    '<div style="position: relative; margin-bottom: 0px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="8" cy="8" r="6" fill="#E0E0E0"/></svg>11/08/2024 11:32:16 <button style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 4px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="6" y="4" width="4" height="2" fill="currentColor"/></svg></button></div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">complaint-created</div>' +
+                    '<div style="color: #666;">By: pepito.perez@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>';
+            }
         }
         
         function updateLeftPanel(data) {
@@ -10065,7 +10548,175 @@
         function updateComplaintFields(data) {
             // This would update the fields in the modal
             // For now, we'll keep the original structure and just note this needs implementation
-            console.log('Loading complaint data:', data);
+        }
+        
+        function loadComplaint3Data() {
+            // Actualizar panel izquierdo para $509,900.00
+            var reasonSpans = document.querySelectorAll('#complaintModal span');
+            for (var i = 0; i < reasonSpans.length; i++) {
+                // Tab "To Be Analyzed" - mantener "Unrecognized purchase"
+                if (reasonSpans[i].textContent === 'Dispute with goods/service' || reasonSpans[i].textContent === 'Duplicated purchase' || reasonSpans[i].textContent === 'Cancelled Purchase') {
+                    reasonSpans[i].textContent = 'Unrecognized purchase';
+                }
+                // Cambiar fecha "Reported at"
+                if (reasonSpans[i].textContent.indexOf('332 days ago') !== -1 || reasonSpans[i].textContent.indexOf('414 days ago') !== -1 || reasonSpans[i].textContent.indexOf('12 days ago') !== -1) {
+                    reasonSpans[i].textContent = '(383 days ago)';
+                }
+                // Cambiar el monto total
+                if ((reasonSpans[i].textContent === '$39,900.00' || reasonSpans[i].textContent === '$8,310.62' || reasonSpans[i].textContent === '$389,968.00') && reasonSpans[i].style.fontSize === '22px') {
+                    reasonSpans[i].textContent = '$509,900.00';
+                }
+                // Cambiar Complaint ID
+                if (reasonSpans[i].textContent === '6798cf4a-35a0-468e-9a2c-0e38df28fec8' || reasonSpans[i].textContent === '672e3d10-5357-4aba-88ce-818adfb853af' || reasonSpans[i].textContent === '69407038-b5ec-4f8f-bf14-29237fc3bba8') {
+                    reasonSpans[i].textContent = '67572868-f9ee-4140-b004-629025f925a7';
+                }
+                if (reasonSpans[i].textContent === '69407038-834d-4d26-93cb-106194953f8e') {
+                    reasonSpans[i].textContent = 'N/A';
+                }
+            }
+            
+            // Restaurar "In Dispute" a "Resolved"
+            var statusSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < statusSpans.length; k++) {
+                if (statusSpans[k].textContent === 'In Dispute' && statusSpans[k].style.color === 'rgb(233, 30, 99)') {
+                    statusSpans[k].textContent = 'Resolved';
+                    statusSpans[k].style.color = '#4CAF50';
+                }
+            }
+            
+            // Actualizar "Purchase Date" en días atrás (si existe)
+            var allDivs = document.querySelectorAll('#complaintModal div');
+            for (var j = 0; j < allDivs.length; j++) {
+                if (allDivs[j].textContent === '332 days ago' || allDivs[j].textContent === '458 days ago' || allDivs[j].textContent === '783 days ago') {
+                    allDivs[j].textContent = '406 days ago';
+                }
+            }
+            
+            // Cambiar "Credit" a "Debit" en el encabezado del transaction card
+            var creditSpans = document.querySelectorAll('#complaintModal span');
+            for (var k = 0; k < creditSpans.length; k++) {
+                if (creditSpans[k].textContent === 'Credit' && creditSpans[k].style.fontSize === '16px' && creditSpans[k].style.fontWeight === '600') {
+                    creditSpans[k].textContent = 'Debit';
+                    break;
+                }
+            }
+            
+            
+            // Actualizar timeline para $509,900.00
+            var timelineContainer = document.getElementById('commentsTimeline');
+            if (timelineContainer) {
+                timelineContainer.innerHTML =
+                    '<div style="position: relative; padding-left: 32px;">' +
+                    
+                    '<!-- Event 1 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">02/05/2025 02:34:23</div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #333;">resolution email sent</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 2 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">02/05/2025 02:34:22</div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #333;">invalid case, merchant rebuttal</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 3 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">01/02/2025 11:56:24</div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #333;">Depósito temporal gestionado el 02/01</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 4 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/19/2024 08:13:26</div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #333;">claim_id_2010606782132</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 5 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/12/2024 16:26:44</div>' +
+                    '<div style="background: #FFE4CC; padding: 16px; border-radius: 8px;">' +
+                    '<div style="font-weight: 600; color: #333; margin-bottom: 4px;">pepito.perez@nu.com.co</div>' +
+                    '<div style="color: #333;">Depósito temporal gestionado el 12/12</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 6 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/09/2024 12:27:06</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333;">card-soft-blocked</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 7 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/09/2024 12:27:06</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">email-sending-requested</div>' +
+                    '<div style="color: #333;">To: Credit chargeback submitted</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 8 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/09/2024 12:27:05</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-analyzed</div>' +
+                    '<div style="color: #333;">By: Analyzed automatically</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 9 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="position: absolute; left: -26px; top: 12px; width: 2px; height: calc(100% + 24px); background: #E0E0E0;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/09/2024 12:27:05</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333;">analysis-requested</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '<!-- Event 10 -->' +
+                    '<div style="position: relative; margin-bottom: 24px;">' +
+                    '<div style="position: absolute; left: -32px; top: 0; width: 12px; height: 12px; background: #666; border-radius: 50%;"></div>' +
+                    '<div style="font-size: 14px; color: #666; margin-bottom: 8px;">12/09/2024 12:27:05</div>' +
+                    '<div style="background: white; border: 1px solid #E0E0E0; padding: 16px; border-radius: 8px;">' +
+                    '<div style="color: #333; margin-bottom: 4px;">complaint-created</div>' +
+                    '<div style="color: #333;">By: pepito.perez@nu.com.co</div>' +
+                    '</div>' +
+                    '</div>' +
+                    
+                    '</div>';
+            }
         }
         
         
