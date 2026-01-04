@@ -289,6 +289,16 @@
             background: white !important;
         }
 
+        /* Force white on all child elements when open */
+        #personInfoWidget:not(.collapsed) * {
+            background-color: transparent;
+        }
+
+        #personInfoWidget:not(.collapsed) .info-section,
+        #personInfoWidget:not(.collapsed) .profile-photo-section {
+            background: transparent !important;
+        }
+
         .widget-header {
             display: flex;
             justify-content: space-between;
