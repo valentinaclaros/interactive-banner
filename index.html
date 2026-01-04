@@ -266,6 +266,7 @@
         }
 
         /* Person Information widget collapsed background color */
+        /* When collapsed, only the header is visible, so make the whole widget gray */
         #personInfoWidget.collapsed {
             background: #DED9E2 !important;
         }
@@ -275,12 +276,16 @@
             border-bottom: none;
         }
 
-        /* Person Information widget when open - ensure white background */
+        /* Person Information widget when open - ensure white background everywhere */
         #personInfoWidget:not(.collapsed) {
             background: white !important;
         }
 
         #personInfoWidget:not(.collapsed) .widget-header {
+            background: white !important;
+        }
+
+        #personInfoWidget:not(.collapsed) .widget-content {
             background: white !important;
         }
 
@@ -474,6 +479,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            background: white;
         }
 
         #accountContent:not(.collapsed),
