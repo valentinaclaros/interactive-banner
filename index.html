@@ -250,12 +250,21 @@
 
         /* Person Information widget collapsed background color */
         #personInfoWidget.collapsed {
-            background: #DED9E2;
+            background: #DED9E2 !important;
         }
 
         #personInfoWidget.collapsed .widget-header {
-            background: #DED9E2;
+            background: #DED9E2 !important;
             border-bottom: none;
+        }
+
+        /* Person Information widget when open - ensure white background */
+        #personInfoWidget:not(.collapsed) {
+            background: white !important;
+        }
+
+        #personInfoWidget:not(.collapsed) .widget-header {
+            background: white !important;
         }
 
         .widget-header {
