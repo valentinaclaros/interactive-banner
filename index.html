@@ -6690,15 +6690,63 @@
                                 </div>
                                 <div class="money-box-info-row">
                                     <span class="money-box-info-label">Total yield</span>
-                                    <span class="money-box-info-value money-box-yield">↑ $0.00</span>
+                                    <span class="money-box-info-value money-box-yield">↑ $91.95</span>
                                 </div>
                                 <div class="money-box-info-row">
                                     <span class="money-box-info-label">Available balance</span>
                                     <span class="money-box-info-value">$0.00</span>
                                 </div>
                             </div>
-                            <button class="money-box-action-btn">📄 More information ›</button>
-                            <button class="money-box-action-btn">📊 Assets composition ›</button>
+                            
+                            <!-- More information section -->
+                            <div style="border-top: 1px solid #e5e5e5; margin-top: 16px; padding-top: 16px;">
+                                <button class="money-box-action-btn" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+                                    📄 More information ›
+                                </button>
+                                <div style="display: none; padding: 16px; background: #f9f9f9; border-radius: 8px; margin-top: 12px;">
+                                    <div style="margin-bottom: 16px;">
+                                        <div style="font-size: 15px; font-weight: 600; color: #333; margin-bottom: 8px;">Creation date</div>
+                                        <div style="font-size: 14px; color: #666;">11/18/2025, 20:50:59</div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 15px; font-weight: 600; color: #333; margin-bottom: 8px;">Money Box ID</div>
+                                        <div style="font-size: 14px; color: #666; word-break: break-all;">691CDC33 C988 4300 B8D7 594C815F87DC</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Assets composition section -->
+                            <div style="margin-top: 12px;">
+                                <button class="money-box-action-btn" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+                                    📊 Assets composition ›
+                                </button>
+                                <div style="display: none; padding: 16px; background: #f9f9f9; border-radius: 8px; margin-top: 12px;">
+                                    <div style="padding: 20px; background: white; border-radius: 8px; border: 1px solid #e5e5e5;">
+                                        <div style="font-size: 16px; font-weight: 600; color: #333; margin-bottom: 20px;">Liquid Cash Deposit</div>
+                                        
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                            <div>
+                                                <div style="font-size: 13px; color: #666; margin-bottom: 8px;">Net balance</div>
+                                                <div style="font-size: 18px; font-weight: 600; color: #333;">$0.00</div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 13px; color: #666; margin-bottom: 8px;">Yield</div>
+                                                <div style="font-size: 18px; font-weight: 600; color: #4CAF50;">↑ $91.95</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="margin-bottom: 20px;">
+                                            <div style="font-size: 13px; color: #666; margin-bottom: 8px;">Interest rate</div>
+                                            <div style="font-size: 18px; font-weight: 600; color: #333;">8.75%</div>
+                                        </div>
+                                        
+                                        <button style="width: 100%; padding: 12px; background: white; border: 1px solid #d0d0d0; border-radius: 6px; font-size: 15px; font-weight: 500; color: #333; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                                            <span>📄 Details</span>
+                                            <span>›</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <!-- TC Money Box -->
