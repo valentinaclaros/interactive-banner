@@ -265,40 +265,6 @@
             height: fit-content;
         }
 
-        /* Person Information widget collapsed background color */
-        /* When collapsed, only the header is visible, so make the whole widget gray */
-        #personInfoWidget.collapsed {
-            background: #DED9E2 !important;
-        }
-
-        #personInfoWidget.collapsed .widget-header {
-            background: #DED9E2 !important;
-            border-bottom: none;
-        }
-
-        /* Person Information widget when open - ensure white background everywhere */
-        #personInfoWidget:not(.collapsed) {
-            background: white !important;
-        }
-
-        #personInfoWidget:not(.collapsed) .widget-header {
-            background: white !important;
-        }
-
-        #personInfoWidget:not(.collapsed) .widget-content {
-            background: white !important;
-        }
-
-        /* Force white on all child elements when open */
-        #personInfoWidget:not(.collapsed) * {
-            background-color: transparent;
-        }
-
-        #personInfoWidget:not(.collapsed) .info-section,
-        #personInfoWidget:not(.collapsed) .profile-photo-section {
-            background: transparent !important;
-        }
-
         .widget-header {
             display: flex;
             justify-content: space-between;
