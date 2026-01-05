@@ -7767,12 +7767,373 @@
                         </div>
                     </div>
                     <div class="widget-content" id="creditCardAccountContent">
-                        <div class="credit-card-info-box">
-                            <div class="credit-card-alert-icon">!</div>
-                            <div class="credit-card-alert-text">
-                                Customer does not have a credit card account
+                        <!-- Scrollable container -->
+                        <div style="max-height: 600px; overflow-y: auto;">
+                            
+                            <!-- Credit Information Section -->
+                            <div style="background: #f0f0f0; padding: 16px 24px; margin-bottom: 24px;">
+                                <h3 style="font-size: 18px; font-weight: 600; color: #333;">Credit information</h3>
                             </div>
-                        </div>
+                            
+                            <div style="padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
+                                <!-- Column 1 -->
+                                <div>
+                                    <div style="margin-bottom: 24px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="width: 12px; height: 12px; background: #4CAF50; border-radius: 50%;"></span>
+                                            <span style="font-size: 15px; color: #333;">Total Balance</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span style="font-size: 20px; font-weight: 600; color: #333;">$ 0,00</span>
+                                            <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                    <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin-bottom: 24px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="width: 12px; height: 12px; background: #FF9800; border-radius: 50%;"></span>
+                                            <span style="font-size: 15px; color: #333;">Future Balance</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span style="font-size: 20px; font-weight: 600; color: #333;">$ 0,00</span>
+                                            <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                    <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin-bottom: 24px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="width: 12px; height: 12px; background: #00BCD4; border-radius: 50%;"></span>
+                                            <span style="font-size: 15px; color: #333;">Open Balance</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span style="font-size: 20px; font-weight: 600; color: #333;">$ 0,00</span>
+                                            <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                    <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin-bottom: 24px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="width: 12px; height: 12px; background: #D32F2F; border-radius: 50%;"></span>
+                                            <span style="font-size: 15px; color: #333;">Due Balance</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span style="font-size: 20px; font-weight: 600; color: #333;">$ 0,00</span>
+                                            <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                    <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="width: 12px; height: 12px; background: #E53935; border-radius: 50%;"></span>
+                                            <span style="font-size: 15px; color: #333;">Minimum to Cure</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span style="font-size: 20px; font-weight: 600; color: #333;">-</span>
+                                            <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                    <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2 -->
+                                <div>
+                                    <div style="margin-bottom: 24px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="width: 12px; height: 12px; background: #E0E0E0; border-radius: 50%;"></span>
+                                            <span style="font-size: 15px; color: #333;">Prepaid Balance</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span style="font-size: 20px; font-weight: 600; color: #333;">$ 0,00</span>
+                                            <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                    <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin-bottom: 24px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="width: 12px; height: 12px; background: #E0E0E0; border-radius: 50%;"></span>
+                                            <span style="font-size: 15px; color: #333;">Unsettled Balance</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span style="font-size: 20px; font-weight: 600; color: #333;">$ 0,00</span>
+                                            <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                    <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin-bottom: 24px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="width: 12px; height: 12px; background: #E0E0E0; border-radius: 50%;"></span>
+                                            <span style="font-size: 15px; color: #333;">Card Type</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span style="font-size: 20px; font-weight: 600; color: #333;">Fee Card Cap</span>
+                                            <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                    <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="width: 12px; height: 12px; background: #E0E0E0; border-radius: 50%;"></span>
+                                            <span style="font-size: 15px; color: #333;">Card Release</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span style="font-size: 20px; font-weight: 600; color: #333;">Sep 17, 2025</span>
+                                            <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                    <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Limits Section -->
+                            <div style="background: #f0f0f0; padding: 16px 24px; margin-bottom: 24px;">
+                                <h3 style="font-size: 18px; font-weight: 600; color: #333;">Limits</h3>
+                            </div>
+                            
+                            <div style="padding: 0 24px; margin-bottom: 32px;">
+                                <div style="margin-bottom: 24px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                                        <span style="font-size: 15px; color: #333;">Pre-approved Limit</span>
+                                        <button style="padding: 8px 16px; background: #e0e0e0; border: none; border-radius: 6px; font-size: 14px; color: #666; cursor: pointer;">See Missions</button>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 20px; font-weight: 600; color: #333;">$ 600.000,00</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Credit Limit</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 20px; font-weight: 600; color: #333;">$ 600.000,00</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Credit Available Limit</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 20px; font-weight: 600; color: #333;">$ 600.000,00</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Withdrawal Available Limit</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 20px; font-weight: 600; color: #333;">$ 600.000,00</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <div style="display: inline-block; padding: 8px 16px; background: #e0e0e0; border-radius: 6px; font-size: 14px; color: #666; margin-bottom: 8px;">Secured Limit</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 20px; font-weight: 600; color: #333;">$ 0,00</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Total Limit</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 20px; font-weight: 600; color: #333;">$ 600.000,00</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Account Information Section -->
+                            <div style="background: #f0f0f0; padding: 16px 24px; margin-bottom: 24px;">
+                                <h3 style="font-size: 18px; font-weight: 600; color: #333;">Account information</h3>
+                            </div>
+                            
+                            <div style="padding: 0 24px; margin-bottom: 32px;">
+                                <div style="margin-bottom: 24px;">
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Status</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="display: inline-block; padding: 6px 16px; background: #D4EDDA; color: #4CAF50; font-size: 16px; font-weight: 600; border-radius: 6px;">Active</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Account ID</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 16px; color: #333; word-break: break-all;">68ca1f08-6778-49ac-aa83-cdda30a864f8</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC; flex-shrink: 0;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Closing Date</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 20px; font-weight: 600; color: #333;">Jan 29, 2026</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Due Date</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 20px; font-weight: 600; color: #333;">Feb 18, 2026</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Interest Section -->
+                            <div style="background: #f0f0f0; padding: 16px 24px; margin-bottom: 24px;">
+                                <h3 style="font-size: 18px; font-weight: 600; color: #333;">Interest</h3>
+                            </div>
+                            
+                            <div style="padding: 0 24px; margin-bottom: 24px;">
+                                <div style="margin-bottom: 24px;">
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Purchase Interest Rate</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 18px; font-weight: 600; color: #333;">23.99% E.A. | 23.99% M.V.</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Withdrawals Interest Rate</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 18px; font-weight: 600; color: #333;">23.99% E.A. | 23.99% M.V.</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Late Interest Rate</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 18px; font-weight: 600; color: #333;">23.99% E.A. | 23.99% M.V.</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div style="font-size: 15px; color: #333; margin-bottom: 8px;">Cap Rate</div>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 18px; font-weight: 600; color: #333;">24.36% E.A. | 24.36% M.V.</span>
+                                        <button style="background: none; border: none; cursor: pointer; color: #7C4DBC;">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <rect x="4" y="2" width="8" height="10" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                                                <rect x="6" y="4" width="4" height="2" fill="currentColor"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div><!-- End scrollable container -->
                     </div>
                     <div class="widget-footer-source" id="creditCardAccountFooter">
                         <div class="source-info">
