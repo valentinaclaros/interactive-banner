@@ -19,7 +19,7 @@
 
         .banner {
             background: #78639b;
-            padding: 24px 32px;
+            padding: 16px 24px;
             color: white;
             width: 100%;
             max-width: 100vw;
@@ -30,42 +30,44 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
 
         .user-info {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
         .user-name {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 24px;
+            gap: 10px;
+            font-size: 28px;
             font-weight: 400;
+            color: white;
         }
 
         .user-icon {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 22px;
         }
 
         .user-details {
             display: flex;
-            gap: 32px;
-            font-size: 12px;
-            opacity: 0.95;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            gap: 28px;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            color: white;
         }
 
         .user-details strong {
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .header-buttons {
@@ -74,11 +76,11 @@
         }
 
         .btn {
-            padding: 8px 20px;
+            padding: 6px 14px;
             border: none;
             border-radius: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             letter-spacing: 0;
             cursor: pointer;
@@ -96,23 +98,23 @@
 
         .tags-section {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
         }
 
         .tag {
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
             border: none;
             cursor: pointer;
             transition: all 0.2s;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.2px;
             text-transform: uppercase;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-            min-height: 40px;
+            min-height: 26px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -121,16 +123,16 @@
         .tag-released,
         .tag-verification {
             background: white;
-            color: #7C6BA6;
+            color: #543E78;
         }
 
         .tag-lobby {
-            background: #6B7280;
+            background: #8C8C8C;
             color: white;
         }
 
         .tag-add {
-            background: #4EC9C1;
+            background: #5AC8D4;
             color: white;
         }
 
@@ -156,10 +158,14 @@
             position: relative;
             width: 48px;
             height: 24px;
-            background: rgba(255, 255, 255, 0.3);
+            background: #999;
             border-radius: 24px;
             cursor: pointer;
             transition: background 0.3s;
+        }
+
+        .toggle-switch:has(input:checked) {
+            background: #7C4DBC;
         }
 
         .toggle-switch input {
@@ -182,10 +188,10 @@
         }
 
         .filter-btn {
-            padding: 8px 16px;
+            padding: 6px 12px;
             border: none;
-            border-radius: 20px;
-            font-size: 13px;
+            border-radius: 16px;
+            font-size: 12px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
@@ -199,8 +205,8 @@
         }
 
         .filter-btn.active {
-            background: white;
-            color: #7C6BA6;
+            background: #7C4DBC;
+            color: white;
         }
 
         /* Widget Styles */
@@ -208,15 +214,15 @@
             width: 100%;
             max-width: 100vw;
             margin: 0;
-            padding: 24px;
+            padding: 18px;
             box-sizing: border-box;
         }
 
         .widgets-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(260px, 1fr));
-            column-gap: 24px;
-            row-gap: 20px;
+            column-gap: 20px;
+            row-gap: 24px;
             align-items: start;
             width: 100%;
             max-width: 100%;
@@ -239,67 +245,75 @@
             margin-bottom: 0;
         }
 
-        .left-column {
-            grid-column: 1;
+        .left-column,
+        .right-column,
+        .third-column,
+        .fourth-column {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+        }
+
+        .left-column {
+            grid-column: 1;
         }
 
         .right-column {
             grid-column: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
         }
 
         .third-column {
             grid-column: 3;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
         }
 
         .fourth-column {
             grid-column: 4;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
         }
 
         .widget {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
             overflow: hidden;
             height: fit-content;
+            border: 1px solid #e8e8e8;
+        }
+
+        .widgets-grid .widget {
+            margin-bottom: 24px;
+        }
+
+        .widgets-grid .left-column .widget:last-child,
+        .widgets-grid .right-column .widget:last-child,
+        .widgets-grid .third-column .widget:last-child,
+        .widgets-grid .fourth-column .widget:last-child {
+            margin-bottom: 0;
         }
 
         .widget-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 24px;
+            padding: 16px 20px;
             border-bottom: 1px solid #e5e5e5;
             position: relative;
             background: white;
         }
 
         .widget-title {
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             color: #1a1a1a;
         }
 
         .menu-icon {
             cursor: pointer;
-            font-size: 24px;
+            font-size: 16px;
             color: #666;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             transition: background 0.2s;
         }
@@ -310,13 +324,13 @@
 
         .collapse-icon {
             cursor: pointer;
-            font-size: 24px;
-            color: #333;
+            font-size: 14px;
+            color: #555;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
             transition: transform 0.3s ease;
             margin-left: auto;
         }
@@ -456,15 +470,27 @@
             border: none;
         }
 
+        /* Cuando el widget está colapsado, solo se ve el header: todo lo demás sin altura */
+        .widget.collapsed > *:not(.widget-header) {
+            max-height: 0 !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+            min-height: 0 !important;
+            transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+        }
+
         .widget-header {
             cursor: pointer;
         }
 
         .widget-content {
-            padding: 24px;
+            padding: 14px 16px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 14px;
             background: white;
         }
 
@@ -480,44 +506,146 @@
         }
 
         .profile-photo-section {
-            display: flex;
-            justify-content: flex-start;
-            margin-bottom: 8px;
+            flex-shrink: 0;
         }
 
         .profile-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 4px;
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
             object-fit: cover;
             background: #e5e5e5;
+        }
+
+        .person-info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding-top: 14px;
+            margin-top: 14px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .person-info-row:first-child {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .person-info-row .info-field {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .person-info-row .info-value {
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .person-info-row .info-value.info-id {
+            font-size: 13px;
+            color: #333;
+        }
+
+        .person-info-row-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .person-info-icon-fb {
+            width: 28px;
+            height: 28px;
+            background: #1877F2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        .info-value-with-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .person-info-icon-email {
+            width: 22px;
+            height: 22px;
+            background: none;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .info-section {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 0;
         }
 
         .info-field {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 4px;
         }
 
         .info-label {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             color: #999;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         .info-value {
-            font-size: 16px;
+            font-size: 14px;
             color: #1a1a1a;
             font-weight: 400;
         }
+
+        .info-label.copyable {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .info-label.copyable:hover {
+            color: #7C4DBC;
+        }
+
+        /* Pastilla "Copied" al hacer clic en título de campo */
+        .field-copied-pill {
+            position: fixed;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: #7C4DBC;
+            color: white;
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-size: 13px;
+            box-shadow: 0 2px 12px rgba(124, 77, 188, 0.4);
+            z-index: 3000;
+        }
+
+        .field-copied-pill.show {
+            display: flex;
+            animation: fadeInPill 0.2s ease;
+        }
+
+        @keyframes fadeInPill {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
 
         .info-row {
             display: flex;
@@ -548,6 +676,58 @@
             gap: 8px;
         }
 
+        .widget-menu-dropdown {
+            display: none;
+            position: fixed;
+            min-width: 260px;
+            max-height: 70vh;
+            overflow-y: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            z-index: 2500;
+            padding: 6px 0;
+            border: 1px solid #e5e5e5;
+        }
+
+        .widget-menu-dropdown.show {
+            display: block;
+        }
+
+        .widget-menu-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #1a1a1a;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+        }
+
+        .widget-menu-dropdown-item:hover {
+            background: #f5f5f5;
+        }
+
+        .widget-menu-dropdown-item.orange {
+            color: #e65100;
+            font-weight: 500;
+        }
+
+        .widget-menu-dropdown-item.orange:hover {
+            background: #fff3e0;
+        }
+
+        .widget-menu-dropdown-item.orange:first-of-type {
+            border-top: 1px solid #e5e5e5;
+            margin-top: 4px;
+            padding-top: 14px;
+        }
+
         .dropdown-select {
             padding: 8px 12px;
             border: 1px solid #d0d0d0;
@@ -576,36 +756,37 @@
         }
 
         .info-id {
-            color: #999;
-            font-size: 14px;
+            color: #333;
+            font-size: 13px;
+            font-weight: 400;
         }
 
         .widget-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 24px;
+            padding: 10px 14px;
             border-top: 1px solid #e5e5e5;
             background: #fafafa;
         }
 
         .footer-label {
             color: #999;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 500;
         }
 
         .footer-actions {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
 
         .footer-icon-btn {
             background: none;
             border: none;
-            font-size: 20px;
+            font-size: 16px;
             cursor: pointer;
-            padding: 4px 8px;
+            padding: 2px 6px;
             border-radius: 4px;
             transition: background 0.2s;
         }
@@ -642,17 +823,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 24px;
+            gap: 24px;
+            padding: 20px 28px;
             border-top: 1px solid #e5e5e5;
             background: white;
+            min-height: 56px;
         }
 
         .source-info {
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: #333;
+            gap: 14px;
+            color: #1a1a1a;
             font-size: 14px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .source-info span {
+            white-space: nowrap;
         }
 
         .source-icon {
@@ -661,14 +850,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .rate-widget {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             color: #666;
             font-size: 14px;
+            font-weight: 400;
+            flex-shrink: 0;
+        }
+
+        .rate-widget > span {
+            white-space: nowrap;
         }
 
         .rate-btn {
@@ -676,9 +872,10 @@
             border: none;
             font-size: 20px;
             cursor: pointer;
-            padding: 4px 8px;
-            color: #666;
+            padding: 6px 10px;
+            color: #999;
             transition: color 0.2s;
+            flex-shrink: 0;
         }
 
         .rate-btn:hover {
@@ -1365,6 +1562,88 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
+        /* Toast "Person URL copied" - esquina superior derecha */
+        .toast-person-url {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: white;
+            color: #1a1a1a;
+            border-radius: 8px;
+            display: none;
+            align-items: stretch;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            z-index: 3000;
+            min-width: 320px;
+            overflow: hidden;
+        }
+
+        .toast-person-url.show {
+            display: flex;
+            animation: fadeInToastRight 0.3s ease;
+        }
+
+        @keyframes fadeInToastRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .toast-person-url .toast-person-url-icon {
+            width: 52px;
+            min-width: 52px;
+            background: #28A745;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toast-person-url .toast-person-url-icon-inner {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toast-person-url .toast-person-url-icon-inner svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .toast-person-url .toast-person-url-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .toast-person-url .toast-person-url-close {
+            background: none;
+            border: none;
+            color: #7C4DBC;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 0 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s;
+        }
+
+        .toast-person-url .toast-person-url-close:hover {
+            opacity: 0.8;
+        }
+
         /* Widget List Item */
         .widget-list-item {
             display: flex;
@@ -1568,11 +1847,44 @@
 
         /* Prospects Styles */
         .prospects-filters {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            padding: 24px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
             border-bottom: 1px solid #e5e5e5;
+        }
+
+        .prospects-filters .filter-dropdown {
+            width: auto;
+            min-width: 140px;
+            padding: 10px 32px 10px 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #333;
+            background: white;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+
+        .prospects-invite-btn {
+            margin-left: auto;
+            padding: 8px 18px;
+            background: #9B8AB8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .prospects-invite-btn:hover {
+            background: #8a7aa3;
         }
 
         .prospects-list {
@@ -1581,9 +1893,9 @@
 
         .prospect-item {
             display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px 24px;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 24px;
             border-bottom: 1px solid #e5e5e5;
             cursor: pointer;
             transition: background 0.2s;
@@ -1598,39 +1910,27 @@
         }
 
         .prospect-arrow {
-            font-size: 18px;
+            font-size: 16px;
             color: #666;
             flex-shrink: 0;
+            line-height: 1.4;
         }
 
         .prospect-info {
             flex: 1;
+            min-width: 0;
         }
 
         .prospect-meta {
-            font-size: 13px;
+            font-size: 12px;
             color: #999;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .prospect-status {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .prospect-status::before {
-            content: '••';
-            font-size: 10px;
+            margin-bottom: 4px;
         }
 
         .prospect-email {
-            font-size: 15px;
-            color: #333;
-            font-weight: 400;
+            font-size: 14px;
+            color: #1a1a1a;
+            font-weight: 500;
         }
 
         /* Phone Numbers Styles */
@@ -4389,10 +4689,10 @@
             <div class="user-info">
                 <div class="user-name">
                     <span class="user-icon">👤</span>
-                    <span>María (María Macedo Florez)</span>
+                    <span>Laura (Laura Walteros)</span>
                 </div>
                 <div class="user-details">
-                    <span>Printed name: <strong>MARÍA MACEDO</strong></span>
+                    <span>Printed name: <strong>LAURA WALTEROS</strong></span>
                     <span>CPF: <strong>CC-1234567890</strong></span>
                 </div>
             </div>
@@ -4412,13 +4712,13 @@
 
         <!-- Filters Section -->
         <div class="filters-section">
-            <div class="toggle-wrapper">
+            <label for="toggle" class="toggle-wrapper" style="cursor: pointer; margin-bottom: 0;">
                 <div class="toggle-switch">
                     <input type="checkbox" id="toggle" onchange="toggleSelectAll(this)">
                     <div class="toggle-slider"></div>
                 </div>
-            </div>
-            <button class="filter-btn" onclick="filterWidgets('Select all')">Select all</button>
+            </label>
+            <button type="button" class="filter-btn" onclick="filterWidgets('Select all')">Select all</button>
             <button class="filter-btn" onclick="filterWidgets('General')">General</button>
             <button class="filter-btn" onclick="filterWidgets('Bills')">Bills</button>
             <button class="filter-btn" onclick="filterWidgets('Bills CO')">Bills CO</button>
@@ -4448,180 +4748,144 @@
             <div class="widget-header" onclick="toggleWidget('personInfoWidget')">
                 <h2 class="widget-title">Person Information</h2>
                 <div class="header-right">
-                    <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                    <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                     <div class="collapse-icon">▼</div>
                 </div>
             </div>
             <div class="widget-content" id="personInfoContent">
                 <div class="info-section">
-                    <!-- Profile Photo -->
-                    <div class="profile-photo-section">
-                        <svg class="profile-photo" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" onclick="showIDModal()" style="cursor: pointer;">
-                        <!-- Background gradient -->
-                        <defs>
-                            <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#B8A5D6;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#C5B3E6;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect width="300" height="300" fill="url(#bg-gradient)"/>
-                        
-                        <!-- Hair -->
-                        <path d="M 80 110 Q 70 70 90 50 Q 110 30 150 30 Q 190 30 210 50 Q 230 70 220 110 L 220 180 Q 220 200 210 210 L 205 220 Q 200 230 195 240 L 190 260 L 230 270 L 230 300 L 70 300 L 50 270 Q 50 250 55 240 L 65 220 Q 70 210 75 200 L 80 180 Z" fill="#3D1A6B"/>
-                        
-                        <!-- Neck -->
-                        <rect x="130" y="180" width="40" height="50" fill="#C0ACDE"/>
-                        
-                        <!-- Body/Shirt -->
-                        <path d="M 80 220 L 120 200 L 130 230 L 130 300 L 60 300 L 60 250 Z" fill="#D4C5F0"/>
-                        <path d="M 220 220 L 180 200 L 170 230 L 170 300 L 240 300 L 240 250 Z" fill="#D4C5F0"/>
-                        <path d="M 120 200 L 130 230 L 130 300 L 170 300 L 170 230 L 180 200 Q 150 190 120 200 Z" fill="#E6DCF8"/>
-                        
-                        <!-- Face -->
-                        <ellipse cx="150" cy="130" rx="55" ry="65" fill="#C0ACDE"/>
-                        
-                        <!-- Ears -->
-                        <ellipse cx="95" cy="130" rx="8" ry="12" fill="#B89FD2"/>
-                        <ellipse cx="205" cy="130" rx="8" ry="12" fill="#B89FD2"/>
-                        <circle cx="95" cy="132" r="3" fill="#A88EC8"/>
-                        <circle cx="205" cy="132" r="3" fill="#A88EC8"/>
-                        
-                        <!-- Eyes -->
-                        <ellipse cx="130" cy="125" rx="10" ry="13" fill="white"/>
-                        <ellipse cx="170" cy="125" rx="10" ry="13" fill="white"/>
-                        <circle cx="132" cy="127" r="6" fill="#5A3D7A"/>
-                        <circle cx="172" cy="127" r="6" fill="#5A3D7A"/>
-                        <circle cx="134" cy="125" r="3" fill="#000"/>
-                        <circle cx="174" cy="125" r="3" fill="#000"/>
-                        
-                        <!-- Eyebrows -->
-                        <path d="M 120 112 Q 130 108 140 112" stroke="#3D1A6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                        <path d="M 160 112 Q 170 108 180 112" stroke="#3D1A6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                        
-                        <!-- Nose -->
-                        <path d="M 150 135 L 148 145" stroke="#A88EC8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                        
-                        <!-- Mouth -->
-                        <path d="M 135 155 Q 150 162 165 155" stroke="#5A3D7A" stroke-width="2" fill="none" stroke-linecap="round"/>
-                        <path d="M 137 156 Q 150 161 163 156" fill="#F5E6FF" stroke="none"/>
-                        
-                        <!-- Left Arm & Hand -->
-                        <path d="M 80 235 L 75 250 L 90 270 L 105 265 L 110 255" fill="#C0ACDE"/>
-                        <ellipse cx="88" cy="272" rx="12" ry="10" fill="#C0ACDE"/>
-                        
-                        <!-- Phone in hand -->
-                        <rect x="115" y="215" width="35" height="60" rx="4" fill="#7C4DBC"/>
-                        <rect x="118" y="220" width="29" height="48" fill="#6B2D93"/>
-                        <text x="122" y="248" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">nu</text>
-                        <circle cx="132.5" cy="263" r="4" fill="#9966CC"/>
-                        
-                        <!-- Right Arm & Hand -->
-                        <path d="M 220 235 Q 200 245 180 250 L 165 245 L 155 240" fill="#D4C5F0"/>
-                        <path d="M 160 238 L 155 245 L 148 248 Q 145 250 145 255 L 142 260" fill="#C0ACDE"/>
-                        
-                        <!-- Euro Symbol (top right) -->
-                        <circle cx="245" cy="55" r="22" fill="#A88EC8" opacity="0.5"/>
-                        <text x="232" y="66" font-family="Arial, sans-serif" font-size="24" fill="#7C4DBC" font-weight="bold">€</text>
-                        <line x1="235" y1="45" x2="228" y2="38" stroke="#7C4DBC" stroke-width="2.5" stroke-linecap="round"/>
-                        <line x1="250" y1="40" x2="256" y2="33" stroke="#7C4DBC" stroke-width="2.5" stroke-linecap="round"/>
-                        <line x1="258" y1="52" x2="265" y2="48" stroke="#7C4DBC" stroke-width="2.5" stroke-linecap="round"/>
-                    </svg>
-                    </div>
-
-                    <!-- Preferred Name & Email -->
-                    <div class="info-row">
-                        <div class="info-field">
-                            <label class="info-label">PREFERRED NAME</label>
-                            <div class="info-value">María (María Macedo Florez)</div>
+                    <!-- PREFERRED NAME: foto a la izquierda, nombre a la derecha -->
+                    <div class="person-info-row">
+                        <div class="profile-photo-section">
+                            <img src="profile-photo.png" alt="Foto de perfil" class="profile-photo" onclick="showProfilePhotoModal()" style="cursor: pointer;">
+                        </div>
+                        <div class="info-field" style="flex: 1;">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">PREFERRED NAME</label>
+                            <div class="info-value" style="font-size: 15px; font-weight: 400;">Laura (Laura Walteros)</div>
                         </div>
                     </div>
 
-                    <div class="info-row">
-                        <div class="info-field">
-                            <label class="info-label">EMAIL</label>
-                            <div class="info-value">mariamacedo@gmail.com</div>
+                    <!-- EMAIL: etiqueta, valor con icono al lado -->
+                    <div class="person-info-row">
+                        <div class="info-field" style="flex: 1;">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">EMAIL</label>
+                            <div class="info-value-with-icon">
+                                <span class="info-value">laurawalteros@gmail.com</span>
+                                <div class="person-info-icon-email" title="Verificado">
+                                    <svg width="22" height="22" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 6h20a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" stroke="#28a745" stroke-width="1.5" fill="none"/>
+                                        <path d="M3 7l10 7 10-7" stroke="#28a745" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M17 20l2.5 2.5 5-6" stroke="#28a745" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Printed Name & Tax ID -->
-                    <div class="info-row">
+                    <!-- PRINTED NAME -->
+                    <div class="person-info-row">
                         <div class="info-field">
-                            <label class="info-label">PRINTED NAME</label>
-                            <div class="info-value">MARÍA MACEDO</div>
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">PRINTED NAME</label>
+                            <div class="info-value">LAURA WALTEROS</div>
                         </div>
+                    </div>
+
+                    <!-- TAX ID -->
+                    <div class="person-info-row">
                         <div class="info-field">
-                            <label class="info-label">TAX ID</label>
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">TAX ID</label>
                             <div class="info-value">CC-1234567890</div>
                         </div>
                     </div>
 
-                    <!-- Birthdate -->
-                    <div class="info-field">
-                        <label class="info-label">BIRTHDATE</label>
-                        <div class="info-value">01/01/2007</div>
-                    </div>
-
-                    <!-- Marital Status -->
-                    <div class="info-field">
-                        <label class="info-label">MARITAL STATUS</label>
-                        <select class="dropdown-select">
-                            <option selected>None</option>
-                            <option>Single</option>
-                            <option>Married</option>
-                            <option>Divorced</option>
-                            <option>Widowed</option>
-                        </select>
-                    </div>
-
-                    <!-- Shipping Address -->
-                    <div class="info-field">
-                        <label class="info-label">SHIPPING ADDRESS</label>
-                        <div class="info-alert">
-                            This may not be the address for ongoing deliveries. Please check the "Shipping Info" widget to confirm.
+                    <!-- BIRTHDATE -->
+                    <div class="person-info-row">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">BIRTHDATE</label>
+                            <div class="info-value">15/04/2004</div>
                         </div>
-                        <div class="info-value">Calle 123 #43-34, Leticia, AM, Colombia</div>
+                    </div>
+
+                    <!-- MARITAL STATUS -->
+                    <div class="person-info-row">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">MARITAL STATUS</label>
+                            <select class="dropdown-select">
+                                <option selected>None</option>
+                                <option>Single</option>
+                                <option>Divorced</option>
+                                <option>Married</option>
+                                <option>Widower</option>
+                                <option>Separated</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- SHIPPING ADDRESS -->
+                    <div class="person-info-row" style="flex-direction: column; align-items: stretch; gap: 8px;">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">SHIPPING ADDRESS</label>
+                            <div class="info-alert">
+                                This may not be the address for ongoing deliveries. Please check the "Shipping Info" widget to confirm.
+                            </div>
+                            <div class="info-value">Calle 123 #43-34, Cartagena, BO 110221</div>
+                        </div>
                     </div>
 
                     <!-- Billing Address -->
-                    <div class="info-field">
-                        <label class="info-label">BILLING ADDRESS</label>
-                        <div class="info-value">Calle 123 #43-34, Leticia, AM, Colombia</div>
+                    <div class="person-info-row">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">BILLING ADDRESS</label>
+                            <div class="info-value">Calle 123 #43-34, Cartagena, BO 110221</div>
+                        </div>
                     </div>
 
                     <!-- Phone Number -->
-                    <div class="info-field">
-                        <label class="info-label">PHONE NUMBER</label>
-                        <div class="info-value">(57) 33333-3333 3</div>
+                    <div class="person-info-row">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">PHONE NUMBER</label>
+                            <div class="info-value">(57) 33333-3333 3</div>
+                        </div>
                     </div>
 
                     <!-- User Agent -->
-                    <div class="info-field">
-                        <label class="info-label">USER AGENT</label>
-                        <div class="info-value">Android/9.38.37-1000114517<br>(b6037c24a05381fd; 15; samsung; SM-A065M)</div>
+                    <div class="person-info-row">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">USER AGENT</label>
+                            <div class="info-value">Android/9.38.37-1000114517<br>(b6037c24a05381fd; 15; samsung; SM-A065M)</div>
+                        </div>
                     </div>
 
                     <!-- Channel -->
-                    <div class="info-field">
-                        <label class="info-label">CHANNEL</label>
-                        <div class="info-value">Mobile wait</div>
+                    <div class="person-info-row">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">CHANNEL</label>
+                            <div class="info-value">Mobile wait</div>
+                        </div>
                     </div>
 
                     <!-- Customer ID -->
-                    <div class="info-field">
-                        <label class="info-label">CUSTOMER ID</label>
-                        <div class="info-value info-id">69404a3f-fc55-453c-b84f-1b0086c606bb</div>
+                    <div class="person-info-row">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">CUSTOMER ID</label>
+                            <div class="info-value info-id">62367964-b646-43e5-bbda-087134369476</div>
+                        </div>
                     </div>
 
                     <!-- Prospect ID -->
-                    <div class="info-field">
-                        <label class="info-label">PROSPECT ID</label>
-                        <div class="info-value info-id">694049b6-4742-4bca-8d10-e00de9476e85</div>
+                    <div class="person-info-row">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">PROSPECT ID</label>
+                            <div class="info-value info-id">66445478-25dd-4950-b89f-2424ba26b1e6</div>
+                        </div>
                     </div>
 
                     <!-- Shard -->
-                    <div class="info-field">
-                        <label class="info-label">SHARD</label>
-                        <div class="info-value">s0</div>
+                    <div class="person-info-row">
+                        <div class="info-field">
+                            <label class="info-label copyable" onclick="copyFieldValue(event)" role="button" tabindex="0">SHARD</label>
+                            <div class="info-value">s0</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4641,7 +4905,7 @@
                     <div class="widget-header" onclick="toggleWidget('prospectsWidget')">
                         <h2 class="widget-title">Prospects</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -4658,16 +4922,21 @@
                             <option>Active</option>
                             <option>Completed</option>
                         </select>
+                        <button type="button" class="prospects-invite-btn">Invite</button>
                     </div>
                     <div class="prospects-list" id="prospectsList">
                         <div class="prospect-item">
                             <span class="prospect-arrow">›</span>
                             <div class="prospect-info">
-                                <div class="prospect-meta">
-                                    <span>15/07/25 18:53</span>
-                                    <span class="prospect-status">Active</span>
-                                </div>
-                                <div class="prospect-email">mariamacedo@gmail.com</div>
+                                <div class="prospect-meta">20/03/22 00:22</div>
+                                <div class="prospect-email">laurawalteros@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="prospect-item">
+                            <span class="prospect-arrow">›</span>
+                            <div class="prospect-info">
+                                <div class="prospect-meta">15/05/24 06:21</div>
+                                <div class="prospect-email">laurawalteros@gmail.com</div>
                             </div>
                         </div>
                     </div>
@@ -4689,7 +4958,7 @@
                     <div class="widget-header" onclick="toggleWidget('phoneWidget')">
                         <h2 class="widget-title">Phone Numbers</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -4721,7 +4990,7 @@
                     <div class="widget-header" onclick="toggleWidget('interactionWidget')">
                         <h2 class="widget-title">Interaction History</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -4823,7 +5092,7 @@
                     <div class="widget-header" onclick="toggleWidget('documentsWidget')">
                         <h2 class="widget-title">Documents</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -4856,7 +5125,7 @@
                     <div class="widget-header" onclick="toggleWidget('fraudWidget')">
                         <h2 class="widget-title">Fraudsters Or Suspects</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -4886,7 +5155,7 @@
                     <div class="widget-header" onclick="toggleWidget('cardsWidget')">
                         <h2 class="widget-title">Cards</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -5344,7 +5613,7 @@
                     <div class="widget-header" onclick="toggleWidget('billsWidget')">
                         <h2 class="widget-title">Bills</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -5634,7 +5903,7 @@
                     <div class="widget-header" onclick="toggleWidget('quotasWidget')">
                         <h2 class="widget-title">Cards Creation Quotas</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -5662,7 +5931,7 @@
                     <div class="widget-header" onclick="toggleWidget('tokenizationsWidget')">
                         <h2 class="widget-title">Tokenizations</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -5702,7 +5971,7 @@
                     <div class="widget-header" onclick="toggleWidget('accountWidget')">
                         <h2 class="widget-title">Account</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -5893,7 +6162,7 @@
                     <div class="widget-header" onclick="toggleWidget('abuWidget')">
                         <h2 class="widget-title">Automatic Billing Updater (Abu)</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -5946,7 +6215,7 @@
                     <div class="widget-header" onclick="toggleWidget('fraudCheckWidget')">
                         <h2 class="widget-title">Fraud Check Bypass</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -5975,7 +6244,7 @@
                     <div class="widget-header" onclick="toggleWidget('adjustmentsWidget')">
                         <h2 class="widget-title">Manual Adjustments Widget</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -6079,7 +6348,7 @@
                     <div class="widget-header" onclick="toggleWidget('accountRequestWidget')">
                         <h2 class="widget-title">Account Request</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -6106,7 +6375,7 @@
                     <div class="widget-header" onclick="toggleWidget('certificatesWidget')">
                         <h2 class="widget-title">Certificates</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -6450,7 +6719,7 @@
                     <div class="widget-header" onclick="toggleWidget('pinManagementWidget')">
                         <h2 class="widget-title">Pin Management</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -6485,7 +6754,7 @@
                     <div class="widget-header" onclick="toggleWidget('appLoginWidget')">
                         <h2 class="widget-title">App Login</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -6513,7 +6782,7 @@
                     <div class="widget-header" onclick="toggleWidget('csiIncidentsWidget')">
                         <h2 class="widget-title">CSI Incidents</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -6536,7 +6805,7 @@
                     <div class="widget-header" onclick="toggleWidget('challengePlatformWidget')">
                         <h2 class="widget-title">Challenge Platform</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -6635,7 +6904,7 @@
                     <div class="widget-header" onclick="toggleWidget('blocksWidget')">
                         <h2 class="widget-title">Blocks/Bypasses</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -6662,7 +6931,7 @@
                     <div class="widget-header" onclick="toggleWidget('moneyBoxesWidget')">
                         <h2 class="widget-title">Money Boxes</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -6986,7 +7255,7 @@
                     <div class="widget-header" onclick="toggleWidget('riskEventWidget')">
                         <h2 class="widget-title">Risk Event Widget</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7014,7 +7283,7 @@
                     <div class="widget-header" onclick="toggleWidget('prometheusWidget')">
                         <h2 class="widget-title">Prometheus</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7059,7 +7328,7 @@
                     <div class="widget-header" onclick="toggleWidget('currentSituationWidget')">
                         <h2 class="widget-title">Current Situation</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7162,7 +7431,7 @@
                     <div class="widget-header" onclick="toggleWidget('collectionHistoryWidget')">
                         <h2 class="widget-title">Customer Collection History</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7185,7 +7454,7 @@
                     <div class="widget-header" onclick="toggleWidget('financingWidget')">
                         <h2 class="widget-title">Financing</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7213,7 +7482,7 @@
                     <div class="widget-header" onclick="toggleWidget('cashFlowWidget')">
                         <h2 class="widget-title">Cash Flow Financing</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7241,7 +7510,7 @@
                     <div class="widget-header" onclick="toggleWidget('purchasesWidget')">
                         <h2 class="widget-title">Purchases</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7304,7 +7573,7 @@
                     <div class="widget-header" onclick="toggleWidget('accountWidget2')">
                         <h2 class="widget-title">Account</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7391,7 +7660,7 @@
                     <div class="widget-header" onclick="toggleWidget('accountGmfWidget')">
                         <h2 class="widget-title">Account – Gmf</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7436,7 +7705,7 @@
                     <div class="widget-header" onclick="toggleWidget('cuentaTransactionsWidget')">
                         <h2 class="widget-title">Cuenta – Transactions</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7510,7 +7779,7 @@
                     <div class="widget-header" onclick="toggleWidget('pseAuthWidget')">
                         <h2 class="widget-title">Pse Authorizations</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7538,7 +7807,7 @@
                     <div class="widget-header" onclick="toggleWidget('customerRegistrationWidget')">
                         <h2 class="widget-title">Cuenta – Customer Registration</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7603,7 +7872,7 @@
                     <div class="widget-header" onclick="toggleWidget('lendingAccountWidget')">
                         <h2 class="widget-title">Lending Account</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7626,7 +7895,7 @@
                     <div class="widget-header" onclick="toggleWidget('loansWidget')">
                         <h2 class="widget-title">Loans</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7676,7 +7945,7 @@
                     <div class="widget-header" onclick="toggleWidget('rolloutsWidget')">
                         <h2 class="widget-title">Rollouts</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -7767,7 +8036,7 @@
                     <div class="widget-header" onclick="toggleWidget('creditCardAccountWidget')">
                         <h2 class="widget-title">Credit Card Account</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8158,7 +8427,7 @@
                     <div class="widget-header" onclick="toggleWidget('chargebacksWidget')">
                         <h2 class="widget-title">Chargebacks</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8182,7 +8451,7 @@
                     <div class="widget-header" onclick="toggleWidget('billsWidget2')">
                         <h2 class="widget-title">Bills</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8205,7 +8474,7 @@
                     <div class="widget-header" onclick="toggleWidget('debitPurchasesWidget1')">
                         <h2 class="widget-title">Debit Purchases And Withdrawals</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8236,7 +8505,7 @@
                     <div class="widget-header" onclick="toggleWidget('debitPurchasesWidget2')">
                         <h2 class="widget-title">Debit Purchases And Withdrawals</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8262,7 +8531,7 @@
                     <div class="widget-header" onclick="toggleWidget('contestationHistoryWidget')">
                         <h2 class="widget-title">Contestation History</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8402,7 +8671,7 @@
                     <div class="widget-header" onclick="toggleWidget('securecodeWidget')">
                         <h2 class="widget-title">Securecode Authentications</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8421,7 +8690,7 @@
                     <div class="widget-header" onclick="toggleWidget('dataSubjectRightsWidget')">
                         <h2 class="widget-title">Data Subject Rights</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8459,7 +8728,7 @@
                     <div class="widget-header" onclick="toggleWidget('collisionsWidget')">
                         <h2 class="widget-title">Collisions</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8504,7 +8773,7 @@
                     <div class="widget-header" onclick="toggleWidget('purchasesDebitWidget')">
                         <h2 class="widget-title">Purchases And Debit Withdrawals</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8529,7 +8798,7 @@
                     <div class="widget-header" onclick="toggleWidget('subscriptionPlansWidget')">
                         <h2 class="widget-title">Subscription Plans</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8553,7 +8822,7 @@
                     <div class="widget-header" onclick="toggleWidget('cashbackSummaryWidget')">
                         <h2 class="widget-title">Cashback Summary</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8590,7 +8859,7 @@
                     <div class="widget-header" onclick="toggleWidget('cashbacksWidget')">
                         <h2 class="widget-title">Cashbacks</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8622,7 +8891,7 @@
                     <div class="widget-header" onclick="toggleWidget('subscriptionOfferWidget')">
                         <h2 class="widget-title">Subscription Offer</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8647,7 +8916,7 @@
                     <div class="widget-header" onclick="toggleWidget('nubankAccountWidget')">
                         <h2 class="widget-title">Nubank's Account</h2>
                         <div class="header-right">
-                            <div class="menu-icon" onclick="event.stopPropagation();">⋮</div>
+                            <div class="menu-icon" onclick="event.stopPropagation(); toggleWidgetMenu(event);">⋮</div>
                             <div class="collapse-icon">▼</div>
                         </div>
                     </div>
@@ -8713,11 +8982,61 @@
         </div>
     </div>
 
+    <!-- Menú desplegable de los 3 puntos (esquina superior derecha de cada cajita) -->
+    <div id="widgetMenuDropdown" class="widget-menu-dropdown">
+        <button type="button" class="widget-menu-dropdown-item" onclick="copyPersonUrl(event)">Copy Person URL</button>
+        <button type="button" class="widget-menu-dropdown-item">Open person</button>
+        <button type="button" class="widget-menu-dropdown-item">Open bureau</button>
+        <button type="button" class="widget-menu-dropdown-item">Open liveness check</button>
+        <button type="button" class="widget-menu-dropdown-item">Open Certificates Validations</button>
+        <button type="button" class="widget-menu-dropdown-item">Open ATO job simulation</button>
+        <button type="button" class="widget-menu-dropdown-item">Payment promise</button>
+        <button type="button" class="widget-menu-dropdown-item">Open agreements</button>
+        <button type="button" class="widget-menu-dropdown-item">Open collections</button>
+        <button type="button" class="widget-menu-dropdown-item">Open invoices</button>
+        <button type="button" class="widget-menu-dropdown-item">Remove contact from denylist</button>
+        <button type="button" class="widget-menu-dropdown-item">Open Amplitude</button>
+        <button type="button" class="widget-menu-dropdown-item">Check Tax ID</button>
+        <button type="button" class="widget-menu-dropdown-item">Request email validation</button>
+        <button type="button" class="widget-menu-dropdown-item orange"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg> Disconnect all devices</button>
+        <button type="button" class="widget-menu-dropdown-item orange"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Report deceased</button>
+        <button type="button" class="widget-menu-dropdown-item orange"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg> V2 - Report suspect</button>
+    </div>
+
     <!-- Success Toast Notification -->
     <div class="toast-notification" id="successToast">
         <div class="toast-check-icon">✓</div>
         <div class="toast-message">Cards updated successfully</div>
         <button class="toast-close" onclick="closeToast()">×</button>
+    </div>
+
+    <!-- Pastilla "Copied" al copiar campo (debajo del título) -->
+    <div class="field-copied-pill" id="fieldCopiedPill">Copied</div>
+
+    <!-- Toast "Person URL copied" (esquina superior derecha) -->
+    <div class="toast-person-url" id="personUrlToast">
+        <div class="toast-person-url-icon">
+            <div class="toast-person-url-icon-inner">
+                <svg viewBox="0 0 24 24" fill="#28A745"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+        </div>
+        <div class="toast-person-url-body">Person URL copied.</div>
+        <button type="button" class="toast-person-url-close" onclick="closePersonUrlToast()" aria-label="Cerrar">×</button>
+    </div>
+
+    <!-- Profile Photo Viewer Modal: imagen dentro de cuadrícula con overflow hidden para que no tape el botón -->
+    <div class="modal-overlay" id="profilePhotoModal" style="display: none; align-items: center; justify-content: center;">
+        <div class="profile-photo-modal-content" style="position: relative; max-width: 90vw; display: flex; flex-direction: column; align-items: center; background: #f5f5f5; border-radius: 12px; padding: 20px 60px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+            <button type="button" onclick="closeProfilePhotoModal()" aria-label="Cerrar" style="position: absolute; top: 12px; right: 12px; background: rgba(124,77,188,0.9); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 24px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10;">&times;</button>
+            <button type="button" onclick="previousProfilePhoto()" aria-label="Foto anterior" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); background: rgba(124,77,188,0.9); color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10;">‹</button>
+            <button type="button" onclick="nextProfilePhoto()" aria-label="Foto siguiente" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: rgba(124,77,188,0.9); color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10;">›</button>
+            <div id="profilePhotoViewerGrid" style="width: 70vmin; height: 70vmin; max-width: 70vw; max-height: 60vh; overflow: hidden; display: flex; align-items: center; justify-content: center; margin: 20px 0; flex-shrink: 0;">
+                <img id="profilePhotoModalImage" src="profile-photo.png" alt="Foto de perfil" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s ease;">
+            </div>
+            <div style="display: flex; gap: 12px; margin-top: 8px; position: relative; z-index: 5; background: #f5f5f5; padding: 8px 0;">
+                <button type="button" onclick="rotateProfilePhoto()" style="background: rgba(124,77,188,0.9); color: white; border: none; border-radius: 50%; width: 44px; height: 44px; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0;" title="Girar imagen 90°">⟳</button>
+            </div>
+        </div>
     </div>
 
     <!-- ID Modal -->
@@ -9896,6 +10215,7 @@
         function toggleWidget(widgetId) {
             const widget = document.getElementById(widgetId);
             const icon = widget.querySelector('.collapse-icon');
+            const menuIcon = widget.querySelector('.widget-header .header-right .menu-icon');
             
             // Special handling for Money Boxes widget with tabs
             if (widgetId === 'moneyBoxesWidget') {
@@ -9906,6 +10226,7 @@
                 if (widget.classList.contains('collapsed')) {
                     widget.classList.remove('collapsed');
                     icon.style.transform = 'rotate(0deg)';
+                    if (menuIcon) menuIcon.style.display = 'flex';
                     if (tabs) tabs.style.display = 'flex';
                     moneyBoxesContents.forEach(content => {
                         // Only show the active tab content
@@ -9921,6 +10242,7 @@
                 } else {
                     widget.classList.add('collapsed');
                     icon.style.transform = 'rotate(-90deg)';
+                    if (menuIcon) menuIcon.style.display = 'none';
                     if (tabs) tabs.style.display = 'none';
                     moneyBoxesContents.forEach(content => content.style.display = 'none');
                     if (footer) footer.style.display = 'none';
@@ -9938,6 +10260,9 @@
             widget.classList.toggle('collapsed');
             
             icon.classList.toggle('collapsed');
+            
+            // Tres puntos solo visibles cuando la cajita está desplegada (siempre dentro del header)
+            if (menuIcon) menuIcon.style.display = widget.classList.contains('collapsed') ? 'none' : 'flex';
         }
 
         function switchMoneyBoxTab(event, tabName) {
@@ -10015,19 +10340,21 @@
             const widgets = document.querySelectorAll('.widget');
             
             if (category === 'Select all') {
-                // Show all widgets and activate toggle
-                widgets.forEach(widget => {
-                    widget.style.display = 'block';
-                });
-                toggle.checked = true;
-                // Activate all buttons
-                filterButtons.forEach(btn => {
-                    btn.classList.add('active');
-                });
+                if (toggle.checked) {
+                    // Ya estaba seleccionado: deseleccionar todo
+                    toggle.checked = false;
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    widgets.forEach(widget => { widget.style.display = 'none'; });
+                } else {
+                    // Seleccionar todo: toggle morado y todas las cajitas activas
+                    toggle.checked = true;
+                    widgets.forEach(widget => { widget.style.display = 'block'; });
+                    filterButtons.forEach(btn => btn.classList.add('active'));
+                }
                 return;
             }
 
-            // Uncheck toggle when filtering by specific category
+            // Al filtrar por una categoría concreta, desmarcar Select all
             toggle.checked = false;
 
             // Define which widgets belong to each category
@@ -10338,6 +10665,105 @@
             toast.classList.remove('show');
         }
 
+        function copyPersonUrl(event) {
+            event.stopPropagation();
+            var personUrl = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(personUrl).then(function() {
+                    closeWidgetMenu();
+                    showPersonUrlToast();
+                }).catch(function() {
+                    fallbackCopyPersonUrl(personUrl);
+                });
+            } else {
+                fallbackCopyPersonUrl(personUrl);
+            }
+        }
+
+        function fallbackCopyPersonUrl(text) {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                document.execCommand('copy');
+                closeWidgetMenu();
+                showPersonUrlToast();
+            } catch (e) {}
+            document.body.removeChild(ta);
+        }
+
+        function showPersonUrlToast() {
+            var toast = document.getElementById('personUrlToast');
+            toast.classList.add('show');
+            clearTimeout(window._personUrlToastTimeout);
+            window._personUrlToastTimeout = setTimeout(closePersonUrlToast, 4000);
+        }
+
+        function closePersonUrlToast() {
+            var toast = document.getElementById('personUrlToast');
+            toast.classList.remove('show');
+            if (window._personUrlToastTimeout) {
+                clearTimeout(window._personUrlToastTimeout);
+                window._personUrlToastTimeout = null;
+            }
+        }
+
+        function copyFieldValue(event) {
+            event.preventDefault();
+            var label = event.currentTarget;
+            var field = label.closest('.info-field');
+            if (!field) return;
+            var value = '';
+            var selectEl = field.querySelector('select');
+            if (selectEl) {
+                value = selectEl.options[selectEl.selectedIndex].text.trim();
+            } else {
+                var valueEl = field.querySelector('.info-value');
+                if (valueEl) value = valueEl.innerText.trim().replace(/\s+/g, ' ');
+            }
+            if (!value) return;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(value).then(function() { showFieldCopiedPill(label, value); }).catch(function() { fallbackCopyAndShow(value, label); });
+            } else {
+                fallbackCopyAndShow(value, label);
+            }
+        }
+
+        function fallbackCopyAndShow(text, label) {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                document.execCommand('copy');
+                showFieldCopiedPill(label, text);
+            } catch (e) {}
+            document.body.removeChild(ta);
+        }
+
+        function showFieldCopiedPill(label, value) {
+            var pill = document.getElementById('fieldCopiedPill');
+            var rect = label.getBoundingClientRect();
+            pill.style.left = rect.left + 'px';
+            pill.style.top = (rect.bottom + 6) + 'px';
+            pill.classList.add('show');
+            clearTimeout(window._fieldCopiedPillTimeout);
+            window._fieldCopiedPillTimeout = setTimeout(closeFieldCopiedPill, 1000);
+        }
+
+        function closeFieldCopiedPill() {
+            document.getElementById('fieldCopiedPill').classList.remove('show');
+            if (window._fieldCopiedPillTimeout) {
+                clearTimeout(window._fieldCopiedPillTimeout);
+                window._fieldCopiedPillTimeout = null;
+            }
+        }
+
         // ID Modal functions
         let currentIDCardIndex = 0;
         
@@ -10380,6 +10806,83 @@
                 indicator.textContent = '2 / 2';
             }
         }
+
+        // Profile Photo Viewer Modal: flechas pasan fotos, botón abajo gira
+        const profilePhotos = ['profile-photo.png', 'cedula-frente.png', 'cedula-reverso.png'];
+        let currentProfilePhotoIndex = 0;
+        let profilePhotoRotation = 0;
+
+        function showProfilePhotoModal() {
+            currentProfilePhotoIndex = 0;
+            profilePhotoRotation = 0;
+            const modal = document.getElementById('profilePhotoModal');
+            const img = document.getElementById('profilePhotoModalImage');
+            if (img) {
+                img.src = profilePhotos[0];
+                img.style.transform = 'rotate(0deg)';
+            }
+            modal.style.display = 'flex';
+        }
+
+        function closeProfilePhotoModal() {
+            document.getElementById('profilePhotoModal').style.display = 'none';
+        }
+
+        function previousProfilePhoto() {
+            if (profilePhotos.length === 0) return;
+            currentProfilePhotoIndex = (currentProfilePhotoIndex - 1 + profilePhotos.length) % profilePhotos.length;
+            profilePhotoRotation = 0;
+            const img = document.getElementById('profilePhotoModalImage');
+            if (img) {
+                img.src = profilePhotos[currentProfilePhotoIndex];
+                img.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function nextProfilePhoto() {
+            if (profilePhotos.length === 0) return;
+            currentProfilePhotoIndex = (currentProfilePhotoIndex + 1) % profilePhotos.length;
+            profilePhotoRotation = 0;
+            const img = document.getElementById('profilePhotoModalImage');
+            if (img) {
+                img.src = profilePhotos[currentProfilePhotoIndex];
+                img.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function rotateProfilePhoto() {
+            profilePhotoRotation += 90;
+            const img = document.getElementById('profilePhotoModalImage');
+            if (img) img.style.transform = 'rotate(' + profilePhotoRotation + 'deg)';
+        }
+
+        document.getElementById('profilePhotoModal')?.addEventListener('click', function(e) {
+            if (e.target === this) closeProfilePhotoModal();
+        });
+
+        function toggleWidgetMenu(event) {
+            event.stopPropagation();
+            const dropdown = document.getElementById('widgetMenuDropdown');
+            const btn = event.currentTarget;
+            const rect = btn.getBoundingClientRect();
+            dropdown.classList.toggle('show');
+            if (dropdown.classList.contains('show')) {
+                dropdown.style.left = (rect.left) + 'px';
+                dropdown.style.top = (rect.bottom + 4) + 'px';
+            }
+        }
+
+        function closeWidgetMenu() {
+            document.getElementById('widgetMenuDropdown').classList.remove('show');
+        }
+
+        document.addEventListener('click', function() {
+            closeWidgetMenu();
+        });
+
+        document.getElementById('widgetMenuDropdown')?.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
 
         // Bill Detail Modal functions
         let currentBillIndex = 0;
@@ -11567,31 +12070,28 @@
             }
         });
 
-        // Collapse all widgets on page load
+        // Collapse all widgets on page load: todas las cajitas empiezan solo con la barra del título
         window.addEventListener('DOMContentLoaded', function() {
             const allWidgets = document.querySelectorAll('.widget');
             allWidgets.forEach(widget => {
                 const widgetId = widget.id;
                 
-                // Collapse all collapsible content
                 if (widgetId === 'moneyBoxesWidget') {
                     const moneyBoxesTabs = widget.querySelector('.money-boxes-tabs');
                     const moneyBoxesContents = widget.querySelectorAll('.money-boxes-content');
                     const moneyBoxesFooter = widget.querySelector('.widget-footer-source');
-                    
-                    if (moneyBoxesTabs) moneyBoxesTabs.classList.add('collapsed');
-                    moneyBoxesContents.forEach(content => content.classList.add('collapsed'));
-                    if (moneyBoxesFooter) moneyBoxesFooter.classList.add('collapsed');
+                    if (moneyBoxesTabs) moneyBoxesTabs.style.display = 'none';
+                    moneyBoxesContents.forEach(content => content.style.display = 'none');
+                    if (moneyBoxesFooter) moneyBoxesFooter.style.display = 'none';
                 } else {
-                    const collapsibles = widget.querySelectorAll('.widget-content, .widget-footer, .widget-footer-source, .filter-section, .card-list, .filter-controls, .categories-section, .prospects-filters, .prospects-list, .phone-header-section, .date-filters, .interactions-list, .documents-header, .adjustments-content-section, .certificates-header-actions, .cert-filter-section, .certificates-list, .pin-section, .simple-widget-content, .simple-footer, .challenge-tabs, .challenge-content, .prometheus-content, .prometheus-footer, .current-situation-tabs, .current-situation-content, .collections-footer-label, .purchases-search-section, .purchases-filters, .purchases-content-section, .lending-footer-label, .data-subject-tabs, .data-subject-content, .collisions-content, .purchases-debit-content, .subscription-plans-content, .cashback-summary-content, .cashbacks-tabs, .cashbacks-content, .subscription-offer-content, .nubank-account-tabs, .nubank-account-content, .credit-card-account-content, .chargebacks-content, .bills-simple-content, .debit-purchases-content, .contestation-filters, .contestation-content, .securecode-content');
-                    collapsibles.forEach(el => {
-                        el.classList.add('collapsed');
-                    });
+                    widget.querySelectorAll('.widget-content, .widget-footer, .widget-footer-source, .filter-section, .card-list, .filter-controls, .categories-section, .prospects-filters, .prospects-list, .phone-header-section, .date-filters, .interactions-list, .documents-header, .adjustments-content-section, .certificates-header-actions, .cert-filter-section, .certificates-list, .pin-section, .simple-widget-content, .simple-footer, .challenge-tabs, .challenge-content, .prometheus-content, .prometheus-footer, .current-situation-tabs, .current-situation-content, .collections-footer-label, .purchases-search-section, .purchases-filters, .purchases-content-section, .lending-footer-label, .chargebacks-footer-label, .bills-simple-footer, .debit-footer-label, .contestation-footer, .securecode-footer, .data-subject-tabs, .data-subject-content, .purchases-debit-footer, .subscription-footer, .cashbacks-tabs').forEach(el => el.classList.add('collapsed'));
                 }
                 
-                // Rotate collapse icon
+                widget.classList.add('collapsed');
                 const icon = widget.querySelector('.collapse-icon');
                 if (icon) icon.classList.add('collapsed');
+                const menuIcon = widget.querySelector('.widget-header .header-right .menu-icon');
+                if (menuIcon) menuIcon.style.display = 'none';
             });
             
             // Initialize card tabs - show only physical cards by default
