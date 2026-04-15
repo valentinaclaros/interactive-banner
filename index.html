@@ -1811,6 +1811,11 @@
             border: 1px solid #B0AFC2;
         }
 
+        /* Loans: panel expandido sin recorte ni scroll interno */
+        #loansWidget.widget {
+            overflow: visible;
+        }
+
         /* Purchases: el menú STATUS debe poder salir del card (lista vacía / poco contenido) sin recortarse */
         #purchasesWidget.widget {
             overflow: visible;
@@ -11702,6 +11707,16 @@
             color: #8d4a3a;
         }
 
+        #cuentaTransactionsWidget .cuenta-tx-amount--out.cuenta-tx-amount--strike {
+            text-decoration: line-through;
+            text-decoration-thickness: 1px;
+        }
+
+        #cuentaTransactionsWidget .cuenta-tx-line2 .transaction-amount.cuenta-tx-amount--emphasis {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
         #cuentaTransactionsWidget .cuenta-tx-outgoing-clickable {
             cursor: pointer;
         }
@@ -11718,15 +11733,51 @@
             background: #fafafa;
         }
 
-        /* Outgoing / Incoming transfer detail modals */
+        #cuentaTransactionsWidget .cuenta-tx-rejected-outgoing-clickable {
+            cursor: pointer;
+        }
+
+        #cuentaTransactionsWidget .cuenta-tx-rejected-outgoing-clickable:hover {
+            background: #fafafa;
+        }
+
+        #cuentaTransactionsWidget .cuenta-tx-pse-outgoing-clickable,
+        #cuentaTransactionsWidget .cuenta-tx-pse2-outgoing-clickable,
+        #cuentaTransactionsWidget .cuenta-tx-bill-payment-clickable,
+        #cuentaTransactionsWidget .cuenta-tx-cajita-withdrawal-clickable,
+        #cuentaTransactionsWidget .cuenta-tx-cajita2-withdrawal-clickable {
+            cursor: pointer;
+        }
+
+        #cuentaTransactionsWidget .cuenta-tx-pse-outgoing-clickable:hover,
+        #cuentaTransactionsWidget .cuenta-tx-pse2-outgoing-clickable:hover,
+        #cuentaTransactionsWidget .cuenta-tx-bill-payment-clickable:hover,
+        #cuentaTransactionsWidget .cuenta-tx-cajita-withdrawal-clickable:hover,
+        #cuentaTransactionsWidget .cuenta-tx-cajita2-withdrawal-clickable:hover {
+            background: #fafafa;
+        }
+
+        /* Outgoing / Incoming / Rejected / PSE transfer detail modals */
         #outgoingTransferDetailModal,
-        #incomingTransferDetailModal {
+        #incomingTransferDetailModal,
+        #rejectedOutgoingTransferDetailModal,
+        #outgoingPseTransferDetailModal,
+        #outgoingPse2TransferDetailModal,
+        #billPaymentTransactionDetailModal,
+        #cajitaWithdrawalTransactionDetailModal,
+        #cajitaWithdrawal2TransactionDetailModal {
             z-index: 2200;
             padding: 16px;
         }
 
         #outgoingTransferDetailModal .visually-hidden,
-        #incomingTransferDetailModal .visually-hidden {
+        #incomingTransferDetailModal .visually-hidden,
+        #rejectedOutgoingTransferDetailModal .visually-hidden,
+        #outgoingPseTransferDetailModal .visually-hidden,
+        #outgoingPse2TransferDetailModal .visually-hidden,
+        #billPaymentTransactionDetailModal .visually-hidden,
+        #cajitaWithdrawalTransactionDetailModal .visually-hidden,
+        #cajitaWithdrawal2TransactionDetailModal .visually-hidden {
             position: absolute;
             width: 1px;
             height: 1px;
@@ -11736,6 +11787,30 @@
             clip: rect(0, 0, 0, 0);
             white-space: nowrap;
             border: 0;
+        }
+
+        #billPaymentTransactionDetailModal .bill-payment-tx-detail-heading {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin: 0 36px 14px 0;
+            color: #111;
+        }
+
+        #billPaymentTransactionDetailModal .bill-payment-tx-detail-heading-accent {
+            color: #b71c1c;
+            font-weight: 600;
+        }
+
+        #billPaymentTransactionDetailModal .bill-payment-tx-detail-heading-rest {
+            color: #111;
+            font-weight: 600;
+        }
+
+        #billPaymentTransactionDetailModal .outgoing-transfer-detail-label {
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.04em;
         }
 
         .outgoing-transfer-detail-box {
@@ -11905,23 +11980,30 @@
         .pse-message {
             font-size: 16px;
             color: #333;
-            margin-bottom: 24px;
         }
 
-        .page-btn {
-            padding: 12px 32px;
-            background: #5B8DEE;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
+        #pseAuthFooter .source-info.pse-auth-footer-img-wrap {
+            width: 100%;
+            max-width: 100%;
+            justify-content: center;
         }
 
-        .page-btn:hover {
-            background: #4a7cd6;
+        #pseAuthFooter .pse-footer-brand-img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #customerRegistrationFooter .source-info.customer-registration-footer-img-wrap {
+            width: 100%;
+            max-width: 100%;
+            justify-content: center;
+        }
+
+        #customerRegistrationFooter .customer-registration-footer-brand-img {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
 
         /* Customer Registration Widget Styles */
@@ -11935,7 +12017,7 @@
 
         .registration-label {
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 400;
             color: #999;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -11944,7 +12026,7 @@
 
         .registration-value {
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 400;
             color: #333;
             display: flex;
             justify-content: space-between;
@@ -12008,6 +12090,109 @@
             line-height: 1.5;
         }
 
+        .lending-account-details {
+            padding: 20px 24px 24px;
+        }
+
+        /* Columna izq.: Created + fecha, luego STATUS + Active. Columna der.: Cancelled + guión, luego Block Account */
+        .lending-account-two-col {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 32px;
+        }
+
+        .lending-account-col {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .lending-account-col--cancelled .lending-block-account-btn {
+            align-self: flex-end;
+        }
+
+        .lending-account-col .lending-detail-label {
+            margin-bottom: 6px;
+        }
+
+        .lending-account-col .lending-detail-value {
+            margin-bottom: 0;
+        }
+
+        .lending-detail-label--status {
+            margin-top: 18px;
+        }
+
+        .lending-block-account-btn {
+            margin-top: 18px;
+            padding: 8px 14px;
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #111;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .lending-block-account-btn:hover {
+            background: #fafafa;
+        }
+
+        .lending-account-id-block {
+            margin-top: 20px;
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .lending-account-id-block .lending-detail-label {
+            margin-bottom: 6px;
+        }
+
+        .lending-account-details .lending-detail-label {
+            font-size: 10px;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 4px;
+        }
+
+        .lending-account-details .lending-detail-value {
+            font-size: 13px;
+            font-weight: 400;
+            color: #111;
+            line-height: 1.35;
+        }
+
+        .lending-account-details .lending-detail-value--status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #2e7d32;
+            font-size: 13px;
+        }
+
+        .lending-account-details .lending-status-caret {
+            color: #888;
+            font-size: 9px;
+            line-height: 1;
+        }
+
+        .lending-account-details .lending-detail-value--id {
+            color: #888;
+            font-size: 11px;
+            white-space: nowrap;
+            overflow-wrap: normal;
+            display: block;
+            min-width: min-content;
+        }
+
         .lending-footer-label {
             padding: 16px 24px;
             border-top: 1px solid #e5e5e5;
@@ -12020,6 +12205,22 @@
             font-size: 14px;
             color: #999;
             font-weight: 500;
+        }
+
+        #lendingAccountFooter .lending-footer-brand-wrap,
+        #loansFooter .lending-footer-brand-wrap {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lendingAccountFooter .lending-footer-brand-img,
+        #loansFooter .lending-footer-brand-img {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
 
         /* Loans Widget Styles */
@@ -12074,6 +12275,328 @@
             font-size: 16px;
             color: #333;
             margin-bottom: 32px;
+        }
+
+        .loans-widget-content {
+            padding: 14px 18px 16px;
+        }
+
+        .loans-card-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .loans-card-checkbox {
+            width: 14px;
+            height: 14px;
+            min-width: 14px;
+            margin-top: 2px;
+            border: 2px solid #7c4dbc;
+            border-radius: 4px;
+            cursor: pointer;
+            flex-shrink: 0;
+            accent-color: #7c4dbc;
+        }
+
+        .loans-card-middle {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .loans-card-title {
+            font-size: 12px;
+            font-weight: 400;
+            color: #111;
+            line-height: 1.25;
+        }
+
+        .loans-card-title-line {
+            display: block;
+        }
+
+        .loans-card-status {
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+
+        .loans-card-status-inner {
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .loans-card-status-line1 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: nowrap;
+        }
+
+        .loans-card-label-type {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #4a6b82;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .loans-card-label-active {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #9bcb45;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .loans-card-status-line2 {
+            margin-top: 2px;
+        }
+
+        .loans-card-label-loan {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #4a6b82;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .loans-card-load-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .loans-card-load-spacer {
+            width: 14px;
+            min-width: 14px;
+            flex-shrink: 0;
+        }
+
+        .loans-card-load-btn {
+            padding: 6px 14px;
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #111;
+            cursor: pointer;
+        }
+
+        .loans-card-load-btn:hover {
+            background: #fafafa;
+        }
+
+        /* Solo sin colapsar: si no, max-height:none !important anula .widget-content.collapsed */
+        #loansWidget:not(.collapsed) .widget-content#loansContent {
+            overflow: visible !important;
+            max-height: none !important;
+        }
+
+        .loans-widget-inner.loans-is-expanded .loans-card-load-row--summary {
+            display: none;
+        }
+
+        .loans-expand-trigger {
+            cursor: pointer;
+            border-radius: 6px;
+            padding: 2px;
+            margin: -2px;
+        }
+
+        .loans-expand-trigger:focus {
+            outline: 2px solid #7c4dbc;
+            outline-offset: 2px;
+        }
+
+        .loans-expanded-panel {
+            margin-top: 12px;
+            padding: 12px 18px 16px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .loans-expanded-panel[hidden] {
+            display: none !important;
+        }
+
+        .loans-action-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .loans-action-row-btns {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .loans-act-btn {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 10px;
+            background: #fff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #111;
+            cursor: pointer;
+            line-height: 1.25;
+            text-align: center;
+        }
+
+        .loans-act-btn:hover {
+            background: #fafafa;
+        }
+
+        .loans-act-btn--empty {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loans-data-section {
+            margin-top: 4px;
+        }
+
+        .loans-data-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px 16px;
+            align-items: start;
+        }
+
+        .loans-data-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 16px;
+            align-items: start;
+        }
+
+        .loans-dlg-label {
+            font-size: 10px;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 4px;
+        }
+
+        .loans-dlg-value {
+            font-size: 12px;
+            font-weight: 700;
+            color: #111;
+            line-height: 1.3;
+        }
+
+        .loans-dlg-value--twolines span {
+            display: block;
+        }
+
+        .loans-dlg-value--id {
+            font-size: 12px;
+            font-weight: 400;
+            color: #888;
+            word-break: keep-all;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
+        .loans-data-span-full {
+            grid-column: 1 / -1;
+        }
+
+        .loans-data-gap-top {
+            margin-top: 14px;
+        }
+
+        .loans-sep {
+            border: none;
+            border-top: 1px solid #e5e5e5;
+            margin: 14px 0;
+        }
+
+        .loans-charges-block {
+            margin-top: 4px;
+        }
+
+        .loans-charges-title {
+            font-size: 10px;
+            font-weight: 400;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .loans-charge-row {
+            display: grid;
+            grid-template-columns: 32px minmax(0, 1fr) auto;
+            gap: 10px 12px;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 12px;
+        }
+
+        .loans-ch-idx {
+            font-weight: 700;
+            color: #111;
+        }
+
+        .loans-ch-amt {
+            font-weight: 700;
+            color: #111;
+        }
+
+        .loans-charge-row--row1 .loans-ch-idx,
+        .loans-charge-row--row1 .loans-ch-amt {
+            font-weight: 400;
+            color: #888;
+        }
+
+        .loans-charge-row--row1 .loans-ch-date-main {
+            font-weight: 700;
+            color: #111;
+        }
+
+        .loans-ch-dates {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: baseline;
+            gap: 0 0;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .loans-ch-date-main {
+            font-weight: 700;
+            color: #111;
+        }
+
+        .loans-ch-date-old {
+            font-weight: 400;
+            color: #888;
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        .loans-expanded-load {
+            margin-top: 14px;
         }
 
         .loans-load-btn {
@@ -20164,7 +20687,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="transactions-count">Showing 12 of 12 transactions</div>
+                        <div class="transactions-count">Showing 21 of 21 transactions</div>
                         <div class="cuenta-transactions-scroll" id="cuentaTransactionsList">
                         <div class="transaction-item">
                             <div class="cuenta-tx-line1">
@@ -20246,6 +20769,96 @@
                                 <div class="transaction-amount cuenta-tx-amount--out">COP 30,000.00</div>
                             </div>
                         </div>
+                        <div class="transaction-item cuenta-tx-rejected-outgoing-clickable" role="button" tabindex="0" aria-label="Ver detalle de transferencia rechazada" onclick="openRejectedOutgoingTransferDetailModal(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openRejectedOutgoingTransferDetailModal(event);}">
+                            <div class="cuenta-tx-line1">
+                                <div class="transaction-date">09/03/26 - 17:51:45 - Rejected 4×1000 (COP 20.00)</div>
+                                <span class="transaction-copy-icon" title="Copy" aria-hidden="true" onclick="event.stopPropagation(); copyCuentaTxListLine(this);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></span>
+                            </div>
+                            <div class="cuenta-tx-line2">
+                                <div class="transaction-description">Outgoing Transfer</div>
+                                <div class="transaction-amount cuenta-tx-amount--out cuenta-tx-amount--strike">COP 5,000.00</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item cuenta-tx-pse-outgoing-clickable" role="button" tabindex="0" aria-label="Ver detalle de Outgoing Transfer (PSE)" onclick="openPseOutgoingTransferDetailModal(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPseOutgoingTransferDetailModal(event);}">
+                            <div class="cuenta-tx-line1">
+                                <div class="transaction-date">04/04/26 - 15:05:42 - Confirmed4×1000 (COP 44.92)</div>
+                                <span class="transaction-copy-icon" title="Copy" aria-hidden="true" onclick="event.stopPropagation(); copyCuentaTxListLine(this);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></span>
+                            </div>
+                            <div class="cuenta-tx-line2">
+                                <div class="transaction-description">Outgoing Transfer</div>
+                                <div class="transaction-amount cuenta-tx-amount--out">COP 11,230.00</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item cuenta-tx-pse2-outgoing-clickable" role="button" tabindex="0" aria-label="Ver detalle de Outgoing Transfer PSE (11:12)" onclick="openPse2OutgoingTransferDetailModal(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPse2OutgoingTransferDetailModal(event);}">
+                            <div class="cuenta-tx-line1">
+                                <div class="transaction-date">04/04/26 - 11:12:24 - Confirmed 4×1000 (COP 80.92)</div>
+                                <span class="transaction-copy-icon" title="Copy" aria-hidden="true" onclick="event.stopPropagation(); copyCuentaTxListLine(this);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></span>
+                            </div>
+                            <div class="cuenta-tx-line2">
+                                <div class="transaction-description">Outgoing Transfer</div>
+                                <div class="transaction-amount cuenta-tx-amount--out">COP 20,230.00</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="cuenta-tx-line1">
+                                <div class="transaction-date">05/11/25 - 01:47:33 - Confirmed</div>
+                                <span class="transaction-copy-icon" title="Copy" aria-hidden="true" onclick="copyCuentaTxListLine(this);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></span>
+                            </div>
+                            <div class="cuenta-tx-line2">
+                                <div class="transaction-description">Negative Adjustment</div>
+                                <div class="transaction-amount cuenta-tx-amount--out">COP 20,502.22</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="cuenta-tx-line1">
+                                <div class="transaction-date">02/04/26 - 15:38:33 - Confirmed 4×1000 (COP 18.04)</div>
+                                <span class="transaction-copy-icon" title="Copy" aria-hidden="true" onclick="copyCuentaTxListLine(this);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></span>
+                            </div>
+                            <div class="cuenta-tx-line2">
+                                <div class="transaction-description">Refund for debit transaction</div>
+                                <div class="transaction-amount cuenta-tx-amount--in">COP 4,511.00</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item cuenta-tx-bill-payment-clickable" role="button" tabindex="0" aria-label="Ver detalle de Bill Payment" onclick="openBillPaymentTransactionDetailModal(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBillPaymentTransactionDetailModal(event);}">
+                            <div class="cuenta-tx-line1">
+                                <div class="transaction-date">02/08/25 - 14:54:54 - Confirmed 4×1000 (COP 85.32)</div>
+                                <span class="transaction-copy-icon" title="Copy" aria-hidden="true" onclick="event.stopPropagation(); copyCuentaTxListLine(this);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></span>
+                            </div>
+                            <div class="cuenta-tx-line2">
+                                <div class="transaction-description">Bill Payment</div>
+                                <div class="transaction-amount cuenta-tx-amount--out">COP 21,330.00</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="cuenta-tx-line1">
+                                <div class="transaction-date">06/04/26 - 19:59:50 - Confirmed 4×1000 (COP 40.00)</div>
+                                <span class="transaction-copy-icon" title="Copy" aria-hidden="true" onclick="copyCuentaTxListLine(this);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></span>
+                            </div>
+                            <div class="cuenta-tx-line2">
+                                <div class="transaction-description">Unknown</div>
+                                <div class="transaction-amount cuenta-tx-amount--neutral cuenta-tx-amount--emphasis">COP 10,000.00</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item cuenta-tx-cajita-withdrawal-clickable" role="button" tabindex="0" aria-label="Ver detalle de Withdrawal Cajita" onclick="openCajitaWithdrawalTransactionDetailModal(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCajitaWithdrawalTransactionDetailModal(event);}">
+                            <div class="cuenta-tx-line1">
+                                <div class="transaction-date">01/02/25 - 22:03:29 - Confirmed</div>
+                                <span class="transaction-copy-icon" title="Copy" aria-hidden="true" onclick="event.stopPropagation(); copyCuentaTxListLine(this);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></span>
+                            </div>
+                            <div class="cuenta-tx-line2">
+                                <div class="transaction-description">Withdrawal - Cajita</div>
+                                <div class="transaction-amount cuenta-tx-amount--neutral">COP 1,051,502.15</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item cuenta-tx-cajita2-withdrawal-clickable" role="button" tabindex="0" aria-label="Ver detalle de Withdrawal Cajita (09:04)" onclick="openCajita2WithdrawalTransactionDetailModal(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCajita2WithdrawalTransactionDetailModal(event);}">
+                            <div class="cuenta-tx-line1">
+                                <div class="transaction-date">01/02/25 - 09:04:50 - Confirmed</div>
+                                <span class="transaction-copy-icon" title="Copy" aria-hidden="true" onclick="event.stopPropagation(); copyCuentaTxListLine(this);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></span>
+                            </div>
+                            <div class="cuenta-tx-line2">
+                                <div class="transaction-description">Withdrawal - Cajita</div>
+                                <div class="transaction-amount cuenta-tx-amount--neutral">COP 370,529.35</div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                     <div class="widget-footer-source" id="cuentaTransactionsFooter">
@@ -20267,13 +20880,11 @@
                     <div class="widget-content" id="pseAuthContent">
                         <div class="pse-content">
                             <div class="pse-message">No authorizations were found</div>
-                            <button class="page-btn">Page 1</button>
                         </div>
                     </div>
                     <div class="widget-footer-source" id="pseAuthFooter">
-                        <div class="source-info">
-                            <div class="source-icon">🔄</div>
-                            <span>Transfer-out</span>
+                        <div class="source-info pse-auth-footer-img-wrap">
+                            <img src="images/pse.png" alt="PSE" class="pse-footer-brand-img" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -20296,44 +20907,43 @@
                             <div class="registration-field">
                                 <div class="registration-label">ECONOMIC ACTIVITY</div>
                                 <div class="registration-value">
-                                    <span>CIIU0010</span>
-                                    <button class="edit-btn">✎</button>
+                                    <span>CIIU0020</span>
+                                    <button type="button" class="edit-btn" aria-label="Editar">✎</button>
                                 </div>
                             </div>
                             <div class="registration-field">
                                 <div class="registration-label">ORIGIN OF INCOME</div>
                                 <div class="registration-value">
                                     <span>-</span>
-                                    <button class="edit-btn">✎</button>
+                                    <button type="button" class="edit-btn" aria-label="Editar">✎</button>
                                 </div>
                             </div>
                             <div class="registration-field">
                                 <div class="registration-label">MONTHLY INCOME</div>
                                 <div class="registration-value">
-                                    <span>$ 3.000.000,00</span>
-                                    <button class="edit-btn">✎</button>
+                                    <span>$ 4.000.000,00</span>
+                                    <button type="button" class="edit-btn" aria-label="Editar">✎</button>
                                 </div>
                             </div>
                             <div class="registration-field">
                                 <div class="registration-label">MONTHLY EXPENSES</div>
                                 <div class="registration-value">
-                                    <span>$ 1.500.000,00</span>
-                                    <button class="edit-btn">✎</button>
+                                    <span>$ 2.000.000,00</span>
+                                    <button type="button" class="edit-btn" aria-label="Editar">✎</button>
                                 </div>
                             </div>
                             <div class="registration-field">
                                 <div class="registration-label">TAX RESIDENCE ADDRESS</div>
                                 <div class="registration-value">
                                     <span>-</span>
-                                    <button class="edit-btn">✎</button>
+                                    <button type="button" class="edit-btn" aria-label="Editar">✎</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="widget-footer-source" id="customerRegistrationFooter">
-                        <div class="source-info">
-                            <div class="source-icon">🔄</div>
-                            <span>Co-Operations</span>
+                        <div class="source-info customer-registration-footer-img-wrap">
+                            <img src="images/Bills.png" alt="Bills" class="customer-registration-footer-brand-img" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -20348,15 +20958,32 @@
                         </div>
                     </div>
                     <div class="widget-content" id="lendingAccountContent">
-                        <div class="lending-info-box">
-                            <div class="lending-info-text">Customer does not have a lending account</div>
+                        <div class="lending-account-details">
+                            <div class="lending-account-two-col">
+                                <div class="lending-account-col">
+                                    <div class="lending-detail-label">CREATED AT</div>
+                                    <div class="lending-detail-value">19 Jan 2026</div>
+                                    <div class="lending-detail-label lending-detail-label--status">STATUS</div>
+                                    <div class="lending-detail-value lending-detail-value--status">
+                                        <span>ACTIVE</span>
+                                        <span class="lending-status-caret" aria-hidden="true">▼</span>
+                                    </div>
+                                </div>
+                                <div class="lending-account-col lending-account-col--cancelled">
+                                    <div class="lending-detail-label">CANCELLED AT</div>
+                                    <div class="lending-detail-value">-</div>
+                                    <button type="button" class="lending-block-account-btn">Block Account</button>
+                                </div>
+                            </div>
+                            <div class="lending-account-id-block">
+                                <div class="lending-detail-label">LENDING ACCOUNT ID</div>
+                                <div class="lending-detail-value lending-detail-value--id">896effe3-e33d-4x46-d972-11caf1163c1a</div>
+                            </div>
                         </div>
                     </div>
                     <div class="lending-footer-label" id="lendingAccountFooter">
-                        <span class="lending-footer-text">Lending</span>
-                        <div class="footer-icons-right">
-                            <button class="footer-icon-btn">💬</button>
-                            <button class="footer-icon-btn">🔄</button>
+                        <div class="lending-footer-brand-wrap">
+                            <img src="images/lending.png" alt="Lending" class="lending-footer-brand-img" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -20371,42 +20998,233 @@
                         </div>
                     </div>
                     <div class="widget-content" id="loansContent">
-                        <div style="padding: 24px;">
-                            <!-- Buttons Section -->
-                            <div style="display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 20px;">
-                                <button style="padding: 8px 16px; background: white; border: 1px solid #d0d0d0; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; color: #333;">Rules</button>
-                                <button style="padding: 8px 16px; background: white; border: 1px solid #d0d0d0; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; color: #ccc;">Renegotiation</button>
-                            </div>
-                            <!-- Loan Item -->
-                            <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px;">
-                                <input type="checkbox" style="width: 20px; height: 20px; margin-top: 4px; cursor: pointer; border: 2px solid #d0d0d0; border-radius: 4px;">
-                                <div style="flex: 1;">
-                                    <div style="font-size: 16px; font-weight: 600; color: #333; margin-bottom: 4px;">
-                                        Dinheiro do empréstimo
-                                    </div>
-                                    <div style="display: flex; gap: 32px; align-items: center;">
-                                        <div style="font-size: 18px; font-weight: 700; color: #4A7C9E;">
-                                            PERSONAL LOAN
-                                        </div>
-                                        <div style="font-size: 18px; font-weight: 700; color: #9BCB45;">
-                                            ACTIVE
+                        <div class="loans-widget-inner" id="loansWidgetInner">
+                            <div class="loans-widget-content">
+                                <div class="loans-expand-trigger" id="loansExpandTrigger" role="button" tabindex="0" aria-expanded="false" aria-controls="loansExpandedPanel" onclick="toggleLoansExpanded(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleLoansExpanded(event);}">
+                                    <div class="loans-card-row">
+                                        <input type="checkbox" class="loans-card-checkbox" aria-label="Selecionar empréstimo" onclick="event.stopPropagation();">
+                                        <div class="loans-card-middle">
+                                            <div class="loans-card-title">
+                                                <span class="loans-card-title-line">Dinheiro do</span>
+                                                <span class="loans-card-title-line">empréstimo</span>
+                                            </div>
+                                            <div class="loans-card-status">
+                                                <div class="loans-card-status-inner">
+                                                    <div class="loans-card-status-line1">
+                                                        <span class="loans-card-label-type">SMALL AMOUNT</span>
+                                                        <span class="loans-card-label-active">ACTIVE</span>
+                                                    </div>
+                                                    <div class="loans-card-status-line2">
+                                                        <span class="loans-card-label-loan">LOAN</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="loans-card-load-row loans-card-load-row--summary">
+                                    <span class="loans-card-load-spacer" aria-hidden="true"></span>
+                                    <button type="button" class="loans-card-load-btn" onclick="event.stopPropagation();">Load</button>
+                                </div>
                             </div>
-                            
-                            <div style="margin-top: 24px;">
-                                <button style="padding: 10px 24px; background: white; border: 1px solid #d0d0d0; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; color: #333;">
-                                    Load
-                                </button>
+                            <div id="loansExpandedPanel" class="loans-expanded-panel" hidden>
+                                <div class="loans-action-rows">
+                                    <div class="loans-action-row-btns">
+                                        <button type="button" class="loans-act-btn">Send contract</button>
+                                        <button type="button" class="loans-act-btn">Simulate<br>payments</button>
+                                        <button type="button" class="loans-act-btn">Cancel loan</button>
+                                    </div>
+                                    <div class="loans-action-row-btns">
+                                        <button type="button" class="loans-act-btn">Payments</button>
+                                        <button type="button" class="loans-act-btn">Promise History</button>
+                                        <button type="button" class="loans-act-btn">Contract</button>
+                                    </div>
+                                    <div class="loans-action-row-btns">
+                                        <button type="button" class="loans-act-btn">DDC</button>
+                                        <button type="button" class="loans-act-btn">Send loan ddc</button>
+                                        <span class="loans-act-btn loans-act-btn--empty" aria-hidden="true">&nbsp;</span>
+                                    </div>
+                                </div>
+                                <div class="loans-data-section">
+                                    <div class="loans-data-grid-3">
+                                        <div>
+                                            <div class="loans-dlg-label">LOAN NAME</div>
+                                            <div class="loans-dlg-value loans-dlg-value--twolines"><span>Dinheiro do</span><span>empréstimo</span></div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">REMAINING AMOUNT</div>
+                                            <div class="loans-dlg-value">$ 1210530.31</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">TOTAL AMOUNT</div>
+                                            <div class="loans-dlg-value">$ 1320578.52</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">PRINCIPAL</div>
+                                            <div class="loans-dlg-value">$ 1050000.00</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">TOTAL PAID</div>
+                                            <div class="loans-dlg-value">$ 112078.80</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">DISCOUNT</div>
+                                            <div class="loans-dlg-value">$ 0.00</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">LIQUIDATION</div>
+                                            <div class="loans-dlg-value">$ 1020081.88</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">CONTRACT DATE</div>
+                                            <div class="loans-dlg-value">06/02/26 15:03</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">LIQUIDATION DATE</div>
+                                            <div class="loans-dlg-value">16 FEB 2027</div>
+                                        </div>
+                                    </div>
+                                    <div class="loans-data-grid-2 loans-data-gap-top">
+                                        <div>
+                                            <div class="loans-dlg-label">AUTO PAYMENT</div>
+                                            <div class="loans-dlg-value">Savings</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">PERSONAL LOAN SOURCE TYPE</div>
+                                            <div class="loans-dlg-value">Issuance</div>
+                                        </div>
+                                    </div>
+                                    <div class="loans-data-span-full loans-data-gap-top">
+                                        <div class="loans-dlg-label">PERSONAL LOAN ID</div>
+                                        <div class="loans-dlg-value loans-dlg-value--id">698648ff-06ae-4b0c-87e4-88a009e07a98</div>
+                                    </div>
+                                </div>
+                                <hr class="loans-sep" />
+                                <div class="loans-data-section">
+                                    <div class="loans-data-grid-3">
+                                        <div>
+                                            <div class="loans-dlg-label">YEARLY INTEREST</div>
+                                            <div class="loans-dlg-value">42%</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">INTEREST RATE</div>
+                                            <div class="loans-dlg-value">3.5%</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">LOAN'S IOF</div>
+                                            <div class="loans-dlg-value">$ 0.00</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">LOAN'S CET</div>
+                                            <div class="loans-dlg-value">51.11%</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">LATE FEE</div>
+                                            <div class="loans-dlg-value">0%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="loans-sep" />
+                                <div class="loans-data-section">
+                                    <div class="loans-data-grid-3">
+                                        <div>
+                                            <div class="loans-dlg-label">REMAINING INSTALLMENTS</div>
+                                            <div class="loans-dlg-value">11</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">NUMBER OF INSTALLMENTS</div>
+                                            <div class="loans-dlg-value">12</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">PAID</div>
+                                            <div class="loans-dlg-value">1</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">ANTICIPATED</div>
+                                            <div class="loans-dlg-value">0</div>
+                                        </div>
+                                        <div>
+                                            <div class="loans-dlg-label">PAID LATE</div>
+                                            <div class="loans-dlg-value">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="loans-sep" />
+                                <div class="loans-charges-block">
+                                    <div class="loans-charges-title">CHARGES</div>
+                                    <div class="loans-charge-row loans-charge-row--row1">
+                                        <span class="loans-ch-idx">1ª</span>
+                                        <span class="loans-ch-amt">$ 112078.80</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">16 MAR 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">2ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">16 APR 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">3ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">19 MAY 2026</span><span class="loans-ch-date-old">16 MAY 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">4ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">16 JUN 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">5ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">16 JUL 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">6ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">18 AUG 2026</span><span class="loans-ch-date-old">16 AUG 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">7ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">16 SEP 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">8ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">16 OCT 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">9ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">17 NOV 2026</span><span class="loans-ch-date-old">16 NOV 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">10ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">16 DEC 2026</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">11ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">18 JAN 2027</span><span class="loans-ch-date-old">16 JAN 2027</span></div>
+                                    </div>
+                                    <div class="loans-charge-row">
+                                        <span class="loans-ch-idx">12ª</span>
+                                        <span class="loans-ch-amt">$ 110048.21</span>
+                                        <div class="loans-ch-dates"><span class="loans-ch-date-main">16 FEB 2027</span></div>
+                                    </div>
+                                </div>
+                                <div class="loans-expanded-load">
+                                    <div class="loans-card-load-row">
+                                        <span class="loans-card-load-spacer" aria-hidden="true"></span>
+                                        <button type="button" class="loans-card-load-btn">Load</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="lending-footer-label" id="loansFooter">
-                        <span class="lending-footer-text">Lending</span>
-                        <div class="footer-icons-right">
-                            <button class="footer-icon-btn">💬</button>
-                            <button class="footer-icon-btn">🔄</button>
+                        <div class="lending-footer-brand-wrap">
+                            <img src="images/lending.png" alt="Lending" class="lending-footer-brand-img" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -28758,6 +29576,36 @@ Un abrazo, equipo Nu. 💜</div>
 
         function openOutgoingTransferDetailModal(ev) {
             if (ev && ev.target && ev.target.closest && ev.target.closest('.transaction-copy-icon')) return;
+            var pse = document.getElementById('outgoingPseTransferDetailModal');
+            if (pse && pse.classList.contains('active')) {
+                pse.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse2 = document.getElementById('outgoingPse2TransferDetailModal');
+            if (pse2 && pse2.classList.contains('active')) {
+                pse2.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var billPm = document.getElementById('billPaymentTransactionDetailModal');
+            if (billPm && billPm.classList.contains('active')) {
+                billPm.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajitaWd = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            if (cajitaWd && cajitaWd.classList.contains('active')) {
+                cajitaWd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajita2Wd = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
+            if (cajita2Wd && cajita2Wd.classList.contains('active')) {
+                cajita2Wd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var rej = document.getElementById('rejectedOutgoingTransferDetailModal');
+            if (rej && rej.classList.contains('active')) {
+                rej.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
             var inc = document.getElementById('incomingTransferDetailModal');
             if (inc && inc.classList.contains('active')) {
                 inc.classList.remove('active');
@@ -28776,10 +29624,346 @@ Un abrazo, equipo Nu. 💜</div>
                 out.classList.remove('active');
                 hideOutgoingTransferCopyTooltip();
             }
+            var pse = document.getElementById('outgoingPseTransferDetailModal');
+            if (pse && pse.classList.contains('active')) {
+                pse.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse2 = document.getElementById('outgoingPse2TransferDetailModal');
+            if (pse2 && pse2.classList.contains('active')) {
+                pse2.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var billPm = document.getElementById('billPaymentTransactionDetailModal');
+            if (billPm && billPm.classList.contains('active')) {
+                billPm.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajitaWd = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            if (cajitaWd && cajitaWd.classList.contains('active')) {
+                cajitaWd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajita2Wd = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
+            if (cajita2Wd && cajita2Wd.classList.contains('active')) {
+                cajita2Wd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var rej = document.getElementById('rejectedOutgoingTransferDetailModal');
+            if (rej && rej.classList.contains('active')) {
+                rej.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
             var m = document.getElementById('incomingTransferDetailModal');
             if (!m) return;
             m.classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
+
+        function openRejectedOutgoingTransferDetailModal(ev) {
+            if (ev && ev.target && ev.target.closest && ev.target.closest('.transaction-copy-icon')) return;
+            var out = document.getElementById('outgoingTransferDetailModal');
+            if (out && out.classList.contains('active')) {
+                out.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse = document.getElementById('outgoingPseTransferDetailModal');
+            if (pse && pse.classList.contains('active')) {
+                pse.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse2 = document.getElementById('outgoingPse2TransferDetailModal');
+            if (pse2 && pse2.classList.contains('active')) {
+                pse2.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var billPm = document.getElementById('billPaymentTransactionDetailModal');
+            if (billPm && billPm.classList.contains('active')) {
+                billPm.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajitaWd = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            if (cajitaWd && cajitaWd.classList.contains('active')) {
+                cajitaWd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajita2Wd = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
+            if (cajita2Wd && cajita2Wd.classList.contains('active')) {
+                cajita2Wd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var inc = document.getElementById('incomingTransferDetailModal');
+            if (inc && inc.classList.contains('active')) {
+                inc.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var m = document.getElementById('rejectedOutgoingTransferDetailModal');
+            if (!m) return;
+            m.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openPseOutgoingTransferDetailModal(ev) {
+            if (ev && ev.target && ev.target.closest && ev.target.closest('.transaction-copy-icon')) return;
+            var out = document.getElementById('outgoingTransferDetailModal');
+            if (out && out.classList.contains('active')) {
+                out.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse2m = document.getElementById('outgoingPse2TransferDetailModal');
+            if (pse2m && pse2m.classList.contains('active')) {
+                pse2m.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var billPm = document.getElementById('billPaymentTransactionDetailModal');
+            if (billPm && billPm.classList.contains('active')) {
+                billPm.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajitaWd = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            if (cajitaWd && cajitaWd.classList.contains('active')) {
+                cajitaWd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajita2Wd = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
+            if (cajita2Wd && cajita2Wd.classList.contains('active')) {
+                cajita2Wd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var rej = document.getElementById('rejectedOutgoingTransferDetailModal');
+            if (rej && rej.classList.contains('active')) {
+                rej.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var inc = document.getElementById('incomingTransferDetailModal');
+            if (inc && inc.classList.contains('active')) {
+                inc.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var m = document.getElementById('outgoingPseTransferDetailModal');
+            if (!m) return;
+            m.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openPse2OutgoingTransferDetailModal(ev) {
+            if (ev && ev.target && ev.target.closest && ev.target.closest('.transaction-copy-icon')) return;
+            var out = document.getElementById('outgoingTransferDetailModal');
+            if (out && out.classList.contains('active')) {
+                out.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse1 = document.getElementById('outgoingPseTransferDetailModal');
+            if (pse1 && pse1.classList.contains('active')) {
+                pse1.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var billPm = document.getElementById('billPaymentTransactionDetailModal');
+            if (billPm && billPm.classList.contains('active')) {
+                billPm.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajitaWd = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            if (cajitaWd && cajitaWd.classList.contains('active')) {
+                cajitaWd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajita2Wd = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
+            if (cajita2Wd && cajita2Wd.classList.contains('active')) {
+                cajita2Wd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var rej = document.getElementById('rejectedOutgoingTransferDetailModal');
+            if (rej && rej.classList.contains('active')) {
+                rej.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var inc = document.getElementById('incomingTransferDetailModal');
+            if (inc && inc.classList.contains('active')) {
+                inc.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var m = document.getElementById('outgoingPse2TransferDetailModal');
+            if (!m) return;
+            m.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openBillPaymentTransactionDetailModal(ev) {
+            if (ev && ev.target && ev.target.closest && ev.target.closest('.transaction-copy-icon')) return;
+            var out = document.getElementById('outgoingTransferDetailModal');
+            if (out && out.classList.contains('active')) {
+                out.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse = document.getElementById('outgoingPseTransferDetailModal');
+            if (pse && pse.classList.contains('active')) {
+                pse.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse2 = document.getElementById('outgoingPse2TransferDetailModal');
+            if (pse2 && pse2.classList.contains('active')) {
+                pse2.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var rej = document.getElementById('rejectedOutgoingTransferDetailModal');
+            if (rej && rej.classList.contains('active')) {
+                rej.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var inc = document.getElementById('incomingTransferDetailModal');
+            if (inc && inc.classList.contains('active')) {
+                inc.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajitaWd = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            if (cajitaWd && cajitaWd.classList.contains('active')) {
+                cajitaWd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajita2Wd = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
+            if (cajita2Wd && cajita2Wd.classList.contains('active')) {
+                cajita2Wd.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var m = document.getElementById('billPaymentTransactionDetailModal');
+            if (!m) return;
+            m.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openCajitaWithdrawalTransactionDetailModal(ev) {
+            if (ev && ev.target && ev.target.closest && ev.target.closest('.transaction-copy-icon')) return;
+            var out = document.getElementById('outgoingTransferDetailModal');
+            if (out && out.classList.contains('active')) {
+                out.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse = document.getElementById('outgoingPseTransferDetailModal');
+            if (pse && pse.classList.contains('active')) {
+                pse.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse2 = document.getElementById('outgoingPse2TransferDetailModal');
+            if (pse2 && pse2.classList.contains('active')) {
+                pse2.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var rej = document.getElementById('rejectedOutgoingTransferDetailModal');
+            if (rej && rej.classList.contains('active')) {
+                rej.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var inc = document.getElementById('incomingTransferDetailModal');
+            if (inc && inc.classList.contains('active')) {
+                inc.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var billPm = document.getElementById('billPaymentTransactionDetailModal');
+            if (billPm && billPm.classList.contains('active')) {
+                billPm.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajita2m = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
+            if (cajita2m && cajita2m.classList.contains('active')) {
+                cajita2m.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var m = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            if (!m) return;
+            m.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openCajita2WithdrawalTransactionDetailModal(ev) {
+            if (ev && ev.target && ev.target.closest && ev.target.closest('.transaction-copy-icon')) return;
+            var out = document.getElementById('outgoingTransferDetailModal');
+            if (out && out.classList.contains('active')) {
+                out.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse = document.getElementById('outgoingPseTransferDetailModal');
+            if (pse && pse.classList.contains('active')) {
+                pse.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var pse2 = document.getElementById('outgoingPse2TransferDetailModal');
+            if (pse2 && pse2.classList.contains('active')) {
+                pse2.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var rej = document.getElementById('rejectedOutgoingTransferDetailModal');
+            if (rej && rej.classList.contains('active')) {
+                rej.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var inc = document.getElementById('incomingTransferDetailModal');
+            if (inc && inc.classList.contains('active')) {
+                inc.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var billPm = document.getElementById('billPaymentTransactionDetailModal');
+            if (billPm && billPm.classList.contains('active')) {
+                billPm.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var cajita1 = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            if (cajita1 && cajita1.classList.contains('active')) {
+                cajita1.classList.remove('active');
+                hideOutgoingTransferCopyTooltip();
+            }
+            var m = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
+            if (!m) return;
+            m.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePseOutgoingTransferDetailModal() {
+            var m = document.getElementById('outgoingPseTransferDetailModal');
+            if (!m) return;
+            m.classList.remove('active');
+            document.body.style.overflow = '';
+            hideOutgoingTransferCopyTooltip();
+        }
+
+        function closePse2OutgoingTransferDetailModal() {
+            var m = document.getElementById('outgoingPse2TransferDetailModal');
+            if (!m) return;
+            m.classList.remove('active');
+            document.body.style.overflow = '';
+            hideOutgoingTransferCopyTooltip();
+        }
+
+        function closeBillPaymentTransactionDetailModal() {
+            var m = document.getElementById('billPaymentTransactionDetailModal');
+            if (!m) return;
+            m.classList.remove('active');
+            document.body.style.overflow = '';
+            hideOutgoingTransferCopyTooltip();
+        }
+
+        function closeCajitaWithdrawalTransactionDetailModal() {
+            var m = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            if (!m) return;
+            m.classList.remove('active');
+            document.body.style.overflow = '';
+            hideOutgoingTransferCopyTooltip();
+        }
+
+        function closeCajita2WithdrawalTransactionDetailModal() {
+            var m = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
+            if (!m) return;
+            m.classList.remove('active');
+            document.body.style.overflow = '';
+            hideOutgoingTransferCopyTooltip();
+        }
+
+        function closeRejectedOutgoingTransferDetailModal() {
+            var m = document.getElementById('rejectedOutgoingTransferDetailModal');
+            if (!m) return;
+            m.classList.remove('active');
+            document.body.style.overflow = '';
+            hideOutgoingTransferCopyTooltip();
         }
 
         function closeIncomingTransferDetailModal() {
@@ -28801,7 +29985,7 @@ Un abrazo, equipo Nu. 💜</div>
         }
 
         function showOutgoingTransferCopyTooltip(anchorEl) {
-            var btn = anchorEl || document.querySelector('#outgoingTransferDetailModal.active .outgoing-transfer-detail-copy-btn, #incomingTransferDetailModal.active .outgoing-transfer-detail-copy-btn');
+            var btn = anchorEl || document.querySelector('#outgoingTransferDetailModal.active .outgoing-transfer-detail-copy-btn, #incomingTransferDetailModal.active .outgoing-transfer-detail-copy-btn, #rejectedOutgoingTransferDetailModal.active .outgoing-transfer-detail-copy-btn, #outgoingPseTransferDetailModal.active .outgoing-transfer-detail-copy-btn, #outgoingPse2TransferDetailModal.active .outgoing-transfer-detail-copy-btn, #billPaymentTransactionDetailModal.active .outgoing-transfer-detail-copy-btn, #cajitaWithdrawalTransactionDetailModal.active .outgoing-transfer-detail-copy-btn, #cajitaWithdrawal2TransactionDetailModal.active .outgoing-transfer-detail-copy-btn');
             var el = document.getElementById('outgoingTransferCopyTooltip');
             if (!el) return;
             if (btn) {
@@ -29235,11 +30419,199 @@ Un abrazo, equipo Nu. 💜</div>
             }
         }
 
+        function copyRejectedOutgoingTransferDetail() {
+            var text =
+                'Transfer ID\n' +
+                '69af4f01-22ae-4d8e-a711-56b2322be6e8\n\n' +
+                'Creation Date\n' +
+                '09/03/26 - 17:51:45\n\n' +
+                'Transaction Type\n' +
+                'Outgoing Transfer\n' +
+                'Status\n' +
+                'Rejected\n\n' +
+                'Source\n' +
+                'breb\n\n' +
+                'Amount\n' +
+                'COP 5,020.00';
+            function afterCopy() {
+                showOutgoingTransferCopyTooltip();
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(afterCopy).catch(function () {
+                    fallbackCopyOutgoingTransferText(text);
+                    afterCopy();
+                });
+            } else {
+                fallbackCopyOutgoingTransferText(text);
+                afterCopy();
+            }
+        }
+
+        function copyPseOutgoingTransferDetail() {
+            var text =
+                'Transfer ID\n' +
+                '69d16f15-9494-4e16-b172-96afdee3f702\n\n' +
+                'Creation Date\n' +
+                '04/04/26 - 15:05:42\n\n' +
+                'Transaction Type\n' +
+                'Outgoing Transfer\n' +
+                'Status\n' +
+                'Confirmed\n\n' +
+                'Source\n' +
+                'pse\n\n' +
+                'Financial Institution Name\n' +
+                'FONDO DE INVERSIÓN COLECTIVA ACCIVAL VISTA\n\n' +
+                'Amount\n' +
+                'COP 11,274.92';
+            function afterCopy() {
+                showOutgoingTransferCopyTooltip();
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(afterCopy).catch(function () {
+                    fallbackCopyOutgoingTransferText(text);
+                    afterCopy();
+                });
+            } else {
+                fallbackCopyOutgoingTransferText(text);
+                afterCopy();
+            }
+        }
+
+        function copyPse2OutgoingTransferDetail() {
+            var text =
+                'Transfer ID\n' +
+                '69d13868-f41b-4fe1-9b00-f4d615941e69\n\n' +
+                'Creation Date\n' +
+                '04/04/26 - 11:12:24\n\n' +
+                'Transaction Type\n' +
+                'Outgoing Transfer\n' +
+                'Status\n' +
+                'Confirmed\n\n' +
+                'Source\n' +
+                'pse\n\n' +
+                'Financial Institution Name\n' +
+                'FONDO DE INVERSIÓN COLECTIVA ACCIVAL VISTA\n\n' +
+                'Amount\n' +
+                'COP 20,310.92';
+            function afterCopy() {
+                showOutgoingTransferCopyTooltip();
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(afterCopy).catch(function () {
+                    fallbackCopyOutgoingTransferText(text);
+                    afterCopy();
+                });
+            } else {
+                fallbackCopyOutgoingTransferText(text);
+                afterCopy();
+            }
+        }
+
+        function copyBillPaymentTransactionDetail() {
+            var text =
+                'Transaction ID\n' +
+                '688e6d0e-fb19-408a-9944-72cdad20a7d6\n\n' +
+                'Creation Date\n' +
+                '02/08/25 - 14:54:54\n\n' +
+                'Transaction Type\n' +
+                'Bill Payment\n' +
+                'Status\n' +
+                'Confirmed\n\n' +
+                'Settlement Method\n' +
+                'Utility\n\n' +
+                'Biller Name\n' +
+                'Vanti - Gas Natural\n\n' +
+                'Description\n' +
+                '-\n\n' +
+                'Amount\n' +
+                'COP 21,330.00';
+            function afterCopy() {
+                showOutgoingTransferCopyTooltip();
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(afterCopy).catch(function () {
+                    fallbackCopyOutgoingTransferText(text);
+                    afterCopy();
+                });
+            } else {
+                fallbackCopyOutgoingTransferText(text);
+                afterCopy();
+            }
+        }
+
+        function copyCajitaWithdrawalTransactionDetail() {
+            var text =
+                'Transfer ID\n' +
+                '679ee082-14bc-4d00-8f11-a3ccc083bc32\n\n' +
+                'Creation Date\n' +
+                '01/02/25 - 22:03:29\n\n' +
+                'Transaction Type\n' +
+                'Withdrawal - Cajita\n' +
+                'Status\n' +
+                'Confirmed\n\n' +
+                'Source\n' +
+                'internal\n\n' +
+                'Amount\n' +
+                'COP 1,051,502.15';
+            function afterCopy() {
+                showOutgoingTransferCopyTooltip();
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(afterCopy).catch(function () {
+                    fallbackCopyOutgoingTransferText(text);
+                    afterCopy();
+                });
+            } else {
+                fallbackCopyOutgoingTransferText(text);
+                afterCopy();
+            }
+        }
+
+        function copyCajita2WithdrawalTransactionDetail() {
+            var text =
+                'Transfer ID\n' +
+                '679e2a02-00ce-440d-8db7-3bb843dfa20d\n\n' +
+                'Creation Date\n' +
+                '01/02/25 - 09:04:50\n\n' +
+                'Transaction Type\n' +
+                'Withdrawal - Cajita\n' +
+                'Status\n' +
+                'Confirmed\n\n' +
+                'Source\n' +
+                'internal\n\n' +
+                'Amount\n' +
+                'COP 370,529.35';
+            function afterCopy() {
+                showOutgoingTransferCopyTooltip();
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(afterCopy).catch(function () {
+                    fallbackCopyOutgoingTransferText(text);
+                    afterCopy();
+                });
+            } else {
+                fallbackCopyOutgoingTransferText(text);
+                afterCopy();
+            }
+        }
+
         document.addEventListener('keydown', function (e) {
             if (e.key !== 'Escape') return;
             var o = document.getElementById('outgoingTransferDetailModal');
+            var rej = document.getElementById('rejectedOutgoingTransferDetailModal');
+            var pse = document.getElementById('outgoingPseTransferDetailModal');
+            var pse2 = document.getElementById('outgoingPse2TransferDetailModal');
+            var billPm = document.getElementById('billPaymentTransactionDetailModal');
+            var cajitaWd = document.getElementById('cajitaWithdrawalTransactionDetailModal');
+            var cajita2Wd = document.getElementById('cajitaWithdrawal2TransactionDetailModal');
             var i = document.getElementById('incomingTransferDetailModal');
             if (o && o.classList.contains('active')) closeOutgoingTransferDetailModal();
+            else if (rej && rej.classList.contains('active')) closeRejectedOutgoingTransferDetailModal();
+            else if (pse && pse.classList.contains('active')) closePseOutgoingTransferDetailModal();
+            else if (pse2 && pse2.classList.contains('active')) closePse2OutgoingTransferDetailModal();
+            else if (billPm && billPm.classList.contains('active')) closeBillPaymentTransactionDetailModal();
+            else if (cajitaWd && cajitaWd.classList.contains('active')) closeCajitaWithdrawalTransactionDetailModal();
+            else if (cajita2Wd && cajita2Wd.classList.contains('active')) closeCajita2WithdrawalTransactionDetailModal();
             else if (i && i.classList.contains('active')) closeIncomingTransferDetailModal();
         });
 
@@ -29563,6 +30935,26 @@ Un abrazo, equipo Nu. 💜</div>
             if (o && o.classList.contains('active')) closeChallengePhotoViewer();
         });
         
+        function toggleLoansExpanded(event) {
+            if (event && event.target && event.target.closest && event.target.closest('input.loans-card-checkbox')) {
+                return;
+            }
+            var inner = document.getElementById('loansWidgetInner');
+            var panel = document.getElementById('loansExpandedPanel');
+            var trg = document.getElementById('loansExpandTrigger');
+            if (!inner || !panel) return;
+            var isHidden = panel.hasAttribute('hidden');
+            if (isHidden) {
+                panel.removeAttribute('hidden');
+                inner.classList.add('loans-is-expanded');
+                if (trg) trg.setAttribute('aria-expanded', 'true');
+            } else {
+                panel.setAttribute('hidden', '');
+                inner.classList.remove('loans-is-expanded');
+                if (trg) trg.setAttribute('aria-expanded', 'false');
+            }
+        }
+
         function toggleWidget(widgetId) {
             const widget = document.getElementById(widgetId);
             const icon = widget.querySelector('.collapse-icon');
@@ -29633,6 +31025,15 @@ Un abrazo, equipo Nu. 💜</div>
                 } else {
                     menuIcon.style.display = 'none';
                 }
+            }
+
+            if (widgetId === 'loansWidget' && widget.classList.contains('collapsed')) {
+                var loansInner = document.getElementById('loansWidgetInner');
+                var loansPanel = document.getElementById('loansExpandedPanel');
+                var loansTrg = document.getElementById('loansExpandTrigger');
+                if (loansPanel) loansPanel.setAttribute('hidden', '');
+                if (loansInner) loansInner.classList.remove('loans-is-expanded');
+                if (loansTrg) loansTrg.setAttribute('aria-expanded', 'false');
             }
         }
 
@@ -36149,6 +37550,295 @@ Un abrazo, equipo Nu. 💜</div>
                     <span class="outgoing-transfer-detail-copy-label">Copy Details</span>
                     <div class="outgoing-transfer-detail-copy-anchor">
                         <button type="button" class="outgoing-transfer-detail-copy-btn" onclick="copyIncomingTransferDetail()" aria-label="Copiar todos los detalles de la transferencia" title="Copy">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="outgoingPseTransferDetailModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="outgoingPseTransferDetailTitle" onclick="if (event.target === this) closePseOutgoingTransferDetailModal()">
+        <div class="outgoing-transfer-detail-box" onclick="event.stopPropagation()">
+            <button type="button" class="outgoing-transfer-detail-close" onclick="closePseOutgoingTransferDetailModal()" aria-label="Cerrar">×</button>
+            <h2 id="outgoingPseTransferDetailTitle" class="visually-hidden">Detalle de transferencia saliente PSE</h2>
+            <div class="outgoing-transfer-detail-body">
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Transfer ID</span>
+                    <div class="outgoing-transfer-detail-value">69d16f15-9494-4e16-b172-96afdee3f702</div>
+                </div>
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Creation Date</span>
+                    <div class="outgoing-transfer-detail-value">04/04/26 - 15:05:42</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-row-2">
+                    <div>
+                        <span class="outgoing-transfer-detail-label">Transaction Type</span>
+                        <div class="outgoing-transfer-detail-value">Outgoing Transfer</div>
+                    </div>
+                    <div class="outgoing-transfer-detail-col-right">
+                        <span class="outgoing-transfer-detail-label">Status</span>
+                        <div class="outgoing-transfer-detail-value">Confirmed</div>
+                    </div>
+                </div>
+                <div class="outgoing-transfer-detail-block" style="margin-top:12px;">
+                    <span class="outgoing-transfer-detail-label">Source</span>
+                    <div class="outgoing-transfer-detail-value">pse</div>
+                </div>
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Financial Institution Name</span>
+                    <div class="outgoing-transfer-detail-value">FONDO DE INVERSIÓN COLECTIVA ACCIVAL VISTA</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Amount</span>
+                    <div class="outgoing-transfer-detail-value">COP 11,274.92</div>
+                </div>
+                <div class="outgoing-transfer-detail-footer">
+                    <span class="outgoing-transfer-detail-copy-label">Copy Details</span>
+                    <div class="outgoing-transfer-detail-copy-anchor">
+                        <button type="button" class="outgoing-transfer-detail-copy-btn" onclick="copyPseOutgoingTransferDetail()" aria-label="Copiar todos los detalles de la transferencia" title="Copy">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="outgoingPse2TransferDetailModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="outgoingPse2TransferDetailTitle" onclick="if (event.target === this) closePse2OutgoingTransferDetailModal()">
+        <div class="outgoing-transfer-detail-box" onclick="event.stopPropagation()">
+            <button type="button" class="outgoing-transfer-detail-close" onclick="closePse2OutgoingTransferDetailModal()" aria-label="Cerrar">×</button>
+            <h2 id="outgoingPse2TransferDetailTitle" class="visually-hidden">Detalle de transferencia saliente PSE (11:12)</h2>
+            <div class="outgoing-transfer-detail-body">
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Transfer ID</span>
+                    <div class="outgoing-transfer-detail-value">69d13868-f41b-4fe1-9b00-f4d615941e69</div>
+                </div>
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Creation Date</span>
+                    <div class="outgoing-transfer-detail-value">04/04/26 - 11:12:24</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-row-2">
+                    <div>
+                        <span class="outgoing-transfer-detail-label">Transaction Type</span>
+                        <div class="outgoing-transfer-detail-value">Outgoing Transfer</div>
+                    </div>
+                    <div class="outgoing-transfer-detail-col-right">
+                        <span class="outgoing-transfer-detail-label">Status</span>
+                        <div class="outgoing-transfer-detail-value">Confirmed</div>
+                    </div>
+                </div>
+                <div class="outgoing-transfer-detail-block" style="margin-top:12px;">
+                    <span class="outgoing-transfer-detail-label">Source</span>
+                    <div class="outgoing-transfer-detail-value">pse</div>
+                </div>
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Financial Institution Name</span>
+                    <div class="outgoing-transfer-detail-value">FONDO DE INVERSIÓN COLECTIVA ACCIVAL VISTA</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Amount</span>
+                    <div class="outgoing-transfer-detail-value">COP 20,310.92</div>
+                </div>
+                <div class="outgoing-transfer-detail-footer">
+                    <span class="outgoing-transfer-detail-copy-label">Copy Details</span>
+                    <div class="outgoing-transfer-detail-copy-anchor">
+                        <button type="button" class="outgoing-transfer-detail-copy-btn" onclick="copyPse2OutgoingTransferDetail()" aria-label="Copiar todos los detalles de la transferencia" title="Copy">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="billPaymentTransactionDetailModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="billPaymentTransactionDetailTitle" onclick="if (event.target === this) closeBillPaymentTransactionDetailModal()">
+        <div class="outgoing-transfer-detail-box" onclick="event.stopPropagation()">
+            <button type="button" class="outgoing-transfer-detail-close" onclick="closeBillPaymentTransactionDetailModal()" aria-label="Cerrar">×</button>
+            <h2 id="billPaymentTransactionDetailTitle" class="bill-payment-tx-detail-heading"><span class="bill-payment-tx-detail-heading-accent">Bill Payment</span><span class="bill-payment-tx-detail-heading-rest"> Transaction Details</span></h2>
+            <div class="outgoing-transfer-detail-body">
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Transaction ID</span>
+                    <div class="outgoing-transfer-detail-value">688e6d0e-fb19-408a-9944-72cdad20a7d6</div>
+                </div>
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Creation Date</span>
+                    <div class="outgoing-transfer-detail-value">02/08/25 - 14:54:54</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-row-2">
+                    <div>
+                        <span class="outgoing-transfer-detail-label">Transaction Type</span>
+                        <div class="outgoing-transfer-detail-value">Bill Payment</div>
+                    </div>
+                    <div class="outgoing-transfer-detail-col-right">
+                        <span class="outgoing-transfer-detail-label">Status</span>
+                        <div class="outgoing-transfer-detail-value">Confirmed</div>
+                    </div>
+                </div>
+                <div class="outgoing-transfer-detail-block" style="margin-top:12px;">
+                    <span class="outgoing-transfer-detail-label">Settlement Method</span>
+                    <div class="outgoing-transfer-detail-value">Utility</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-row-2">
+                    <div>
+                        <span class="outgoing-transfer-detail-label">Biller Name</span>
+                        <div class="outgoing-transfer-detail-value">Vanti - Gas Natural</div>
+                    </div>
+                    <div class="outgoing-transfer-detail-col-right">
+                        <span class="outgoing-transfer-detail-label">Description</span>
+                        <div class="outgoing-transfer-detail-value">-</div>
+                    </div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Amount</span>
+                    <div class="outgoing-transfer-detail-value">COP 21,330.00</div>
+                </div>
+                <div class="outgoing-transfer-detail-footer">
+                    <span class="outgoing-transfer-detail-copy-label">Copy Details</span>
+                    <div class="outgoing-transfer-detail-copy-anchor">
+                        <button type="button" class="outgoing-transfer-detail-copy-btn" onclick="copyBillPaymentTransactionDetail()" aria-label="Copiar todos los detalles del pago" title="Copy">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cajitaWithdrawalTransactionDetailModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cajitaWithdrawalTransactionDetailTitle" onclick="if (event.target === this) closeCajitaWithdrawalTransactionDetailModal()">
+        <div class="outgoing-transfer-detail-box" onclick="event.stopPropagation()">
+            <button type="button" class="outgoing-transfer-detail-close" onclick="closeCajitaWithdrawalTransactionDetailModal()" aria-label="Cerrar">×</button>
+            <h2 id="cajitaWithdrawalTransactionDetailTitle" class="visually-hidden">Detalle de retiro Cajita</h2>
+            <div class="outgoing-transfer-detail-body">
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Transfer ID</span>
+                    <div class="outgoing-transfer-detail-value">679ee082-14bc-4d00-8f11-a3ccc083bc32</div>
+                </div>
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Creation Date</span>
+                    <div class="outgoing-transfer-detail-value">01/02/25 - 22:03:29</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-row-2">
+                    <div>
+                        <span class="outgoing-transfer-detail-label">Transaction Type</span>
+                        <div class="outgoing-transfer-detail-value">Withdrawal - Cajita</div>
+                    </div>
+                    <div class="outgoing-transfer-detail-col-right">
+                        <span class="outgoing-transfer-detail-label">Status</span>
+                        <div class="outgoing-transfer-detail-value">Confirmed</div>
+                    </div>
+                </div>
+                <div class="outgoing-transfer-detail-block" style="margin-top:12px;">
+                    <span class="outgoing-transfer-detail-label">Source</span>
+                    <div class="outgoing-transfer-detail-value">internal</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Amount</span>
+                    <div class="outgoing-transfer-detail-value">COP 1,051,502.15</div>
+                </div>
+                <div class="outgoing-transfer-detail-footer">
+                    <span class="outgoing-transfer-detail-copy-label">Copy Details</span>
+                    <div class="outgoing-transfer-detail-copy-anchor">
+                        <button type="button" class="outgoing-transfer-detail-copy-btn" onclick="copyCajitaWithdrawalTransactionDetail()" aria-label="Copiar todos los detalles del movimiento" title="Copy">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cajitaWithdrawal2TransactionDetailModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cajitaWithdrawal2TransactionDetailTitle" onclick="if (event.target === this) closeCajita2WithdrawalTransactionDetailModal()">
+        <div class="outgoing-transfer-detail-box" onclick="event.stopPropagation()">
+            <button type="button" class="outgoing-transfer-detail-close" onclick="closeCajita2WithdrawalTransactionDetailModal()" aria-label="Cerrar">×</button>
+            <h2 id="cajitaWithdrawal2TransactionDetailTitle" class="visually-hidden">Detalle de retiro Cajita (09:04)</h2>
+            <div class="outgoing-transfer-detail-body">
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Transfer ID</span>
+                    <div class="outgoing-transfer-detail-value">679e2a02-00ce-440d-8db7-3bb843dfa20d</div>
+                </div>
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Creation Date</span>
+                    <div class="outgoing-transfer-detail-value">01/02/25 - 09:04:50</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-row-2">
+                    <div>
+                        <span class="outgoing-transfer-detail-label">Transaction Type</span>
+                        <div class="outgoing-transfer-detail-value">Withdrawal - Cajita</div>
+                    </div>
+                    <div class="outgoing-transfer-detail-col-right">
+                        <span class="outgoing-transfer-detail-label">Status</span>
+                        <div class="outgoing-transfer-detail-value">Confirmed</div>
+                    </div>
+                </div>
+                <div class="outgoing-transfer-detail-block" style="margin-top:12px;">
+                    <span class="outgoing-transfer-detail-label">Source</span>
+                    <div class="outgoing-transfer-detail-value">internal</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Amount</span>
+                    <div class="outgoing-transfer-detail-value">COP 370,529.35</div>
+                </div>
+                <div class="outgoing-transfer-detail-footer">
+                    <span class="outgoing-transfer-detail-copy-label">Copy Details</span>
+                    <div class="outgoing-transfer-detail-copy-anchor">
+                        <button type="button" class="outgoing-transfer-detail-copy-btn" onclick="copyCajita2WithdrawalTransactionDetail()" aria-label="Copiar todos los detalles del movimiento" title="Copy">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rejectedOutgoingTransferDetailModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="rejectedOutgoingTransferDetailTitle" onclick="if (event.target === this) closeRejectedOutgoingTransferDetailModal()">
+        <div class="outgoing-transfer-detail-box" onclick="event.stopPropagation()">
+            <button type="button" class="outgoing-transfer-detail-close" onclick="closeRejectedOutgoingTransferDetailModal()" aria-label="Cerrar">×</button>
+            <h2 id="rejectedOutgoingTransferDetailTitle" class="visually-hidden">Detalle de transferencia rechazada</h2>
+            <div class="outgoing-transfer-detail-body">
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Transfer ID</span>
+                    <div class="outgoing-transfer-detail-value">69af4f01-22ae-4d8e-a711-56b2322be6e8</div>
+                </div>
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Creation Date</span>
+                    <div class="outgoing-transfer-detail-value">09/03/26 - 17:51:45</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-row-2">
+                    <div>
+                        <span class="outgoing-transfer-detail-label">Transaction Type</span>
+                        <div class="outgoing-transfer-detail-value">Outgoing Transfer</div>
+                    </div>
+                    <div class="outgoing-transfer-detail-col-right">
+                        <span class="outgoing-transfer-detail-label">Status</span>
+                        <div class="outgoing-transfer-detail-value">Rejected</div>
+                    </div>
+                </div>
+                <div class="outgoing-transfer-detail-block" style="margin-top:12px;">
+                    <span class="outgoing-transfer-detail-label">Source</span>
+                    <div class="outgoing-transfer-detail-value">breb</div>
+                </div>
+                <hr class="outgoing-transfer-detail-hr" />
+                <div class="outgoing-transfer-detail-block">
+                    <span class="outgoing-transfer-detail-label">Amount</span>
+                    <div class="outgoing-transfer-detail-value">COP 5,020.00</div>
+                </div>
+                <div class="outgoing-transfer-detail-footer">
+                    <span class="outgoing-transfer-detail-copy-label">Copy Details</span>
+                    <div class="outgoing-transfer-detail-copy-anchor">
+                        <button type="button" class="outgoing-transfer-detail-copy-btn" onclick="copyRejectedOutgoingTransferDetail()" aria-label="Copiar todos los detalles de la transferencia" title="Copy">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
                         </button>
                     </div>
